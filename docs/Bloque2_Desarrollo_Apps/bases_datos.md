@@ -1,3 +1,3 @@
-# Bases Datos
+# Bases de Datos
 
 Contenido en construcción...

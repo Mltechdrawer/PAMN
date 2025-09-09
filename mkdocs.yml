@@ -1,19 +1,27 @@
+extra_css:
+- styles/extra.css
+nav:
+- Inicio: index.md
+- Contenidos: contenidos.md
+- Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas:
+  - Ciclo de vida y arquitectura:
+    - Ciclo de Vida - DevOps: Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops.md
+    - Arquitectura: Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura.md
+  - Accesibilidad y normativa: Bloque1_Ingenieria_Apps/accesibilidad_normativa.md
+  - Diseño de interfaces: Bloque1_Ingenieria_Apps/diseno_interfaces.md
+- Bloque 2. Desarrollo de aplicaciones móviles nativas:
+  - Sistemas Operativos para dispositivos móviles:
+    - Bloque2_Desarrollo_Apps/sistemas_operativos/lenguajes_programacion.md
+    - Bloque2_Desarrollo_Apps/sistemas_operativos/frameworks_desarrollo.md
+  - Bases de datos para aplicaciones móviles nativas: Bloque2_Desarrollo_Apps/bases_datos.md
+  - Patrones de diseño:
+    - Bloque2_Desarrollo_Apps/patrones_diseno/principios_estructurales.md
+    - Bloque2_Desarrollo_Apps/patrones_diseno/comportamiento.md
+  - Calidad del software: Bloque2_Desarrollo_Apps/calidad_software.md
+- Bloque 3. Programación y despliegue de aplicaciones móviles nativas:
+  - Sensores e integración de datos: Bloque3_Programacion_Despliegue/sensores_integracion_datos.md
+  - Gestión de errores y logging: Bloque3_Programacion_Despliegue/errores_logging.md
+  - Despliegue de aplicaciones: Bloque3_Programacion_Despliegue/despliegue_apps.md
 site_name: Programación de Aplicaciones Móviles Nativas
 theme:
   name: material
-nav:
-- Inicio: index.md
-- Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas:
-  - Arquitectura y ciclo de vida: Bloque1_Ingenieria_Apps/arquitectura_ciclo_vida.md
-  - Accesibilidad y normativa: Bloque1_Ingenieria_Apps/accesibilidad_normativa.md
-  - Diseño de interfaces de usuario: Bloque1_Ingenieria_Apps/diseno_interfaces.md
-- Bloque 2. Desarrollo de aplicaciones móviles nativas:
-  - Sistemas operativos: Bloque2_Desarrollo_Apps/sistemas_operativos.md
-  - Bases de datos: Bloque2_Desarrollo_Apps/bases_datos.md
-  - Entornos y lenguajes: Bloque2_Desarrollo_Apps/entornos_lenguajes.md
-  - Patrones de diseño: Bloque2_Desarrollo_Apps/patrones_diseno.md
-  - Calidad del software: Bloque2_Desarrollo_Apps/calidad_software.md
-- Bloque 3. Programación y despliegue de aplicaciones móviles nativas:
-  - Frontend y Backend: Bloque3_Programacion_Despliegue/frontend_backend.md
-  - Sensores e integración de datos: Bloque3_Programacion_Despliegue/sensores_integracion_datos.md
-  - Despliegue de aplicaciones: Bloque3_Programacion_Despliegue/despliegue_apps.md

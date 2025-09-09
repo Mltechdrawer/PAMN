@@ -1,3 +1,0 @@
-# Patrones Diseño
-
-Contenido en construcción...

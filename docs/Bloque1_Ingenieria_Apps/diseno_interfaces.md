@@ -1,3 +1,3 @@
-# Diseno Interfaces
+# Diseno de Interfaces
 
 Contenido en construcción...

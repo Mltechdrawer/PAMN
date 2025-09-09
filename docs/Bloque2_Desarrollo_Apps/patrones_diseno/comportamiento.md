@@ -1,3 +1,3 @@
-# Entornos Lenguajes
+# Patrones de comportamiento
 
 Contenido en construcción...

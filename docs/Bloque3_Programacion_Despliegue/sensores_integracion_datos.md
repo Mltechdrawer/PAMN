@@ -1,3 +1,3 @@
-# Sensores Integracion Datos
+# Sensores e Integracion de Datos
 
 Contenido en construcción...
