@@ -1,0 +1,9 @@
+/* Aumenta el ancho del contenedor principal */
+.md-grid {
+    max-width: 100% !important;
+}
+
+/* Opcional: aumenta un poco el ancho del contenido */
+.md-content {
+    max-width: 1200px !important;
+}

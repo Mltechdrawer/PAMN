@@ -7,8 +7,10 @@ nav:
   - Ciclo de vida y arquitectura:
     - Ciclo de Vida - DevOps: Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops.md
     - Arquitectura: Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura.md
-  - Accesibilidad y normativa: Bloque1_Ingenieria_Apps/accesibilidad_normativa.md
-  - Diseño de interfaces: Bloque1_Ingenieria_Apps/diseno_interfaces.md
+  - Accesibilidad y normativa: 
+    - Accesibilidad: Bloque1_Ingenieria_Apps/accesibilidad_normativa/accesibilidad/accesibilidad.md
+    - Normativa: Bloque1_Ingenieria_Apps/accesibilidad_normativa/normativa/normativa.md
+  - Diseño de interfaces: Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces.md
 - Bloque 2. Desarrollo de aplicaciones móviles nativas:
   - Sistemas Operativos para dispositivos móviles:
     - Bloque2_Desarrollo_Apps/sistemas_operativos/lenguajes_programacion.md
