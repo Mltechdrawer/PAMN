@@ -1,0 +1,1347 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Sistema Operativo Android - Programación de Aplicaciones Móviles Nativas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistema-operativo-android" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Programación de Aplicaciones Móviles Nativas" class="md-header__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación de Aplicaciones Móviles Nativas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sistema Operativo Android
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programación de Aplicaciones Móviles Nativas" class="md-nav__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programación de Aplicaciones Móviles Nativas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contenidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contenidos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de vida y arquitectura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ciclo de vida y arquitectura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de Vida - DevOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad y normativa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accesibilidad y normativa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/accesibilidad/accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/normativa/normativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Normativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diseño de interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 2. Desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 2. Desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos para dispositivos móviles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operativos para dispositivos móviles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lenguajes_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks_desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frameworks de desarrollo para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bases_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bases de datos para aplicaciones móviles nativas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Patrones de diseño
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patrones_diseno/principios_estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principios y patrones estructurales clásicos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patrones_diseno/comportamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de comportamiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calidad_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Calidad del software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/sensores_integracion_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sensores e integración de datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/errores_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestión de errores y logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/despliegue_apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Despliegue de aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#los-primeros-pasos-android-10-y-11-20082009" class="md-nav__link">
+    <span class="md-ellipsis">
+      Los primeros pasos: Android 1.0 y 1.1 (2008–2009)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-comienzo-de-los-postres-cupcake-y-donut-2009" class="md-nav__link">
+    <span class="md-ellipsis">
+      El comienzo de los postres: Cupcake y Donut (2009)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eclair-y-froyo-20092010-el-salto-de-calidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eclair y Froyo (2009–2010): el salto de calidad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gingerbread-y-honeycomb-20102011-expansion-y-experimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gingerbread y Honeycomb (2010–2011): expansión y experimentación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ice-cream-sandwich-y-jelly-bean-20112013-unificacion-y-fluidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ice Cream Sandwich y Jelly Bean (2011–2013): unificación y fluidez
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kitkat-y-lollipop-20132015-el-diseno-como-protagonista" class="md-nav__link">
+    <span class="md-ellipsis">
+      KitKat y Lollipop (2013–2015): el diseño como protagonista
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marshmallow-y-nougat-20152016-seguridad-y-multitarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marshmallow y Nougat (2015–2016): seguridad y multitarea
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oreo-y-pie-20172018-inteligencia-y-bienestar-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oreo y Pie (2017–2018): inteligencia y bienestar digital
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-10-y-11-20192020-hacia-una-experiencia-mas-integrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 10 y 11 (2019–2020): hacia una experiencia más integrada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-12-y-13-20212022-personalizacion-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 12 y 13 (2021–2022): personalización y seguridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-14-2023-mas-control-y-conectividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 14 (2023): más control y conectividad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-15-20242025-el-presente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 15 (2024–2025): el presente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-versiones-de-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      📱 Resumen de versiones de Android
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sistema-operativo-android">Sistema Operativo Android</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Android es un sistema operativo basado en Linux, diseñado inicialmente para teléfonos inteligentes y actualmente presente en una gran variedad de dispositivos: relojes, televisores, coches y hasta electrodomésticos. Su lanzamiento oficial en 2008 marcó un antes y un después en la industria móvil, gracias a su <strong>carácter abierto</strong>, la posibilidad de ser adoptado por múltiples fabricantes y el apoyo de Google con un ecosistema de aplicaciones en constante crecimiento.<br />
+A lo largo de los años, Android ha pasado por numerosas versiones que han ido incorporando mejoras en diseño, seguridad, rendimiento y experiencia de usuario. A continuación, se presenta un recorrido por sus principales versiones.</p>
+<hr />
+<h2 id="los-primeros-pasos-android-10-y-11-20082009">Los primeros pasos: Android 1.0 y 1.1 (2008–2009)</h2>
+<p>En 2008, el <strong>HTC Dream</strong> fue el primer dispositivo con Android 1.0. Ofrecía lo esencial: navegador, sincronización con servicios de Google, Android Market (precursor de Google Play) y soporte para apps de terceros.<br />
+Unos meses más tarde, Android 1.1 trajo pequeños ajustes, como adjuntar archivos en mensajes o mantener la pantalla encendida en llamadas. No era revolucionario, pero cimentó la base de lo que vendría.</p>
+<p><img alt="HTC dreams" src="../imagenes/HTC.png" /></p>
+<p><img alt="HTC dreams" src="../imagenes/a1.1.png" /></p>
+<hr />
+<h2 id="el-comienzo-de-los-postres-cupcake-y-donut-2009">El comienzo de los postres: Cupcake y Donut (2009)</h2>
+<p><strong>Cupcake (1.5)</strong> fue la primera gran actualización. Introdujo el <strong>teclado virtual</strong>, widgets en pantalla, sincronización automática y la posibilidad de subir vídeos a YouTube. Era el inicio del Android que hoy reconocemos.  </p>
+<p>Con <strong>Donut (1.6)</strong>, Android se volvió más versátil: mejoró la búsqueda por voz y texto, añadió un motor multilingüe de síntesis de voz y, lo más importante, soportó diferentes resoluciones de pantalla, lo que abrió la puerta a la gran diversidad de dispositivos Android.</p>
+<p><img alt="HTC dreams" src="../imagenes/a1.5-1.6.png" /></p>
+<hr />
+<h2 id="eclair-y-froyo-20092010-el-salto-de-calidad">Eclair y Froyo (2009–2010): el salto de calidad</h2>
+<p><strong>Eclair (2.0–2.1)</strong> dio un gran paso hacia la modernidad: fondos animados, soporte multitouch, mejoras en la cámara y Google Maps con navegación integrada. Por primera vez, Android se sintió como un sistema competitivo frente a iOS.  </p>
+<p>Con <strong>Froyo (2.2)</strong> llegaron las notificaciones push, la posibilidad de instalar apps en la tarjeta SD y soporte para Adobe Flash, lo que en ese momento fue un gran reclamo frente a la limitación de iOS.</p>
+<p><img alt="HTC dreams" src="../imagenes/a2.0-2.2.png" /></p>
+<hr />
+<h2 id="gingerbread-y-honeycomb-20102011-expansion-y-experimentacion">Gingerbread y Honeycomb (2010–2011): expansión y experimentación</h2>
+<p><strong>Gingerbread (2.3)</strong> pulió la interfaz, hizo más rápido el teclado y añadió soporte para NFC, algo adelantado a su tiempo. También mejoró el rendimiento para juegos y multimedia. Fue muy popular en los primeros smartphones Android masivos.  </p>
+<p>En paralelo, <strong>Honeycomb (3.0)</strong> fue un experimento exclusivo para tabletas. Introdujo una interfaz renovada con barra de sistema inferior y multitarea mejorada. Aunque no tuvo mucho recorrido, sentó las bases para unificar móviles y tablets más adelante.</p>
+<p><img alt="HTC dreams" src="../imagenes/a2.3-3.0.png" /></p>
+<hr />
+<h2 id="ice-cream-sandwich-y-jelly-bean-20112013-unificacion-y-fluidez">Ice Cream Sandwich y Jelly Bean (2011–2013): unificación y fluidez</h2>
+<p><strong>Ice Cream Sandwich (4.0)</strong> unificó la experiencia de móviles y tablets, estrenó la tipografía Roboto, el desbloqueo facial y un navegador con pestañas al estilo de Chrome. Fue el inicio de un diseño más coherente.  </p>
+<p>Con <strong>Jelly Bean (4.1–4.3)</strong> llegó el <strong>proyecto Butter</strong>, que mejoró la fluidez de la interfaz. También introdujo Google Now, notificaciones expandibles y dictado por voz sin conexión. Android empezaba a sentirse más inteligente y ágil.</p>
+<p><img alt="HTC dreams" src="../imagenes/a4.0-4.3.png" /></p>
+<hr />
+<h2 id="kitkat-y-lollipop-20132015-el-diseno-como-protagonista">KitKat y Lollipop (2013–2015): el diseño como protagonista</h2>
+<p><strong>KitKat (4.4)</strong> modernizó la estética con transparencias y modo inmersivo, además de optimizar el sistema para dispositivos de gama baja. Esto permitió llevar Android a millones de usuarios en mercados emergentes.  </p>
+<p><strong>Lollipop (5.0–5.1)</strong> dio un giro visual con <strong>Material Design</strong>, lleno de colores y animaciones. También incorporó soporte para procesadores de 64 bits, una nueva gestión de notificaciones y mejoras en la batería. Fue un antes y un después en la identidad visual de Android.</p>
+<p><img alt="HTC dreams" src="../imagenes/a4.4-5.1.png" /></p>
+<hr />
+<h2 id="marshmallow-y-nougat-20152016-seguridad-y-multitarea">Marshmallow y Nougat (2015–2016): seguridad y multitarea</h2>
+<p><strong>Marshmallow (6.0)</strong> trajo una de las funciones más esperadas: el <strong>gestor de permisos por aplicación</strong>. También añadió soporte para huellas digitales y Android Pay. Además, introdujo el modo Doze, que mejoró notablemente el ahorro de batería.  </p>
+<p><strong>Nougat (7.0–7.1)</strong> apostó por la productividad con la <strong>pantalla dividida</strong> y la optimización de recursos. También añadió soporte para Vulkan API y compatibilidad con Java 8. El sistema se volvió más maduro y flexible.</p>
+<p><img alt="HTC dreams" src="../imagenes/a6.0-7.1.png" /></p>
+<hr />
+<h2 id="oreo-y-pie-20172018-inteligencia-y-bienestar-digital">Oreo y Pie (2017–2018): inteligencia y bienestar digital</h2>
+<p><strong>Oreo (8.0–8.1)</strong> trajo <strong>Picture in Picture (PiP)</strong>, iconos adaptativos y un nuevo sistema de notificaciones. Con <strong>Project Treble</strong>, se facilitó la actualización de dispositivos, uno de los grandes problemas históricos de Android.  </p>
+<p><strong>Pie (9.0)</strong> introdujo la navegación por gestos, la batería adaptativa y el sistema <strong>Digital Wellbeing</strong>, pensado para fomentar un uso más saludable del móvil. Android ya no solo buscaba potencia, también bienestar.</p>
+<p><img alt="HTC dreams" src="../imagenes/a8.0-9.0.png" /></p>
+<hr />
+<h2 id="android-10-y-11-20192020-hacia-una-experiencia-mas-integrada">Android 10 y 11 (2019–2020): hacia una experiencia más integrada</h2>
+<p><strong>Android 10</strong> apostó por la <strong>privacidad</strong>, con permisos más detallados, y añadió el modo oscuro a todo el sistema. También fue pionero en compatibilidad con redes 5G y teléfonos plegables.  </p>
+<p><strong>Android 11</strong> pulió la experiencia con burbujas de chat, un centro de control para dispositivos inteligentes y permisos temporales para apps. Android empezaba a integrarse mejor con el hogar conectado.</p>
+<p><img alt="HTC dreams" src="../imagenes/a10-11.png" /></p>
+<hr />
+<h2 id="android-12-y-13-20212022-personalizacion-y-seguridad">Android 12 y 13 (2021–2022): personalización y seguridad</h2>
+<p><strong>Android 12</strong> renovó la estética con <strong>Material You</strong>, un sistema de colores dinámicos basados en el fondo de pantalla. También estrenó un panel de privacidad claro y actualizaciones más rápidas mediante Google Play.  </p>
+<p><strong>Android 13</strong> reforzó la seguridad, permitió elegir idiomas por aplicación y mejoró el portapapeles. Además, potenció la personalización de la interfaz y añadió mejoras en el audio y multimedia.</p>
+<p><img alt="HTC dreams" src="../imagenes/a12-13.png" /></p>
+<hr />
+<h2 id="android-14-2023-mas-control-y-conectividad">Android 14 (2023): más control y conectividad</h2>
+<p>Con <strong>Android 14</strong>, Google puso el foco en la <strong>personalización de la pantalla de bloqueo</strong>, nuevos permisos más estrictos, conectividad vía satélite y soporte para Ultra HDR. También limitó las apps de 32 bits, impulsando una transición hacia un ecosistema más moderno y seguro.</p>
+<p><img alt="HTC dreams" src="../imagenes/a14.png" /></p>
+<hr />
+<h2 id="android-15-20242025-el-presente">Android 15 (2024–2025): el presente</h2>
+<p>La última versión, <strong>Android 15</strong>, continúa la senda de ofrecer un sistema más eficiente, seguro y adaptado a nuevas formas de uso. Entre sus novedades destacan:</p>
+<ul>
+<li>Mejor integración con <strong>dispositivos plegables</strong> y pantallas de gran formato.  </li>
+<li>Nuevas funciones potenciadas por <strong>inteligencia artificial</strong> para personalización y productividad.  </li>
+<li>Refuerzo de la seguridad y la privacidad como ejes centrales.  </li>
+<li>Optimizaciones en consumo energético y gestión de procesos.  </li>
+</ul>
+<p>Con Android 15, el sistema se prepara para una nueva etapa donde la <strong>IA y la conectividad avanzada</strong> serán protagonistas, manteniendo al mismo tiempo la esencia de ser una plataforma abierta y diversa.</p>
+<p><img alt="HTC dreams" src="../imagenes/a15.png" /></p>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>Desde aquel humilde HTC Dream hasta los actuales smartphones con pantallas plegables y funciones de IA, Android ha recorrido un camino fascinante. Cada versión trajo consigo innovaciones que, más allá de competir con iOS, marcaron la evolución de toda la industria móvil.<br />
+Hoy, con más de 3.000 millones de dispositivos activos, Android no es solo un sistema operativo: es un ecosistema global en constante transformación.</p>
+<h2 id="resumen-de-versiones-de-android">📱 Resumen de versiones de Android</h2>
+<table>
+<thead>
+<tr>
+<th>Versión</th>
+<th>Año</th>
+<th>Nombre</th>
+<th>Principales novedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2008</td>
+<td>–</td>
+<td>Primera versión comercial (HTC Dream), Android Market, apps básicas de Google.</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>2009</td>
+<td>–</td>
+<td>Adjuntar archivos en mensajes, mejoras de estabilidad.</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>2009</td>
+<td>Cupcake</td>
+<td>Teclado virtual, widgets, subida de vídeos a YouTube.</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>2009</td>
+<td>Donut</td>
+<td>Búsqueda por voz/texto, soporte multiresolución.</td>
+</tr>
+<tr>
+<td>2.0–2.1</td>
+<td>2009</td>
+<td>Eclair</td>
+<td>Fondos animados, multitouch, Google Maps Navigation.</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>2010</td>
+<td>Froyo</td>
+<td>Notificaciones push, apps en tarjeta SD, soporte Flash.</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>2010</td>
+<td>Gingerbread</td>
+<td>Interfaz renovada, soporte NFC, mejoras en juegos y audio.</td>
+</tr>
+<tr>
+<td>3.x</td>
+<td>2011</td>
+<td>Honeycomb</td>
+<td>Optimizado para tabletas, multitarea mejorada.</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>2011</td>
+<td>Ice Cream Sandwich</td>
+<td>Unificación móvil/tablet, tipografía Roboto, desbloqueo facial.</td>
+</tr>
+<tr>
+<td>4.1–4.3</td>
+<td>2012</td>
+<td>Jelly Bean</td>
+<td>Proyecto Butter (fluidez), Google Now, notificaciones expandibles.</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>2013</td>
+<td>KitKat</td>
+<td>Modo inmersivo, mejor soporte a gama baja.</td>
+</tr>
+<tr>
+<td>5.0–5.1</td>
+<td>2014</td>
+<td>Lollipop</td>
+<td>Material Design, procesadores 64 bits, nuevas notificaciones.</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td>2015</td>
+<td>Marshmallow</td>
+<td>Permisos por app, huellas digitales, Android Pay.</td>
+</tr>
+<tr>
+<td>7.0–7.1</td>
+<td>2016</td>
+<td>Nougat</td>
+<td>Multiventana, API Vulkan, mejor gestión batería.</td>
+</tr>
+<tr>
+<td>8.0–8.1</td>
+<td>2017</td>
+<td>Oreo</td>
+<td>Picture in Picture, iconos adaptativos, Project Treble.</td>
+</tr>
+<tr>
+<td>9.0</td>
+<td>2018</td>
+<td>Pie</td>
+<td>Navegación por gestos, Digital Wellbeing, IA adaptativa.</td>
+</tr>
+<tr>
+<td>10.0</td>
+<td>2019</td>
+<td>–</td>
+<td>Modo oscuro, soporte 5G y plegables, Live Caption.</td>
+</tr>
+<tr>
+<td>11.0</td>
+<td>2020</td>
+<td>–</td>
+<td>Burbujas de chat, control de dispositivos, permisos temporales.</td>
+</tr>
+<tr>
+<td>12.0</td>
+<td>2021</td>
+<td>–</td>
+<td>Material You, panel de privacidad, capturas con desplazamiento.</td>
+</tr>
+<tr>
+<td>13.0</td>
+<td>2022</td>
+<td>–</td>
+<td>Idiomas por app, mejoras en portapapeles y seguridad.</td>
+</tr>
+<tr>
+<td>14.0</td>
+<td>2023</td>
+<td>–</td>
+<td>Conectividad satelital, Ultra HDR, adiós apps 32 bits.</td>
+</tr>
+<tr>
+<td>15.0</td>
+<td>2024</td>
+<td>–</td>
+<td>IA más integrada, mejoras en plegables, más seguridad.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

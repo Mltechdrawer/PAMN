@@ -1,0 +1,1358 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Sistema Operativo IOS - Programación de Aplicaciones Móviles Nativas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistema-operativo-ios" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Programación de Aplicaciones Móviles Nativas" class="md-header__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación de Aplicaciones Móviles Nativas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sistema Operativo IOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programación de Aplicaciones Móviles Nativas" class="md-nav__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programación de Aplicaciones Móviles Nativas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contenidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contenidos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de vida y arquitectura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ciclo de vida y arquitectura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de Vida - DevOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad y normativa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accesibilidad y normativa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/accesibilidad/accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/normativa/normativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Normativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diseño de interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 2. Desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 2. Desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos para dispositivos móviles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operativos para dispositivos móviles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lenguajes_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks_desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frameworks de desarrollo para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bases_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bases de datos para aplicaciones móviles nativas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Patrones de diseño
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patrones_diseno/principios_estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principios y patrones estructurales clásicos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../patrones_diseno/comportamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de comportamiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../calidad_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Calidad del software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/sensores_integracion_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sensores e integración de datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/errores_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestión de errores y logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque3_Programacion_Despliegue/despliegue_apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Despliegue de aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iphone-os-1-2007-la-revolucion-tactil" class="md-nav__link">
+    <span class="md-ellipsis">
+      iPhone OS 1 (2007): la revolución táctil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iphone-os-2-2008-nace-la-app-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      iPhone OS 2 (2008): nace la App Store
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iphone-os-3-2009-consolidacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      iPhone OS 3 (2009): consolidación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-4-2010-el-cambio-de-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 4 (2010): el cambio de nombre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-5-2011-icloud-y-siri" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 5 (2011): iCloud y Siri
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-6-2012-independencia-de-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 6 (2012): independencia de Google
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-7-2013-rediseno-radical" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 7 (2013): rediseño radical
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-8-2014-mas-abierto-a-los-desarrolladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 8 (2014): más abierto a los desarrolladores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-9-2015-estabilidad-y-optimizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 9 (2015): estabilidad y optimización
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-10-2016-mensajes-y-hogar-conectado" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 10 (2016): mensajes y hogar conectado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-11-2017-el-ipad-se-potencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 11 (2017): el iPad se potencia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-12-2018-rendimiento-y-bienestar" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 12 (2018): rendimiento y bienestar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-13-2019-modo-oscuro-y-privacidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 13 (2019): modo oscuro y privacidad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-14-2020-widgets-en-la-pantalla-de-inicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 14 (2020): widgets en la pantalla de inicio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-15-2021-comunicacion-y-concentracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 15 (2021): comunicación y concentración
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-16-2022-personalizacion-de-la-pantalla-de-bloqueo" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 16 (2022): personalización de la pantalla de bloqueo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-17-2023-mas-humano-y-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 17 (2023): más humano y social
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ios-18-2024-la-era-de-la-inteligencia-artificial" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS 18 (2024): la era de la inteligencia artificial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sistema-operativo-ios">Sistema Operativo IOS</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Si Android representa diversidad y apertura, <strong>iOS</strong> simboliza integración y consistencia. Apple presentó su sistema operativo en 2007 con el primer iPhone, y desde entonces ha evolucionado de ser un software sencillo para llamadas, mensajes y navegación básica, a convertirse en el <strong>centro de un ecosistema global</strong> que incluye iPads, relojes, televisores y hasta gafas de realidad mixta.  </p>
+<p>La gran diferencia de iOS es que <strong>Apple controla tanto el hardware como el software</strong>, lo que asegura fluidez, seguridad y actualizaciones inmediatas en todos los dispositivos compatibles. Cada versión ha ido puliendo esa experiencia, incorporando funciones que muchas veces marcaron el rumbo de la industria móvil.  </p>
+<p>A continuación, un repaso narrativo por la historia de iOS, sus transformaciones y las novedades que fueron conquistando a millones de usuarios.</p>
+<hr />
+<h2 id="iphone-os-1-2007-la-revolucion-tactil">iPhone OS 1 (2007): la revolución táctil</h2>
+<p><img src="../imagenes/ios1.png" alt="Logo IOS 1" style="height:40px; vertical-align:middle; margin-right:8px;">Con el primer iPhone, Apple mostró un sistema operativo que rompía con todo lo anterior: pantalla multitáctil, gestos intuitivos, navegador Safari, correo electrónico y reproductor de música. No había tienda de aplicaciones ni personalización, pero fue suficiente para cambiar para siempre lo que entendíamos por teléfono.</p>
+<hr />
+<h2 id="iphone-os-2-2008-nace-la-app-store">iPhone OS 2 (2008): nace la App Store</h2>
+<p><img src="../imagenes/ios2.png" alt="Logo IOS 2" style="height:40px; vertical-align:middle; margin-right:8px;">El gran salto llegó con la <strong>App Store</strong>, que permitió descargar aplicaciones de terceros de forma sencilla y segura. Esta innovación no solo amplió el potencial del iPhone, sino que también creó una nueva industria: la de las apps móviles, con millones de desarrolladores y emprendedores en todo el mundo.</p>
+<hr />
+<h2 id="iphone-os-3-2009-consolidacion">iPhone OS 3 (2009): consolidación</h2>
+<p><img src="../imagenes/ios3.png" alt="Logo IOS 3" style="height:40px; vertical-align:middle; margin-right:8px;">Apple escuchó a los usuarios y añadió funciones básicas que se echaban en falta: copiar y pegar, MMS, búsqueda Spotlight y tethering. Fue una versión que convirtió al iPhone en un dispositivo más completo y funcional.</p>
+<hr />
+<h2 id="ios-4-2010-el-cambio-de-nombre">iOS 4 (2010): el cambio de nombre</h2>
+<p><img src="../imagenes/ios4.png" alt="Logo IOS 4" style="height:40px; vertical-align:middle; margin-right:8px;">El sistema pasó a llamarse oficialmente <strong>iOS</strong>. Introdujo la multitarea (limitada pero útil), carpetas para organizar aplicaciones y la app iBooks. También debutó <strong>FaceTime</strong>, acercando las videollamadas a un público masivo.</p>
+<hr />
+<h2 id="ios-5-2011-icloud-y-siri">iOS 5 (2011): iCloud y Siri</h2>
+<p><img src="../imagenes/ios5.png" alt="Logo IOS 5" style="height:40px; vertical-align:middle; margin-right:8px;">Con iOS 5 llegó <strong>iCloud</strong>, que sincronizaba datos entre dispositivos Apple, y las <strong>notificaciones mejoradas</strong>. Pero la estrella fue <strong>Siri</strong>, el primer asistente de voz integrado en un smartphone, que marcó el inicio de la interacción por voz en móviles.</p>
+<hr />
+<h2 id="ios-6-2012-independencia-de-google">iOS 6 (2012): independencia de Google</h2>
+<p><img src="../imagenes/ios6.png" alt="Logo IOS 6" style="height:40px; vertical-align:middle; margin-right:8px;">Fue una versión polémica por el lanzamiento de <strong>Apple Maps</strong>, que sustituyó a Google Maps y generó críticas por sus errores iniciales. También introdujo Passbook (precursor de Wallet) y una mayor integración de Siri. Pese a sus tropiezos, fue un paso hacia la autonomía de Apple.</p>
+<hr />
+<h2 id="ios-7-2013-rediseno-radical">iOS 7 (2013): rediseño radical</h2>
+<p><img src="../imagenes/ios7.png" alt="Logo IOS 7" style="height:40px; vertical-align:middle; margin-right:8px;">Apple cambió por completo la estética con el <strong>flat design</strong>, abandonando los skeumorfismos que imitaban objetos reales. Introdujo el <strong>Centro de Control</strong>, AirDrop y multitarea mejorada. El cambio fue tan drástico que generó división, pero definió la imagen del iOS moderno.</p>
+<hr />
+<h2 id="ios-8-2014-mas-abierto-a-los-desarrolladores">iOS 8 (2014): más abierto a los desarrolladores</h2>
+<p><img src="../imagenes/ios8.png" alt="Logo IOS 8" style="height:40px; vertical-align:middle; margin-right:8px;">Permitió extensiones, teclados de terceros y añadió <strong>HealthKit</strong>, la primera gran apuesta por la salud digital. También llegó <strong>Continuity</strong>, que permitía empezar una tarea en un dispositivo y continuarla en otro dentro del ecosistema Apple.</p>
+<hr />
+<h2 id="ios-9-2015-estabilidad-y-optimizacion">iOS 9 (2015): estabilidad y optimización</h2>
+<p><img src="../imagenes/ios9.png" alt="Logo IOS 9" style="height:40px; vertical-align:middle; margin-right:8px;">Se enfocó en mejorar el rendimiento, sobre todo en dispositivos antiguos. Introdujo <strong>Split View y Picture in Picture</strong> en iPad, y un Siri más proactivo. No fue una versión espectacular en novedades, pero sí clave en eficiencia.</p>
+<hr />
+<h2 id="ios-10-2016-mensajes-y-hogar-conectado">iOS 10 (2016): mensajes y hogar conectado</h2>
+<p><img src="../imagenes/ios10.png" alt="Logo IOS 10" style="height:40px; vertical-align:middle; margin-right:8px;">La app de Mensajes se transformó con stickers y efectos. La pantalla de bloqueo y las notificaciones se volvieron más interactivas. Además, apareció la app Casa (Home), que convertía el iPhone en un centro de control para la domótica.</p>
+<hr />
+<h2 id="ios-11-2017-el-ipad-se-potencia">iOS 11 (2017): el iPad se potencia</h2>
+<p><img src="../imagenes/ios11.png" alt="Logo IOS 11" style="height:40px; vertical-align:middle; margin-right:8px;">Esta versión fue especialmente relevante para el iPad, con un nuevo Dock, multitarea mejorada y soporte para arrastrar y soltar. También debutó <strong>ARKit</strong>, abriendo las puertas a la realidad aumentada dentro del ecosistema Apple.</p>
+<hr />
+<h2 id="ios-12-2018-rendimiento-y-bienestar">iOS 12 (2018): rendimiento y bienestar</h2>
+<p><img src="../imagenes/ios12.png" alt="Logo IOS 12" style="height:40px; vertical-align:middle; margin-right:8px;">Se centró en hacer que incluso los dispositivos antiguos funcionaran mejor. Introdujo <strong>Screen Time</strong> para medir y limitar el uso del móvil, notificaciones agrupadas y <strong>Siri Shortcuts</strong>. Fue una actualización muy bien recibida por su estabilidad.</p>
+<hr />
+<h2 id="ios-13-2019-modo-oscuro-y-privacidad">iOS 13 (2019): modo oscuro y privacidad</h2>
+<p><img src="../imagenes/ios13.png" alt="Logo IOS 13" style="height:40px; vertical-align:middle; margin-right:8px;">Llegó el esperado <strong>modo oscuro</strong>, junto con mejoras en Fotos, Mapas y Recordatorios. Apple reforzó la privacidad con el <strong>Inicio de sesión con Apple</strong>, una alternativa segura frente a Facebook o Google.</p>
+<hr />
+<h2 id="ios-14-2020-widgets-en-la-pantalla-de-inicio">iOS 14 (2020): widgets en la pantalla de inicio</h2>
+<p><img src="../imagenes/ios14.png" alt="Logo IOS 14" style="height:40px; vertical-align:middle; margin-right:8px;">Una de las actualizaciones más visibles: los <strong>widgets</strong> llegaron a la pantalla principal, junto con App Library para organizar apps automáticamente. También se reforzó la privacidad con avisos de cámara y micrófono en uso.</p>
+<hr />
+<h2 id="ios-15-2021-comunicacion-y-concentracion">iOS 15 (2021): comunicación y concentración</h2>
+<p><img src="../imagenes/ios15.png" alt="Logo IOS 15" style="height:40px; vertical-align:middle; margin-right:8px;">Mejoró FaceTime con <strong>SharePlay</strong>, añadió el <strong>modo Concentración</strong> (Focus) para gestionar notificaciones y reforzó la privacidad con funciones como Private Relay en Safari. iOS se volvió más personal y adaptado a cada usuario.</p>
+<hr />
+<h2 id="ios-16-2022-personalizacion-de-la-pantalla-de-bloqueo">iOS 16 (2022): personalización de la pantalla de bloqueo</h2>
+<p><img src="../imagenes/ios16.png" alt="Logo IOS 16" style="height:40px; vertical-align:middle; margin-right:8px;">Una de las actualizaciones más queridas por los usuarios, que permitió personalizar la <strong>pantalla de bloqueo</strong> con widgets, relojes y fondos dinámicos. También añadió la posibilidad de <strong>editar o borrar mensajes</strong> en iMessage y nuevas capas de seguridad.</p>
+<hr />
+<h2 id="ios-17-2023-mas-humano-y-social">iOS 17 (2023): más humano y social</h2>
+<p><img src="../imagenes/ios17.png" alt="Logo IOS 17" style="height:40px; vertical-align:middle; margin-right:8px;">Introdujo los <strong>Contact Posters</strong>, que personalizan cómo nos ven los demás en llamadas, y los <strong>videomensajes en FaceTime</strong>. También llegó la app <strong>Diario (Journal)</strong> para fomentar la escritura personal y el bienestar digital.</p>
+<hr />
+<h2 id="ios-18-2024-la-era-de-la-inteligencia-artificial">iOS 18 (2024): la era de la inteligencia artificial</h2>
+<p><img src="../imagenes/ios18.png" alt="Logo IOS 18" style="height:40px; vertical-align:middle; margin-right:8px;">La versión más reciente, iOS 18, ha sido apodada la <strong>gran actualización de la IA</strong>. Apple presentó <strong>Apple Intelligence</strong>, un conjunto de funciones basadas en inteligencia artificial que potencian aplicaciones como Mensajes, Correo y Fotos. También amplió la personalización de la interfaz y mejoró la gestión de notificaciones.<br />
+Es un punto de inflexión que marca el inicio de una etapa en la que la IA será central en la experiencia iOS.</p>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>Desde aquel primer iPhone en 2007 hasta la integración de inteligencia artificial en 2024, iOS ha sido sinónimo de <strong>innovación y consistencia</strong>. Cada versión no solo añadió funciones, sino que redefinió cómo interactuamos con nuestros dispositivos.  </p>
+<p>Hoy, con <strong>iOS 18</strong>, Apple mantiene su apuesta clara: un ecosistema unificado, seguro y cada vez más inteligente, donde el software se adapta a la persona, y no al revés.  </p>
+<h1 id="resumen-de-versiones-de-ios">🍏 Resumen de versiones de iOS</h1>
+<table>
+<thead>
+<tr>
+<th>Versión</th>
+<th>Año</th>
+<th>Nombre oficial</th>
+<th>Principales novedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2007</td>
+<td>iPhone OS 1</td>
+<td>Multitouch, apps básicas (Safari, Mail, iPod), sin App Store.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2008</td>
+<td>iPhone OS 2</td>
+<td>App Store, inicio del ecosistema de apps.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2009</td>
+<td>iPhone OS 3</td>
+<td>Copiar/pegar, MMS, Spotlight, tethering.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2010</td>
+<td>iOS 4</td>
+<td>Cambio de nombre a iOS, multitarea, FaceTime, carpetas.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2011</td>
+<td>iOS 5</td>
+<td>iCloud, Siri, nuevo sistema de notificaciones.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2012</td>
+<td>iOS 6</td>
+<td>Apple Maps, Passbook, integración con Facebook.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2013</td>
+<td>iOS 7</td>
+<td>Rediseño flat, Centro de Control, AirDrop.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2014</td>
+<td>iOS 8</td>
+<td>Extensiones, teclados de terceros, HealthKit, Continuity.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2015</td>
+<td>iOS 9</td>
+<td>Estabilidad, Split View en iPad, Siri proactivo.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2016</td>
+<td>iOS 10</td>
+<td>Renovación de Mensajes, pantalla de bloqueo interactiva, HomeKit.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>iOS 11</td>
+<td>Dock y multitarea en iPad, ARKit, mejoras en arrastrar y soltar.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2018</td>
+<td>iOS 12</td>
+<td>Screen Time, notificaciones agrupadas, Shortcuts.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>2019</td>
+<td>iOS 13</td>
+<td>Modo oscuro, Inicio de sesión con Apple, mejoras en Fotos.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>2020</td>
+<td>iOS 14</td>
+<td>Widgets en pantalla de inicio, App Library, privacidad reforzada.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>2021</td>
+<td>iOS 15</td>
+<td>SharePlay, Modo Concentración, mejoras en FaceTime y privacidad.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>2022</td>
+<td>iOS 16</td>
+<td>Pantalla de bloqueo personalizable, editar/borrar mensajes.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>2023</td>
+<td>iOS 17</td>
+<td>Contact Posters, videomensajes FaceTime, app Diario.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2024</td>
+<td>iOS 18</td>
+<td>Apple Intelligence (IA), personalización avanzada, notificaciones inteligentes.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
