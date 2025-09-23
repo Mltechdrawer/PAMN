@@ -18,6 +18,7 @@ nav:
   - Diseño de interfaces: Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces.md
 - Bloque 2. Desarrollo de aplicaciones móviles nativas:
   - Sistemas Operativos para dispositivos móviles:
+    - Bloque2_Desarrollo_Apps/sistemas_operativos/sistemas_operativos.md
     - Bloque2_Desarrollo_Apps/sistemas_operativos/lenguajes_programacion.md
     - Bloque2_Desarrollo_Apps/sistemas_operativos/frameworks_desarrollo.md
   - Bases de datos para aplicaciones móviles nativas: Bloque2_Desarrollo_Apps/bases_datos.md

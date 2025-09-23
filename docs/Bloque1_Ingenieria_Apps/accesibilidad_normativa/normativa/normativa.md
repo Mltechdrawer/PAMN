@@ -4,7 +4,7 @@ La accesibilidad digital está regulada por una serie de normas internacionales 
 
 El cumplimiento de estas directrices es esencial en el desarrollo de aplicaciones web y móviles, no solo por motivos legales, sino también éticos y sociales. Aplicarlas mejora la experiencia de usuario, aumenta el alcance de los productos digitales y evita situaciones de exclusión.
 
-![Normativa de accesibilidad digital](normativa.png "Normativa de accesibilidad digital") <!-- Imagen sugerida: un documento o icono oficial representando normativa -->
+![Normativa de accesibilidad digital](normativa.png "Normativa de accesibilidad digital") 
 
 ## Principios Fundamentales de las WCAG
 
@@ -31,7 +31,8 @@ Las WCAG definen **tres niveles de conformidad** que permiten medir el grado de 
 - **Nivel AA**: nivel intermedio, considerado estándar en la mayoría de legislaciones.  
 - **Nivel AAA**: nivel más alto, que asegura la mejor experiencia inclusiva posible.  
 
-![Niveles de conformidad](niveles.png "Niveles de conformidad") <!-- Imagen sugerida: pirámide o escalera con tres niveles -->
+![Niveles de conformidad](niveles.png "Niveles de conformidad") 
+
 
 - **Nivel A (mínimo)**:
 
@@ -94,6 +95,48 @@ Las WCAG definen **tres niveles de conformidad** que permiten medir el grado de 
 ```
 </details>
 
+- **Nivel AAA (máximo)**:
+
+<details>
+<summary> Lengua de signos en vídeos</summary>
+```html 
+<video controls>
+  <source src="charla.mp4" type="video/mp4">
+  <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español">
+</video>
+
+<!-- Al lado, se puede añadir un video en lengua de signos -->
+<video controls width="300">
+  <source src="charla_signos.mp4" type="video/mp4">
+</video>
+```
+</details>
+
+<details>
+<summary> Texto de fácil lectura</summary>
+```html 
+<article>
+  <h2>Explicación en lectura fácil</h2>
+  <p>Un ordenador es una máquina. Sirve para guardar y usar información. 
+  Puede ayudarte a escribir, calcular y comunicarte.</p>
+</article>
+```
+</details>
+
+<details>
+<summary> Contraste reforzado</summary>
+```html 
+<style>
+  .alto-contraste {
+    background-color: #000000; /* negro */
+    color: #ffffff;           /* blanco, contraste 21:1 */
+    font-size: 18px;
+  }
+</style>
+
+<p class="alto-contraste">Texto con contraste máximo para mejorar la legibilidad.</p>
+```
+</details>
 
 
 ## Relevancia Legal en Europa y España
@@ -105,7 +148,5 @@ En España, esta directiva se transpone a través del **[Real Decreto 1112/2018]
 Cumplir con la normativa no solo evita sanciones, sino que también promueve una sociedad más justa e inclusiva.
 
 ![Legalidad y accesibilidad](legal.png "Legalidad y accesibilidad")
-
- <!-- Imagen sugerida: icono de balanza o documento legal -->
 
  **[WCAG 2.1](https://www.w3.org/TR/WCAG21/)**

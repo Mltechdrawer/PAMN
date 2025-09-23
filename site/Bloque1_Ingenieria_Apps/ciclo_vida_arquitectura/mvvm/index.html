@@ -975,134 +975,123 @@
 <h1 id="modelovistavistamodelo-mvvm">Modelo–Vista–VistaModelo (MVVM)</h1>
 <h2 id="1-crear-el-modelo-model">1. Crear el modelo (Model)</h2>
 <p>El modelo representa la capa de datos de la aplicación. Esta capa se encarga de manejar la lógica de negocio, interactuar con bases de datos o servicios externos y proporcionar los datos que necesita la interfaz de usuario.</p>
-<pre><code class="language-kotlin">
-// Model.kt
-data class User(val id: Int, val name: String, val age: Int)
+<div class="highlight"><pre><span></span><code><span class="c1">// Model.kt</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">id</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">age</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
 
-// Puede ser una clase de repositorio que maneja la obtención de datos
-class UserRepository {
+<span class="c1">// Puede ser una clase de repositorio que maneja la obtención de datos</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">UserRepository</span><span class="w"> </span><span class="p">{</span>
 
-    private val userList = listOf(
-        User(1, &quot;John Doe&quot;, 30),
-        User(2, &quot;Jane Smith&quot;, 25)
-    )
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">userList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>
+<span class="w">        </span><span class="n">User</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">),</span>
+<span class="w">        </span><span class="n">User</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jane Smith&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
 
-    // Simulamos la obtención de los datos
-    fun getUsers(): List&lt;User&gt; = userList
-}
-
-</code></pre>
+<span class="w">    </span><span class="c1">// Simulamos la obtención de los datos</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getUsers</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userList</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="2-crear-la-vista-modelo-viewmodel">2. Crear la vista modelo (ViewModel)</h2>
 <p>La VistaModelo es el intermediario entre el Modelo y la Vista. Proporciona los datos de forma que la vista pueda observar los cambios y actualizarse automáticamente cuando los datos cambien.
 Utilizamos LiveData para hacer la comunicación entre el ViewModel y la Vista, de forma que la Vista observe los cambios y reaccione automáticamente.</p>
-<pre><code class="language-kotlin">
-// UserViewModel.kt
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+<div class="highlight"><pre><span></span><code><span class="c1">// UserViewModel.kt</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.lifecycle.LiveData</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.lifecycle.MutableLiveData</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.lifecycle.ViewModel</span>
 
-class UserViewModel : ViewModel() {
+<span class="kd">class</span><span class="w"> </span><span class="nc">UserViewModel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ViewModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-    private val userRepository = UserRepository()
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">userRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UserRepository</span><span class="p">()</span>
 
-    // MutableLiveData que puede ser observada por la vista
-    private val _users = MutableLiveData&lt;List&lt;User&gt;&gt;()
+<span class="w">    </span><span class="c1">// MutableLiveData que puede ser observada por la vista</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">_users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MutableLiveData</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span><span class="p">()</span>
 
-    // Exponemos los datos como LiveData, para que la vista observe los cambios
-    val users: LiveData&lt;List&lt;User&gt;&gt;
-        get() = _users
+<span class="w">    </span><span class="c1">// Exponemos los datos como LiveData, para que la vista observe los cambios</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">users</span><span class="p">:</span><span class="w"> </span><span class="n">LiveData</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span>
+<span class="w">        </span><span class="k">get</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_users</span>
 
-    // Cargar los usuarios y actualizar el LiveData
-    fun loadUsers() {
-        val usersFromRepo = userRepository.getUsers()
-        _users.value = usersFromRepo
-    }
-}
-
-</code></pre>
+<span class="w">    </span><span class="c1">// Cargar los usuarios y actualizar el LiveData</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">loadUsers</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">usersFromRepo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">getUsers</span><span class="p">()</span>
+<span class="w">        </span><span class="n">_users</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">usersFromRepo</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="2-crear-la-vista-view">2. Crear la vista (View)</h2>
 <p>La Vista en Android puede ser una Activity, un Fragment o cualquier componente de la interfaz que observe el ViewModel. En este caso, usaremos una Activity que observará los cambios del ViewModel y reaccionará en consecuencia.
 Aquí es donde entraría el uso de DataBinding para hacer el enlace de datos entre el ViewModel y la Vista.</p>
 <h3 id="1-habilitamos-databinding-en-el-archivo-buildgradle">1. Habilitamos Databinding en el archivo build.gradle:</h3>
-<pre><code class="language-kotlin">
-android {
-    ...
-    buildFeatures {
-        dataBinding true
-    }
-}
-
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">android</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="n">buildFeatures</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">dataBinding</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="2-creamos-el-layout-xml-con-el-enlace-de-datos-al-viewmodel">2. Creamos el layout XML con el enlace de datos al ViewModel:</h3>
-<pre><code class="language-kotlin">
-&lt;!-- activity_main.xml --&gt;
-&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+<div class="highlight"><pre><span></span><code><span class="o">&lt;!--</span><span class="w"> </span><span class="n">activity_main</span><span class="p">.</span><span class="na">xml</span><span class="w"> </span><span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">layout</span><span class="w"> </span><span class="n">xmlns</span><span class="p">:</span><span class="n">android</span><span class="o">=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span><span class="o">&gt;</span>
 
-    &lt;data&gt;
-        &lt;!-- Vinculamos el ViewModel --&gt;
-        &lt;variable
-            name=&quot;viewModel&quot;
-            type=&quot;com.example.mvvmexample.UserViewModel&quot; /&gt;
-    &lt;/data&gt;
+<span class="w">    </span><span class="o">&lt;</span><span class="n">data</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">Vinculamos</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">ViewModel</span><span class="w"> </span><span class="o">--&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="n">variable</span>
+<span class="w">            </span><span class="n">name</span><span class="o">=</span><span class="s">&quot;viewModel&quot;</span>
+<span class="w">            </span><span class="n">type</span><span class="o">=</span><span class="s">&quot;com.example.mvvmexample.UserViewModel&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">    </span><span class="o">&lt;/</span><span class="n">data</span><span class="o">&gt;</span>
 
-    &lt;LinearLayout
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;
-        android:orientation=&quot;vertical&quot;&gt;
+<span class="w">    </span><span class="o">&lt;</span><span class="n">LinearLayout</span>
+<span class="w">        </span><span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">        </span><span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">        </span><span class="n">android</span><span class="p">:</span><span class="n">orientation</span><span class="o">=</span><span class="s">&quot;vertical&quot;</span><span class="o">&gt;</span>
 
-        &lt;TextView
-            android:id=&quot;@+id/userText&quot;
-            android:layout_width=&quot;wrap_content&quot;
-            android:layout_height=&quot;wrap_content&quot;
-            android:text=&quot;Users&quot; /&gt;
+<span class="w">        </span><span class="o">&lt;</span><span class="n">TextView</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;@+id/userText&quot;</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;wrap_content&quot;</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;Users&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
 
-        &lt;ListView
-            android:id=&quot;@+id/userListView&quot;
-            android:layout_width=&quot;match_parent&quot;
-            android:layout_height=&quot;wrap_content&quot; /&gt;
-    &lt;/LinearLayout&gt;
-&lt;/layout&gt;
-
-</code></pre>
+<span class="w">        </span><span class="o">&lt;</span><span class="n">ListView</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;@+id/userListView&quot;</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">&quot;match_parent&quot;</span>
+<span class="w">            </span><span class="n">android</span><span class="p">:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">&quot;wrap_content&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">    </span><span class="o">&lt;/</span><span class="n">LinearLayout</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">layout</span><span class="o">&gt;</span>
+</code></pre></div>
 <h3 id="3-implementamos-la-activity-que-observara-el-viewmodel">3. Implementamos la activity que observará el ViewModel:</h3>
-<pre><code class="language-kotlin">
-// MainActivity.kt
-import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import com.example.mvvmexample.databinding.ActivityMainBinding
+<div class="highlight"><pre><span></span><code><span class="c1">// MainActivity.kt</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">android.os.Bundle</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.activity.viewModels</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.appcompat.app.AppCompatActivity</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.databinding.DataBindingUtil</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">androidx.lifecycle.Observer</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">com.example.mvvmexample.databinding.ActivityMainBinding</span>
 
-class MainActivity : AppCompatActivity() {
+<span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AppCompatActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-    // Instanciamos el ViewModel usando la función por defecto
-    private val userViewModel: UserViewModel by viewModels()
+<span class="w">    </span><span class="c1">// Instanciamos el ViewModel usando la función por defecto</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">userViewModel</span><span class="p">:</span><span class="w"> </span><span class="n">UserViewModel</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">viewModels</span><span class="p">()</span>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
 
-        // Enlazamos el layout con DataBinding
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+<span class="w">        </span><span class="c1">// Enlazamos el layout con DataBinding</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">binding</span><span class="p">:</span><span class="w"> </span><span class="n">ActivityMainBinding</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">DataBindingUtil</span><span class="p">.</span><span class="na">setContentView</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">)</span>
 
-        // Asignamos el ViewModel a la vista
-        binding.viewModel = userViewModel
-        binding.lifecycleOwner = this // Para que el binding observe los cambios
+<span class="w">        </span><span class="c1">// Asignamos el ViewModel a la vista</span>
+<span class="w">        </span><span class="n">binding</span><span class="p">.</span><span class="na">viewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userViewModel</span>
+<span class="w">        </span><span class="n">binding</span><span class="p">.</span><span class="na">lifecycleOwner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="c1">// Para que el binding observe los cambios</span>
 
-        // Observamos el LiveData del ViewModel
-        userViewModel.users.observe(this, Observer { users -&gt;
-            // Actualizamos la interfaz cuando los datos cambian
-            binding.userText.text = users.joinToString { it.name }
-        })
+<span class="w">        </span><span class="c1">// Observamos el LiveData del ViewModel</span>
+<span class="w">        </span><span class="n">userViewModel</span><span class="p">.</span><span class="na">users</span><span class="p">.</span><span class="na">observe</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">Observer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="c1">// Actualizamos la interfaz cuando los datos cambian</span>
+<span class="w">            </span><span class="n">binding</span><span class="p">.</span><span class="na">userText</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="na">joinToString</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">})</span>
 
-        // Cargar los datos en el ViewModel
-        userViewModel.loadUsers()
-    }
-}
-
-
-</code></pre>
+<span class="w">        </span><span class="c1">// Cargar los datos en el ViewModel</span>
+<span class="w">        </span><span class="n">userViewModel</span><span class="p">.</span><span class="na">loadUsers</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 

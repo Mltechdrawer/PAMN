@@ -25,4 +25,5 @@
   <img src="https://img.shields.io/badge/DIS-Departamento-blue" alt="DIS">
 </a>
 
-
+**© 2025 María Dolores Afonso Suárez.** Este material se distribuye bajo licencia
+[Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.es).
