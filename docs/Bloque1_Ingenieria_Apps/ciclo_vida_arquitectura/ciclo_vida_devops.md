@@ -48,3 +48,6 @@ Análisis del rendimiento y errores. Herramientas típicas: Firebase Crashlytics
 
 ### 8. **Operaciones**
 Gestión de la infraestructura, soporte y mantenimiento. Se apoyan en CI/CD (GitHub Actions, GitLab CI, Jenkins) e infraestructura como código (IaC).
+
+
+[GitHub actions](github_actions.md "GitHub actions")

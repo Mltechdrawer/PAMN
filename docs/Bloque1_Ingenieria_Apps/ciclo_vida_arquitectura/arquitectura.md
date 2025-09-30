@@ -77,6 +77,38 @@ Ventajas: menor acoplamiento y compatible con programación reactiva.
 
  **[Modelo–Vista–VistaModelo (MVVM)](mvvm.md)**.
 
+ <details>
+<summary> Diferencias entre MVC, MVP y MVVM</summary>
+<p><b>1. MVC (Model–View–Controller)</b></p>
+<ul>
+  <li><b>Controlador:</b> actúa como intermediario entre la vista y el modelo.</li>
+  <li>Recibe la interacción del usuario, decide qué hacer y actualiza el modelo o la vista.</li>
+  <li>La vista suele tener cierta lógica, por lo que no está totalmente aislada.</li>
+  <li><i>Problema:</i> en apps complejas, el controlador tiende a crecer demasiado (Massive View Controller).</li>
+</ul>
+<p><b>2. MVP (Model–View–Presenter)</b></p>
+<ul>
+  <li><b>Presentador:</b> sustituye al controlador de MVC.</li>
+  <li>Se encarga de la lógica de presentación: recibe eventos de la vista, consulta/actualiza el modelo y devuelve datos preparados.</li>
+  <li>La vista queda más pasiva, mostrando únicamente lo que el presentador indica.</li>
+  <li><i>Ventaja:</i> mejor separación de responsabilidades, vista más simple.</li>
+</ul>
+<p><b>3. MVVM (Model–View–ViewModel)</b></p>
+<ul>
+  <li><b>Vista-Modelo:</b> no conoce directamente la vista; expone datos observables (LiveData, StateFlow, etc.).</li>
+  <li>La vista se suscribe a esos datos y se actualiza automáticamente cuando cambian.</li>
+  <li>La lógica de negocio de la UI se coloca en el ViewModel, y la vista solo reacciona.</li>
+  <li><i>Ventaja:</i> fuerte desacoplamiento y arquitectura reactiva, ideal para data binding.</li>
+</ul>
+<p><b> Diferencia clave:</b></p>
+<ul>
+  <li><b>MVC:</b> el controlador actualiza vista y modelo directamente (más acoplamiento).</li>
+  <li><b>MVP:</b> el presentador orquesta y la vista solo pinta (vista pasiva).</li>
+  <li><b>MVVM:</b> el ViewModel expone estado observable y la vista reacciona automáticamente (desacoplamiento máximo).</li>
+</ul>
+</details>
+
+
 ### 4. MVI (Modelo–Vista–Intención)
 
 Se centra en la intención del usuario y utiliza un flujo de datos unidireccional.
