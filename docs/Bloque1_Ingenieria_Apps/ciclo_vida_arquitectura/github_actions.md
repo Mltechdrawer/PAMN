@@ -110,6 +110,8 @@ jobs:
 
 ---
 
+[Gestión de GitHub Actions](github_actions_gestion.md)
+
 [Kotlin](github_actions_kotlin.md)
 
 ## Conclusión

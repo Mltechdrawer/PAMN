@@ -77,7 +77,7 @@ Ventajas: menor acoplamiento y compatible con programación reactiva.
 
  **[Modelo–Vista–VistaModelo (MVVM)](mvvm.md)**.
 
- <details>
+<details>
 <summary> Diferencias entre MVC, MVP y MVVM</summary>
 <p><b>1. MVC (Model–View–Controller)</b></p>
 <ul>
