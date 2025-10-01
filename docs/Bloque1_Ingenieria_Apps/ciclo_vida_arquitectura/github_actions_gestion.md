@@ -216,4 +216,4 @@ jobs:
 
 ---
 
-[Ejemplo práctico](../../files/practicas.zip)
+[Ejemplo práctico](../../files/Practicas.zip)
