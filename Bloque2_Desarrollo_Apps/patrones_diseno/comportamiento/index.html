@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../principios_estructurales/">
+        <link rel="prev" href="../estructurales/">
       
       
         <link rel="next" href="../../calidad_software/">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Patrones de comportamiento - Programación de Aplicaciones Móviles Nativas</title>
+        <title>Patrones de diseño de comportamiento - Programación de Aplicaciones Móviles Nativas</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#patrones-de-comportamiento" class="md-skip">
+        <a href="#patrones-de-diseno-de-comportamiento" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Patrones de comportamiento
+              Patrones de diseño de comportamiento
             
           </span>
         </div>
@@ -710,12 +710,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../principios_estructurales/" class="md-nav__link">
+      <a href="../principios/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Principios y patrones estructurales clásicos
+    Principios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño creacionales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño estructurales
     
   </span>
   
@@ -742,17 +788,94 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño de comportamiento
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Patrones de comportamiento
+    Patrones de diseño de comportamiento
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-of-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain of Responsibility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -931,6 +1054,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-of-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain of Responsibility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -945,8 +1121,75 @@
 
 
 
-<h1 id="patrones-de-comportamiento">Patrones de comportamiento</h1>
-<p>Contenido en construcción...</p>
+<h1 id="patrones-de-diseno-de-comportamiento">Patrones de diseño de comportamiento</h1>
+<h2 id="observer">Observer</h2>
+<p><strong>Qué es</strong><br />
+Establece una relación <strong>publicador → suscriptores</strong> para notificar <strong>cambios de estado</strong>.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Actualizar UI cuando cambian datos (flows, LiveData).
+- Notificar eventos del sistema (conectividad, sesión, permisos).
+- Modularizar reacciones múltiples ante un mismo evento.</p>
+<p><a href="../patrones/#code-observer">Observer</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`SessionObservable` avisa a varias pantallas cuando el usuario inicia/cierra sesión; cada observador decide qué actualizar.
+</details>
+
+<hr />
+<h2 id="chain-of-responsibility">Chain of Responsibility</h2>
+<p><strong>Qué es</strong><br />
+Pasa una petición por una <strong>cadena de manejadores</strong> hasta que uno la procesa.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Validaciones de formularios con varias reglas encadenadas.
+- Procesado de eventos de UI o <em>middleware</em> de red.
+- Filtros secuenciales (compresión, cifrado, firma) en archivos.</p>
+<p><a href="../patrones/#code-chain">Chain of Responsibility</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+Una cadena `NoEmpty -> EmailValido -> PasswordFuerte` valida el registro. El flujo se detiene en la primera regla que falle.
+</details>
+
+<hr />
+<h2 id="command">Command</h2>
+<p><strong>Qué es</strong><br />
+Encapsula una <strong>solicitud</strong> como objeto, permitiendo <strong>deshacer</strong>, <strong>cola</strong> y <strong>registro</strong>.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Acciones con <em>undo/redo</em> (editores, listas con swipe).
+- Programar tareas diferidas/offline y reintentos.
+- Desacoplar botones/gestos de la lógica ejecutada.</p>
+<p><a href="../patrones/#code-command">Command</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`DeleteItemCommand` ejecuta y registra la operación; `undo()` restaura el elemento si el usuario deshace.
+</details>
+
+<hr />
+<h2 id="state">State</h2>
+<p><strong>Qué es</strong><br />
+Permite que un objeto <strong>cambie su comportamiento</strong> cuando cambia su <strong>estado interno</strong>.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Flujos con estados claros (player: <em>Playing</em>, <em>Paused</em>, <em>Stopped</em>).
+- Máquinas de estados para permisos, login o <em>onboarding</em>.
+- Reducir condicionales anidados en la UI.</p>
+<p><a href="../patrones/#code-state">State</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`PlayerContext` delega en estados `Playing`/`Paused` la respuesta a `play()`/`pause()`. Cambiar de estado cambia el comportamiento sin `if` complejos.
+</details>
+
+<hr />
+<h2 id="strategy">Strategy</h2>
+<p><strong>Qué es</strong><br />
+Define una <strong>familia de algoritmos</strong> intercambiables en <strong>tiempo de ejecución</strong>.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Seleccionar compresión, ordenación o <em>cache policy</em> según contexto.
+- Elegir proveedor de pago/mapas según país del usuario.
+- Reutilizar la UI con lógicas alternativas sin duplicar código.</p>
+<p><a href="../patrones/#code-strategy">Strategy</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`BusquedaContext` recibe una `BusquedaStrategy`: por nombre, por proximidad o por popularidad. Cambiar la estrategia no afecta a la UI.
+</details>
 
 
 
