@@ -702,12 +702,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Bloque2_Desarrollo_Apps/patrones_diseno/principios_estructurales/" class="md-nav__link">
+      <a href="../../../Bloque2_Desarrollo_Apps/patrones_diseno/principios/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Principios y patrones estructurales clásicos
+    Principios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque2_Desarrollo_Apps/patrones_diseno/creacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño creacionales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bloque2_Desarrollo_Apps/patrones_diseno/estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño estructurales
     
   </span>
   
@@ -730,7 +776,7 @@
   
   
   <span class="md-ellipsis">
-    Patrones de comportamiento
+    Patrones de diseño de comportamiento
     
   </span>
   
@@ -931,7 +977,7 @@
         <li class="md-nav__item">
   <a href="#para-que-se-utiliza" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 ¿Para qué se utiliza?
+      ¿Para qué se utiliza?
     </span>
   </a>
   
@@ -950,7 +996,7 @@
           <li class="md-nav__item">
   <a href="#caracteristicas-principales" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Características principales
+      Características principales
     </span>
   </a>
   
@@ -959,7 +1005,7 @@
           <li class="md-nav__item">
   <a href="#para-que-se-utilizan" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 ¿Para qué se utilizan?
+      ¿Para qué se utilizan?
     </span>
   </a>
   
@@ -968,7 +1014,7 @@
           <li class="md-nav__item">
   <a href="#ejemplo-simple-desplegar-a-github-pages" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Ejemplo simple (desplegar a GitHub Pages)
+      Ejemplo simple (desplegar a GitHub Pages)
     </span>
   </a>
   
@@ -992,7 +1038,7 @@
           <li class="md-nav__item">
   <a href="#para-que-se-utilizan_1" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 ¿Para qué se utilizan?
+      ¿Para qué se utilizan?
     </span>
   </a>
   
@@ -1001,7 +1047,7 @@
           <li class="md-nav__item">
   <a href="#conceptos-clave" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Conceptos clave
+      Conceptos clave
     </span>
   </a>
   
@@ -1010,7 +1056,7 @@
           <li class="md-nav__item">
   <a href="#ejemplo-slsa-build-provenance-para-un-binario-o-paquete" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Ejemplo (SLSA build provenance para un binario o paquete)
+      Ejemplo (SLSA build provenance para un binario o paquete)
     </span>
   </a>
   
@@ -1034,7 +1080,7 @@
           <li class="md-nav__item">
   <a href="#tipos-de-runners" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Tipos de runners
+      Tipos de runners
     </span>
   </a>
   
@@ -1043,7 +1089,7 @@
           <li class="md-nav__item">
   <a href="#seleccion-por-etiquetas-labels" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Selección por etiquetas (labels)
+      Selección por etiquetas (labels)
     </span>
   </a>
   
@@ -1052,7 +1098,7 @@
           <li class="md-nav__item">
   <a href="#buenas-practicas-y-opciones-utiles" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Buenas prácticas y opciones útiles
+      Buenas prácticas y opciones útiles
     </span>
   </a>
   
@@ -1087,7 +1133,7 @@
 Normalmente eso se descarga <strong>cada vez que corre el workflow</strong>, lo que lo hace lento.</p>
 <p>Con la <strong>caché</strong>, esos archivos (ej. <code>.m2/repository</code>, <code>~/.gradle/caches</code>, <code>node_modules</code>) se guardan en GitHub y se reutilizan en siguientes ejecuciones.</p>
 <hr />
-<h2 id="para-que-se-utiliza">🔹 ¿Para qué se utiliza?</h2>
+<h2 id="para-que-se-utiliza">¿Para qué se utiliza?</h2>
 <ul>
 <li><strong>Acelerar workflows</strong>: reduce tiempos de compilación y test.  </li>
 <li><strong>Ahorrar ancho de banda</strong>: menos descargas de dependencias externas.  </li>
@@ -1102,7 +1148,7 @@ Normalmente eso se descarga <strong>cada vez que corre el workflow</strong>, lo 
 <p>Los <strong>deployments</strong> (despliegues) en GitHub Actions representan el proceso de <strong>publicar o entregar software</strong> a un entorno específico: pruebas, staging, producción, etc.<br />
 Permiten que tu código no solo se compile y se pruebe, sino que también llegue de forma controlada a los usuarios finales o a los servidores donde se ejecuta.</p>
 <hr />
-<h3 id="caracteristicas-principales">🔹 Características principales</h3>
+<h3 id="caracteristicas-principales">Características principales</h3>
 <ul>
 <li><strong>Entornos (Environments):</strong> GitHub permite definir entornos como <code>staging</code> o <code>production</code> con reglas, revisores y protecciones.  </li>
 <li><strong>Histórico de despliegues:</strong> cada deployment queda registrado, facilitando auditoría y rollback.  </li>
@@ -1110,7 +1156,7 @@ Permiten que tu código no solo se compile y se pruebe, sino que también llegue
 <li><strong>Integración con flujos CI/CD:</strong> se enlazan a los jobs finales de un workflow, tras pasar por build y test.</li>
 </ul>
 <hr />
-<h3 id="para-que-se-utilizan">🔹 ¿Para qué se utilizan?</h3>
+<h3 id="para-que-se-utilizan">¿Para qué se utilizan?</h3>
 <ul>
 <li>Publicar una aplicación web en <strong>GitHub Pages</strong>, <strong>Netlify</strong> o <strong>Vercel</strong>.  </li>
 <li>Subir un contenedor Docker a <strong>DockerHub</strong> o <strong>GitHub Container Registry</strong>.  </li>
@@ -1118,7 +1164,7 @@ Permiten que tu código no solo se compile y se pruebe, sino que también llegue
 <li>Desplegar microservicios a <strong>AWS</strong>, <strong>Azure</strong>, <strong>GCP</strong> o <strong>Kubernetes</strong>.  </li>
 </ul>
 <hr />
-<h3 id="ejemplo-simple-desplegar-a-github-pages">🔹 Ejemplo simple (desplegar a GitHub Pages)</h3>
+<h3 id="ejemplo-simple-desplegar-a-github-pages">Ejemplo simple (desplegar a GitHub Pages)</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy website</span>
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
@@ -1151,21 +1197,21 @@ En GitHub Actions, se gestionan mediante <i>jobs</i> configurados para distintos
 <p>Las <strong>attestations</strong> (atestaciones) son <strong>pruebas criptográficas</strong> que vinculan un <strong>artefacto</strong> (p. ej., un binario, imagen Docker, paquete) con <strong>cómo y dónde fue generado</strong> (workflow, commit, runner, identidad OIDC).<br />
 Su objetivo es mejorar la <strong>seguridad de la cadena de suministro</strong> (Supply Chain Security) proporcionando <strong>provenance</strong> (procedencia) verificable, alineada con estándares como <strong>SLSA</strong>.</p>
 <hr />
-<h3 id="para-que-se-utilizan_1">🔹 ¿Para qué se utilizan?</h3>
+<h3 id="para-que-se-utilizan_1">¿Para qué se utilizan?</h3>
 <ul>
 <li><strong>Trazabilidad y confianza</strong>: demostrar que un artefacto proviene de un pipeline controlado y de un commit concreto.</li>
 <li><strong>Cumplimiento</strong>: requisitos de <em>compliance</em> (p. ej., políticas internas o clientes que exigen provenance).</li>
 <li><strong>Verificación antes del despliegue</strong>: políticas que bloquean despliegues si el artefacto no tiene una atestación válida.</li>
 </ul>
 <hr />
-<h3 id="conceptos-clave">🔹 Conceptos clave</h3>
+<h3 id="conceptos-clave">Conceptos clave</h3>
 <ul>
 <li><strong>Provenance (SLSA)</strong>: metadatos firmados que describen cómo se construyó el artefacto (fuente, builder, parámetros, hash).</li>
 <li><strong>Firmas</strong>: se apoyan en identidad <strong>OIDC</strong> del workflow y claves gestionadas por GitHub para impedir suplantaciones.</li>
 <li><strong>Almacenamiento/consulta</strong>: las atestaciones quedan asociadas al artefacto en GitHub y pueden verificarse en tiempo de despliegue.</li>
 </ul>
 <hr />
-<h3 id="ejemplo-slsa-build-provenance-para-un-binario-o-paquete">🔹 Ejemplo (SLSA build provenance para un binario o paquete)</h3>
+<h3 id="ejemplo-slsa-build-provenance-para-un-binario-o-paquete">Ejemplo (SLSA build provenance para un binario o paquete)</h3>
 <blockquote>
 <p>Genera una atestación de procedencia para los archivos construidos en <code>dist/</code>.</p>
 </blockquote>
@@ -1204,7 +1250,7 @@ Su objetivo es mejorar la <strong>seguridad de la cadena de suministro</strong> 
 <p>Los <strong>runners</strong> son las <strong>máquinas</strong> (hosted o self-hosted) donde se <strong>ejecutan</strong> los jobs de tus workflows.<br />
 Cada job declara su “destino” con <code>runs-on</code> (por ejemplo, <code>ubuntu-latest</code>).</p>
 <hr />
-<h3 id="tipos-de-runners">🔹 Tipos de runners</h3>
+<h3 id="tipos-de-runners">Tipos de runners</h3>
 <ul>
 <li><strong>GitHub-hosted runners</strong>: máquinas efímeras gestionadas por GitHub (Ubuntu, Windows, macOS).  </li>
 <li>Ventajas: cero mantenimiento, listos para uso, limpieza por job.  </li>
@@ -1214,7 +1260,7 @@ Cada job declara su “destino” con <code>runs-on</code> (por ejemplo, <code>u
 <li>Requiere mantenimiento, actualización y seguridad propias.</li>
 </ul>
 <hr />
-<h3 id="seleccion-por-etiquetas-labels">🔹 Selección por etiquetas (labels)</h3>
+<h3 id="seleccion-por-etiquetas-labels">Selección por etiquetas (labels)</h3>
 <ul>
 <li><code>runs-on</code> acepta <strong>una etiqueta</strong> (p. ej. <code>ubuntu-latest</code>) o <strong>varias</strong> (para self-hosted se usan combinadas).  </li>
 <li>Puedes agrupar runners y asignar etiquetas como <code>self-hosted</code>, <code>linux</code>, <code>gpu</code>, <code>arm64</code> para enrutar jobs.</li>
@@ -1236,7 +1282,7 @@ Cada job declara su “destino” con <code>runs-on</code> (por ejemplo, <code>u
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew build</span>
 </code></pre></div>
 <hr />
-<h3 id="buenas-practicas-y-opciones-utiles">🔹 Buenas prácticas y opciones útiles</h3>
+<h3 id="buenas-practicas-y-opciones-utiles">Buenas prácticas y opciones útiles</h3>
 <ul>
 <li><strong>Concurrencia</strong> y <strong>timeouts</strong> para evitar jobs colgados:<br />
   <div class="highlight"><pre><span></span><code><span class="nt">concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project-ci-${{ github.ref }}</span>

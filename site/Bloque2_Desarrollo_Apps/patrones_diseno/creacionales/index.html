@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../principios_estructurales/">
+        <link rel="prev" href="../principios/">
       
       
-        <link rel="next" href="../../calidad_software/">
+        <link rel="next" href="../estructurales/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Patrones creacionales - Programación de Aplicaciones Móviles Nativas</title>
+        <title>Patrones de diseño creacionales - Programación de Aplicaciones Móviles Nativas</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#patrones-creacionales" class="md-skip">
+        <a href="#patrones-de-diseno-creacionales" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Patrones de creacionales
+              Patrones de diseño creacionales
             
           </span>
         </div>
@@ -710,12 +710,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../principios_estructurales/" class="md-nav__link">
+      <a href="../principios/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Principios y patrones estructurales clásicos
+    Principios
     
   </span>
   
@@ -742,18 +742,132 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño creacionales
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Patrones creacionales
+    Patrones de diseño creacionales
     
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Singleton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Factory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Builder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototype
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño estructurales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comportamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño de comportamiento
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -931,6 +1045,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#singleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Singleton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Factory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Builder
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prototype
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -945,8 +1103,63 @@
 
 
 
-<h1 id="patrones-creacionales">Patrones creacionales</h1>
-<p>Contenido en construcción...</p>
+<h1 id="patrones-de-diseno-creacionales">Patrones de diseño creacionales</h1>
+<h2 id="singleton">Singleton</h2>
+<p><strong>Qué es</strong><br />
+Garantiza <strong>una única instancia</strong> de una clase y ofrece <strong>acceso global</strong> a ella.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Configuración global de la app (localización, tema, <em>feature flags</em>).
+- Gestores únicos: analítica, <em>logging</em>, <em>SessionManager</em> o <em>AuthManager</em>.
+- Recursos compartidos que deben coordinarse (por ejemplo, un <em>cache</em> en memoria).</p>
+<p><strong>Evitarlo si</strong> necesitas testabilidad alta o múltiples contextos de ejecución; en esos casos, considera inyección de dependencias.</p>
+<p><a href="../patrones/#code-singleton">Singleton</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+Un `object` en Kotlin actúa como singleton. `ConfiguracionGlobal` centraliza idioma y tema. Desde cualquier pantalla, leer/escribir esos valores refleja la **misma instancia**.
+</details>
+
+<hr />
+<h2 id="factory">Factory</h2>
+<p><strong>Qué es</strong><br />
+Proporciona una <strong>interfaz para crear objetos</strong> sin acoplar el cliente a clases concretas.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Seleccionar implementaciones según <strong>entorno</strong> (debug/release) o <strong>plataforma</strong> (diferentes proveedores de pagos, mapas, almacenamiento).
+- Crear <em>ViewModels</em>, <em>Repositories</em> o conectores de red con <strong>estrategias intercambiables</strong>.
+- Encapsular lógica de inicialización compleja (parámetros, dependencias, <em>feature toggles</em>).</p>
+<p><strong>Beneficios</strong>: desacopla, facilita pruebas (inyectas una <em>fake factory</em>), y permite ampliar comportamientos sin tocar el cliente.</p>
+<p><a href="../patrones/#code-factory">Factory</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`MetodoPagoFactory` devuelve `Tarjeta` o `PayPal` según el tipo. La UI solo conoce la **interfaz** `MetodoPago` y no depende de las clases concretas.
+</details>
+
+<hr />
+<h2 id="builder">Builder</h2>
+<p><strong>Qué es</strong><br />
+Permite <strong>construir objetos complejos paso a paso</strong>, separando construcción de representación final.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Crear entidades con <strong>muchos opcionales</strong> (perfil, filtros de búsqueda, parámetros de red).
+- Configurar componentes UI complejos (diálogos, notificaciones) sin <strong>constructores kilométricos</strong>.
+- Evitar errores por órdenes de parámetros y mejorar la legibilidad encadenando pasos.</p>
+<p><a href="../patrones/#code-builder">Builder</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`PerfilUsuario.Builder` permite definir `nombre`, `foto` y `bio` de forma fluida. El `build()` devuelve un objeto **coherente** y listo para usar en la capa de presentación.
+</details>
+
+<hr />
+<h2 id="prototype">Prototype</h2>
+<p><strong>Qué es</strong><br />
+Permite <strong>clonar objetos</strong> sin acoplarse a sus clases concretas, reutilizando el estado existente.</p>
+<p><strong>Cuándo usarlo en móvil</strong>
+- Duplicar <strong>componentes UI</strong> o modelos con configuración costosa (estilos, formateos) para crear variantes rápidas.
+- Generar elementos repetitivos en listas o editores sin recalcular estado inicial.
+- Crear <em>placeholders</em> o <em>templates</em> que se adaptan con cambios mínimos.</p>
+<p><a href="../patrones/#code-prototype">Prototype</a></p>
+<details>
+<summary>Ejemplo breve</summary>
+`Boton` implementa `Widget` y se **clona** copiando el color. Cambiar el color del clon no afecta al original: útil para generar variantes de controles sin reconstruirlos desde cero.
+</details>
 
 
 

@@ -4,10 +4,10 @@
 **Qué es**  
 Permite que **dos interfaces incompatibles** trabajen juntas mediando con un adaptador.
 
-**Cuándo usarlo en móvil**
-- Integrar una API externa con el **modelo de dominio** de la app.
-- Envolver SDKs de terceros para aislarlos de la UI o del *core*.
-- Migraciones graduales de una interfaz antigua a otra nueva.
+**Cuándo usarlo en móvil**  
+- Integrar una API externa con el **modelo de dominio** de la app.  
+- Envolver SDKs de terceros para aislarlos de la UI o del *core*.  
+- Migraciones graduales de una interfaz antigua a otra nueva.  
 
 [Adapter](patrones.md#code-adapter)
 
@@ -22,10 +22,10 @@ Permite que **dos interfaces incompatibles** trabajen juntas mediando con un ada
 **Qué es**  
 Añade **funcionalidades** a un objeto **dinámicamente** sin modificar su clase.
 
-**Cuándo usarlo en móvil**
-- Extender comportamientos (p. ej., añadir *logging*, *retry*, caché) a un repositorio.
-- Componer **filtros de imagen**, validaciones o *interceptors* de red.
-- Personalizar componentes UI sin proliferar subclases.
+**Cuándo usarlo en móvil**  
+- Extender comportamientos (p. ej., añadir *logging*, *retry*, caché) a un repositorio.  
+- Componer **filtros de imagen**, validaciones o *interceptors* de red.  
+- Personalizar componentes UI sin proliferar subclases.  
 
 [Decorator](patrones.md#code-decorator)
 
@@ -40,10 +40,10 @@ Añade **funcionalidades** a un objeto **dinámicamente** sin modificar su clase
 **Qué es**  
 Proporciona una **interfaz simple** a un **subsistema complejo** (varios módulos/SDKs).
 
-**Cuándo usarlo en móvil**
-- Unificar en un punto `Auth`, base de datos y red para operaciones de usuario.
-- Simplificar flujos de inicio de sesión/registro con varios proveedores.
-- Reducir dependencias de la UI hacia detalles de infraestructura.
+**Cuándo usarlo en móvil**  
+- Unificar en un punto `Auth`, base de datos y red para operaciones de usuario.  
+- Simplificar flujos de inicio de sesión/registro con varios proveedores.  
+- Reducir dependencias de la UI hacia detalles de infraestructura.  
 
 [Facade](patrones.md#code-facade)
 

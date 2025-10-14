@@ -4,10 +4,10 @@
 **Qué es**  
 Establece una relación **publicador → suscriptores** para notificar **cambios de estado**.
 
-**Cuándo usarlo en móvil**
-- Actualizar UI cuando cambian datos (flows, LiveData).
-- Notificar eventos del sistema (conectividad, sesión, permisos).
-- Modularizar reacciones múltiples ante un mismo evento.
+**Cuándo usarlo en móvil**  
+- Actualizar UI cuando cambian datos (flows, LiveData).  
+- Notificar eventos del sistema (conectividad, sesión, permisos).  
+- Modularizar reacciones múltiples ante un mismo evento.  
 
 [Observer](patrones.md#code-observer)
 
@@ -22,10 +22,10 @@ Establece una relación **publicador → suscriptores** para notificar **cambios
 **Qué es**  
 Pasa una petición por una **cadena de manejadores** hasta que uno la procesa.
 
-**Cuándo usarlo en móvil**
-- Validaciones de formularios con varias reglas encadenadas.
-- Procesado de eventos de UI o *middleware* de red.
-- Filtros secuenciales (compresión, cifrado, firma) en archivos.
+**Cuándo usarlo en móvil**  
+- Validaciones de formularios con varias reglas encadenadas.  
+- Procesado de eventos de UI o *middleware* de red.  
+- Filtros secuenciales (compresión, cifrado, firma) en archivos.  
 
 [Chain of Responsibility](patrones.md#code-chain)
 
@@ -40,10 +40,10 @@ Una cadena `NoEmpty -> EmailValido -> PasswordFuerte` valida el registro. El flu
 **Qué es**  
 Encapsula una **solicitud** como objeto, permitiendo **deshacer**, **cola** y **registro**.
 
-**Cuándo usarlo en móvil**
-- Acciones con *undo/redo* (editores, listas con swipe).
-- Programar tareas diferidas/offline y reintentos.
-- Desacoplar botones/gestos de la lógica ejecutada.
+**Cuándo usarlo en móvil**  
+- Acciones con *undo/redo* (editores, listas con swipe).  
+- Programar tareas diferidas/offline y reintentos.  
+- Desacoplar botones/gestos de la lógica ejecutada.  
 
 [Command](patrones.md#code-command)
 
@@ -58,10 +58,10 @@ Encapsula una **solicitud** como objeto, permitiendo **deshacer**, **cola** y **
 **Qué es**  
 Permite que un objeto **cambie su comportamiento** cuando cambia su **estado interno**.
 
-**Cuándo usarlo en móvil**
-- Flujos con estados claros (player: *Playing*, *Paused*, *Stopped*).
-- Máquinas de estados para permisos, login o *onboarding*.
-- Reducir condicionales anidados en la UI.
+**Cuándo usarlo en móvil**  
+- Flujos con estados claros (player: *Playing*, *Paused*, *Stopped*).  
+- Máquinas de estados para permisos, login o *onboarding*.  
+- Reducir condicionales anidados en la UI.  
 
 [State](patrones.md#code-state)
 
@@ -76,10 +76,10 @@ Permite que un objeto **cambie su comportamiento** cuando cambia su **estado int
 **Qué es**  
 Define una **familia de algoritmos** intercambiables en **tiempo de ejecución**.
 
-**Cuándo usarlo en móvil**
-- Seleccionar compresión, ordenación o *cache policy* según contexto.
-- Elegir proveedor de pago/mapas según país del usuario.
-- Reutilizar la UI con lógicas alternativas sin duplicar código.
+**Cuándo usarlo en móvil**  
+- Seleccionar compresión, ordenación o *cache policy* según contexto.  
+- Elegir proveedor de pago/mapas según país del usuario.  
+- Reutilizar la UI con lógicas alternativas sin duplicar código.  
 
 [Strategy](patrones.md#code-strategy)
 
