@@ -1107,10 +1107,10 @@
 <h2 id="singleton">Singleton</h2>
 <p><strong>Qué es</strong><br />
 Garantiza <strong>una única instancia</strong> de una clase y ofrece <strong>acceso global</strong> a ella.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Configuración global de la app (localización, tema, <em>feature flags</em>).
-- Gestores únicos: analítica, <em>logging</em>, <em>SessionManager</em> o <em>AuthManager</em>.
-- Recursos compartidos que deben coordinarse (por ejemplo, un <em>cache</em> en memoria).</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Configuración global de la app (localización, tema, <em>feature flags</em>).<br />
+- Gestores únicos: analítica, <em>logging</em>, <em>SessionManager</em> o <em>AuthManager</em>.<br />
+- Recursos compartidos que deben coordinarse (por ejemplo, un <em>cache</em> en memoria).  </p>
 <p><strong>Evitarlo si</strong> necesitas testabilidad alta o múltiples contextos de ejecución; en esos casos, considera inyección de dependencias.</p>
 <p><a href="../patrones/#code-singleton">Singleton</a></p>
 <details>
@@ -1122,10 +1122,10 @@ Un `object` en Kotlin actúa como singleton. `ConfiguracionGlobal` centraliza id
 <h2 id="factory">Factory</h2>
 <p><strong>Qué es</strong><br />
 Proporciona una <strong>interfaz para crear objetos</strong> sin acoplar el cliente a clases concretas.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Seleccionar implementaciones según <strong>entorno</strong> (debug/release) o <strong>plataforma</strong> (diferentes proveedores de pagos, mapas, almacenamiento).
-- Crear <em>ViewModels</em>, <em>Repositories</em> o conectores de red con <strong>estrategias intercambiables</strong>.
-- Encapsular lógica de inicialización compleja (parámetros, dependencias, <em>feature toggles</em>).</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Seleccionar implementaciones según <strong>entorno</strong> (debug/release) o <strong>plataforma</strong> (diferentes proveedores de pagos, mapas, almacenamiento).<br />
+- Crear <em>ViewModels</em>, <em>Repositories</em> o conectores de red con <strong>estrategias intercambiables</strong>.<br />
+- Encapsular lógica de inicialización compleja (parámetros, dependencias, <em>feature toggles</em>).  </p>
 <p><strong>Beneficios</strong>: desacopla, facilita pruebas (inyectas una <em>fake factory</em>), y permite ampliar comportamientos sin tocar el cliente.</p>
 <p><a href="../patrones/#code-factory">Factory</a></p>
 <details>
@@ -1137,10 +1137,10 @@ Proporciona una <strong>interfaz para crear objetos</strong> sin acoplar el clie
 <h2 id="builder">Builder</h2>
 <p><strong>Qué es</strong><br />
 Permite <strong>construir objetos complejos paso a paso</strong>, separando construcción de representación final.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Crear entidades con <strong>muchos opcionales</strong> (perfil, filtros de búsqueda, parámetros de red).
-- Configurar componentes UI complejos (diálogos, notificaciones) sin <strong>constructores kilométricos</strong>.
-- Evitar errores por órdenes de parámetros y mejorar la legibilidad encadenando pasos.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Crear entidades con <strong>muchos opcionales</strong> (perfil, filtros de búsqueda, parámetros de red).<br />
+- Configurar componentes UI complejos (diálogos, notificaciones) sin <strong>constructores kilométricos</strong>.<br />
+- Evitar errores por órdenes de parámetros y mejorar la legibilidad encadenando pasos.  </p>
 <p><a href="../patrones/#code-builder">Builder</a></p>
 <details>
 <summary>Ejemplo breve</summary>
@@ -1151,10 +1151,10 @@ Permite <strong>construir objetos complejos paso a paso</strong>, separando cons
 <h2 id="prototype">Prototype</h2>
 <p><strong>Qué es</strong><br />
 Permite <strong>clonar objetos</strong> sin acoplarse a sus clases concretas, reutilizando el estado existente.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Duplicar <strong>componentes UI</strong> o modelos con configuración costosa (estilos, formateos) para crear variantes rápidas.
-- Generar elementos repetitivos en listas o editores sin recalcular estado inicial.
-- Crear <em>placeholders</em> o <em>templates</em> que se adaptan con cambios mínimos.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Duplicar <strong>componentes UI</strong> o modelos con configuración costosa (estilos, formateos) para crear variantes rápidas.<br />
+- Generar elementos repetitivos en listas o editores sin recalcular estado inicial.<br />
+- Crear <em>placeholders</em> o <em>templates</em> que se adaptan con cambios mínimos.  </p>
 <p><a href="../patrones/#code-prototype">Prototype</a></p>
 <details>
 <summary>Ejemplo breve</summary>
