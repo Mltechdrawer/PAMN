@@ -23,7 +23,9 @@ nav:
     - Bloque2_Desarrollo_Apps/sistemas_operativos/frameworks_desarrollo.md
   - Bases de datos para aplicaciones móviles nativas: Bloque2_Desarrollo_Apps/bases_datos.md
   - Patrones de diseño:
-    - Bloque2_Desarrollo_Apps/patrones_diseno/principios_estructurales.md
+    - Bloque2_Desarrollo_Apps/patrones_diseno/principios.md
+    - Bloque2_Desarrollo_Apps/patrones_diseno/creacionales.md
+    - Bloque2_Desarrollo_Apps/patrones_diseno/estructurales.md
     - Bloque2_Desarrollo_Apps/patrones_diseno/comportamiento.md
   - Calidad del software: Bloque2_Desarrollo_Apps/calidad_software.md
 - Bloque 3. Programación y despliegue de aplicaciones móviles nativas:

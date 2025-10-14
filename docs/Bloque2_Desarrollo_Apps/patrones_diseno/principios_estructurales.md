@@ -1,3 +1,0 @@
-# Principios y patrones estructurales clásicos 
-
-Contenido en construcción...

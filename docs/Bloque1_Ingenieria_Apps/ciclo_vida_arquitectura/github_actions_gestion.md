@@ -14,7 +14,7 @@ Con la **caché**, esos archivos (ej. `.m2/repository`, `~/.gradle/caches`, `nod
 
 ---
 
-## 🔹 ¿Para qué se utiliza?
+## ¿Para qué se utiliza?
 
 - **Acelerar workflows**: reduce tiempos de compilación y test.  
 - **Ahorrar ancho de banda**: menos descargas de dependencias externas.  
@@ -32,7 +32,7 @@ Permiten que tu código no solo se compile y se pruebe, sino que también llegue
 
 ---
 
-### 🔹 Características principales
+### Características principales
 - **Entornos (Environments):** GitHub permite definir entornos como `staging` o `production` con reglas, revisores y protecciones.  
 - **Histórico de despliegues:** cada deployment queda registrado, facilitando auditoría y rollback.  
 - **Permisos y secretos:** puedes definir secretos distintos por entorno, garantizando seguridad en credenciales (ej. claves de AWS, Firebase, Play Store).  
@@ -40,7 +40,7 @@ Permiten que tu código no solo se compile y se pruebe, sino que también llegue
 
 ---
 
-### 🔹 ¿Para qué se utilizan?
+### ¿Para qué se utilizan?
 - Publicar una aplicación web en **GitHub Pages**, **Netlify** o **Vercel**.  
 - Subir un contenedor Docker a **DockerHub** o **GitHub Container Registry**.  
 - Distribuir aplicaciones móviles a **Firebase App Distribution**, **Google Play** o **TestFlight**.  
@@ -48,7 +48,7 @@ Permiten que tu código no solo se compile y se pruebe, sino que también llegue
 
 ---
 
-### 🔹 Ejemplo simple (desplegar a GitHub Pages)
+### Ejemplo simple (desplegar a GitHub Pages)
 ```yaml
 name: Deploy website
 on:
@@ -88,21 +88,21 @@ Su objetivo es mejorar la **seguridad de la cadena de suministro** (Supply Chain
 
 ---
 
-### 🔹 ¿Para qué se utilizan?
+### ¿Para qué se utilizan?
 - **Trazabilidad y confianza**: demostrar que un artefacto proviene de un pipeline controlado y de un commit concreto.
 - **Cumplimiento**: requisitos de *compliance* (p. ej., políticas internas o clientes que exigen provenance).
 - **Verificación antes del despliegue**: políticas que bloquean despliegues si el artefacto no tiene una atestación válida.
 
 ---
 
-### 🔹 Conceptos clave
+### Conceptos clave
 - **Provenance (SLSA)**: metadatos firmados que describen cómo se construyó el artefacto (fuente, builder, parámetros, hash).
 - **Firmas**: se apoyan en identidad **OIDC** del workflow y claves gestionadas por GitHub para impedir suplantaciones.
 - **Almacenamiento/consulta**: las atestaciones quedan asociadas al artefacto en GitHub y pueden verificarse en tiempo de despliegue.
 
 ---
 
-### 🔹 Ejemplo (SLSA build provenance para un binario o paquete)
+### Ejemplo (SLSA build provenance para un binario o paquete)
 > Genera una atestación de procedencia para los archivos construidos en `dist/`.
 
 ```yaml
@@ -145,7 +145,7 @@ Cada job declara su “destino” con `runs-on` (por ejemplo, `ubuntu-latest`).
 
 ---
 
-### 🔹 Tipos de runners
+### Tipos de runners
 - **GitHub-hosted runners**: máquinas efímeras gestionadas por GitHub (Ubuntu, Windows, macOS).  
   - Ventajas: cero mantenimiento, listos para uso, limpieza por job.  
   - Ejemplos: `ubuntu-latest`, `windows-latest`, `macos-latest`.  
@@ -155,7 +155,7 @@ Cada job declara su “destino” con `runs-on` (por ejemplo, `ubuntu-latest`).
 
 ---
 
-### 🔹 Selección por etiquetas (labels)
+### Selección por etiquetas (labels)
 - `runs-on` acepta **una etiqueta** (p. ej. `ubuntu-latest`) o **varias** (para self-hosted se usan combinadas).  
 - Puedes agrupar runners y asignar etiquetas como `self-hosted`, `linux`, `gpu`, `arm64` para enrutar jobs.
 
@@ -181,7 +181,7 @@ jobs:
 
 ---
 
-### 🔹 Buenas prácticas y opciones útiles
+### Buenas prácticas y opciones útiles
 - **Concurrencia** y **timeouts** para evitar jobs colgados:  
   ```yaml
   concurrency: project-ci-${{ github.ref }}
