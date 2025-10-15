@@ -1125,10 +1125,10 @@
 <h2 id="observer">Observer</h2>
 <p><strong>Qué es</strong><br />
 Establece una relación <strong>publicador → suscriptores</strong> para notificar <strong>cambios de estado</strong>.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Actualizar UI cuando cambian datos (flows, LiveData).
-- Notificar eventos del sistema (conectividad, sesión, permisos).
-- Modularizar reacciones múltiples ante un mismo evento.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Actualizar UI cuando cambian datos (flows, LiveData).<br />
+- Notificar eventos del sistema (conectividad, sesión, permisos).<br />
+- Modularizar reacciones múltiples ante un mismo evento.  </p>
 <p><a href="../patrones/#code-observer">Observer</a></p>
 <details>
 <summary>Ejemplo breve</summary>
@@ -1139,10 +1139,10 @@ Establece una relación <strong>publicador → suscriptores</strong> para notifi
 <h2 id="chain-of-responsibility">Chain of Responsibility</h2>
 <p><strong>Qué es</strong><br />
 Pasa una petición por una <strong>cadena de manejadores</strong> hasta que uno la procesa.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Validaciones de formularios con varias reglas encadenadas.
-- Procesado de eventos de UI o <em>middleware</em> de red.
-- Filtros secuenciales (compresión, cifrado, firma) en archivos.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Validaciones de formularios con varias reglas encadenadas.<br />
+- Procesado de eventos de UI o <em>middleware</em> de red.<br />
+- Filtros secuenciales (compresión, cifrado, firma) en archivos.  </p>
 <p><a href="../patrones/#code-chain">Chain of Responsibility</a></p>
 <details>
 <summary>Ejemplo breve</summary>
@@ -1153,10 +1153,10 @@ Una cadena `NoEmpty -> EmailValido -> PasswordFuerte` valida el registro. El flu
 <h2 id="command">Command</h2>
 <p><strong>Qué es</strong><br />
 Encapsula una <strong>solicitud</strong> como objeto, permitiendo <strong>deshacer</strong>, <strong>cola</strong> y <strong>registro</strong>.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Acciones con <em>undo/redo</em> (editores, listas con swipe).
-- Programar tareas diferidas/offline y reintentos.
-- Desacoplar botones/gestos de la lógica ejecutada.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Acciones con <em>undo/redo</em> (editores, listas con swipe).<br />
+- Programar tareas diferidas/offline y reintentos.<br />
+- Desacoplar botones/gestos de la lógica ejecutada.  </p>
 <p><a href="../patrones/#code-command">Command</a></p>
 <details>
 <summary>Ejemplo breve</summary>
@@ -1167,10 +1167,10 @@ Encapsula una <strong>solicitud</strong> como objeto, permitiendo <strong>deshac
 <h2 id="state">State</h2>
 <p><strong>Qué es</strong><br />
 Permite que un objeto <strong>cambie su comportamiento</strong> cuando cambia su <strong>estado interno</strong>.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Flujos con estados claros (player: <em>Playing</em>, <em>Paused</em>, <em>Stopped</em>).
-- Máquinas de estados para permisos, login o <em>onboarding</em>.
-- Reducir condicionales anidados en la UI.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Flujos con estados claros (player: <em>Playing</em>, <em>Paused</em>, <em>Stopped</em>).<br />
+- Máquinas de estados para permisos, login o <em>onboarding</em>.<br />
+- Reducir condicionales anidados en la UI.  </p>
 <p><a href="../patrones/#code-state">State</a></p>
 <details>
 <summary>Ejemplo breve</summary>
@@ -1181,10 +1181,10 @@ Permite que un objeto <strong>cambie su comportamiento</strong> cuando cambia su
 <h2 id="strategy">Strategy</h2>
 <p><strong>Qué es</strong><br />
 Define una <strong>familia de algoritmos</strong> intercambiables en <strong>tiempo de ejecución</strong>.</p>
-<p><strong>Cuándo usarlo en móvil</strong>
-- Seleccionar compresión, ordenación o <em>cache policy</em> según contexto.
-- Elegir proveedor de pago/mapas según país del usuario.
-- Reutilizar la UI con lógicas alternativas sin duplicar código.</p>
+<p><strong>Cuándo usarlo en móvil</strong><br />
+- Seleccionar compresión, ordenación o <em>cache policy</em> según contexto.<br />
+- Elegir proveedor de pago/mapas según país del usuario.<br />
+- Reutilizar la UI con lógicas alternativas sin duplicar código.  </p>
 <p><a href="../patrones/#code-strategy">Strategy</a></p>
 <details>
 <summary>Ejemplo breve</summary>

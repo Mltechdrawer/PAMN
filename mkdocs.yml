@@ -27,6 +27,7 @@ nav:
     - Bloque2_Desarrollo_Apps/patrones_diseno/creacionales.md
     - Bloque2_Desarrollo_Apps/patrones_diseno/estructurales.md
     - Bloque2_Desarrollo_Apps/patrones_diseno/comportamiento.md
+  - Arquitectura base y componentes: Bloque2_Desarrollo_Apps/arquitecturabase_componentes.md
   - Calidad del software: Bloque2_Desarrollo_Apps/calidad_software.md
 - Bloque 3. Programación y despliegue de aplicaciones móviles nativas:
   - Sensores e integración de datos: Bloque3_Programacion_Despliegue/sensores_integracion_datos.md
