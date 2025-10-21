@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../patrones_diseno/comportamiento/">
+      
+      
+        <link rel="next" href="../calidad_software/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Patrones de Diseño - Programación de Aplicaciones Móviles Nativas</title>
+        <title>Arquitectura base y componentes - Programación de Aplicaciones Móviles Nativas</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#patrones-de-diseno" class="md-skip">
+        <a href="#arquitectura-base-y-componentes-del-sistema-android" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Patrones de Diseño
+              Arquitectura base y componentes
             
           </span>
         </div>
@@ -485,18 +489,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -512,7 +518,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Bloque 2. Desarrollo de aplicaciones móviles nativas
@@ -702,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="principios/" class="md-nav__link">
+      <a href="../patrones_diseno/principios/" class="md-nav__link">
         
   
   
@@ -725,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="creacionales/" class="md-nav__link">
+      <a href="../patrones_diseno/creacionales/" class="md-nav__link">
         
   
   
@@ -748,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="estructurales/" class="md-nav__link">
+      <a href="../patrones_diseno/estructurales/" class="md-nav__link">
         
   
   
@@ -771,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comportamiento/" class="md-nav__link">
+      <a href="../patrones_diseno/comportamiento/" class="md-nav__link">
         
   
   
@@ -799,10 +805,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../arquitecturabase_componentes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura base y componentes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -813,6 +841,149 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-una-aplicacion-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura de una aplicación Android
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-fundamentales-de-una-aplicacion-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes fundamentales de una aplicación Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Componentes fundamentales de una aplicación Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-receiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broadcast Receiver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-entre-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comunicación entre componentes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-de-vida-global-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida global de la aplicación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-y-patrones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buenas prácticas y patrones de diseño
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -982,6 +1153,137 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-una-aplicacion-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura de una aplicación Android
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-fundamentales-de-una-aplicacion-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes fundamentales de una aplicación Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Componentes fundamentales de una aplicación Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fragment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast-receiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broadcast Receiver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-entre-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comunicación entre componentes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclo-de-vida-global-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida global de la aplicación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-y-patrones-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buenas prácticas y patrones de diseño
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -996,8 +1298,148 @@
 
 
 
-<h1 id="patrones-de-diseno">Patrones de Diseño</h1>
-<p>Selecciona un subtema del menú lateral.</p>
+<h1 id="arquitectura-base-y-componentes-del-sistema-android">Arquitectura base y componentes del sistema Android</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Las aplicaciones Android están formadas por un conjunto de componentes que trabajan de manera coordinada bajo la gestión del sistema operativo. Cada componente cumple una función específica y tiene un ciclo de vida propio, gestionado por el sistema según las necesidades de recursos y contexto.</p>
+<p>Comprender esta arquitectura es esencial para diseñar aplicaciones eficientes, seguras y escalables. En este tema exploraremos cómo Android organiza las aplicaciones, qué papel desempeña cada componente y cómo se comunican entre ellos.</p>
+<hr />
+<h2 id="arquitectura-de-una-aplicacion-android">Arquitectura de una aplicación Android</h2>
+<p>Una aplicación Android se compone de varias capas interdependientes:</p>
+<ol>
+<li><strong>Aplicación</strong> → Las Activities, Fragments, Services, etc. que construyen la funcionalidad visible y la lógica de la app.</li>
+<li><strong>Framework de Android</strong> → Proporciona las APIs principales que permiten interactuar con el sistema operativo.</li>
+<li><strong>Bibliotecas del sistema</strong> → Conjunto de librerías C/C++ que implementan componentes fundamentales (gráficos, base de datos, multimedia).  </li>
+<li><strong>Kernel de Linux</strong> → Gestiona memoria, procesos, seguridad y comunicación entre hardware y software.</li>
+</ol>
+<p>Android gestiona los procesos de las aplicaciones de forma dinámica. Cada app se ejecuta en su propio proceso, con su propio espacio de memoria, y el sistema puede pausar o destruir componentes para liberar recursos sin afectar a otras apps.</p>
+<hr />
+<h2 id="componentes-fundamentales-de-una-aplicacion-android">Componentes fundamentales de una aplicación Android</h2>
+<p>Los seis componentes principales son las piezas clave que el sistema utiliza para ejecutar, mostrar información, comunicarse y compartir datos entre aplicaciones.</p>
+<h3 id="activity">Activity</h3>
+<p><strong>Definición:</strong> Una Activity representa una pantalla con la que el usuario puede interactuar directamente. Es el punto de entrada más habitual de una aplicación.</p>
+<p><strong>Funciones principales:</strong>
+- Gestionar la interfaz de usuario (UI) y las interacciones del usuario.
+- Coordinar el ciclo de vida de la pantalla y los recursos asociados.</p>
+<p><strong>Métodos clave del ciclo de vida:</strong><br />
+- <code>onCreate()</code> → Inicializa la actividad y configura la interfaz.<br />
+- <code>onStart()</code> → Hace visible la Activity.<br />
+- <code>onResume()</code> → La Activity pasa a primer plano y es interactiva.  <br />
+- <code>onPause()</code> → Se pausa cuando otra Activity toma el foco.<br />
+- <code>onStop()</code> → Deja de ser visible.<br />
+- <code>onDestroy()</code> → Se libera la memoria asociada.  </p>
+<p><strong>Ejemplo:</strong>   Pantalla de inicio de sesión que contiene campos de usuario y contraseña. Cuando el usuario rota el dispositivo, el estado debe guardarse para restaurarse al volver a <code>onResume()</code>.</p>
+<p><strong>Buenas prácticas:</strong><br />
+- Evitar operaciones pesadas en <code>onCreate()</code> o <code>onResume()</code>.<br />
+- Utilizar <code>ViewModel</code> y <code>LiveData</code> para preservar el estado.<br />
+- Dividir la lógica de UI en Fragments para modularidad.  </p>
+<hr />
+<h3 id="fragment">Fragment</h3>
+<p><strong>Definición:</strong> Un Fragment es un componente reutilizable que forma parte de la interfaz de una Activity. Permite dividir una pantalla en secciones modulares.</p>
+<p><strong>Funciones principales:</strong><br />
+- Facilitar interfaces dinámicas y adaptables (por ejemplo, para tablets).<br />
+- Compartir la lógica entre diferentes pantallas.  </p>
+<p><strong>Ciclo de vida simplificado:</strong><br />
+- <code>onAttach()</code> → El fragment se asocia a la Activity.<br />
+- <code>onCreateView()</code> → Se infla el diseño (layout) del fragment.<br />
+- <code>onViewCreated()</code> → Se inicializa la lógica de la interfaz.<br />
+- <code>onPause()</code> / <code>onStop()</code> / <code>onDestroyView()</code> → Se limpian los recursos visuales.  </p>
+<p><strong>Ejemplo:</strong> Una app de noticias donde un fragment muestra la lista de artículos y otro el detalle del artículo seleccionado.</p>
+<p><strong>Buenas prácticas:</strong><br />
+- Evitar dependencias directas entre Fragments: usar <code>ViewModel</code> compartido o el componente de navegación (<code>NavController</code>).<br />
+- No mantener referencias a vistas fuera de su ciclo de vida (<code>onDestroyView()</code>).  </p>
+<hr />
+<h3 id="service">Service</h3>
+<p><strong>Definición:</strong> Un Service es un componente que ejecuta tareas en segundo plano sin interfaz de usuario.</p>
+<p><strong>Tipos de servicios:</strong><br />
+- <strong>Started Service:</strong> Inicia una tarea que se ejecuta indefinidamente (por ejemplo, descarga de archivos).<br />
+- <strong>Bound Service:</strong> Permite que otras aplicaciones o componentes se vinculen a él para interactuar (por ejemplo, un reproductor de música).<br />
+- <strong>Foreground Service:</strong> Muestra una notificación persistente para indicar al usuario que está activo.  </p>
+<p><strong>Métodos clave:</strong><br />
+- <code>onCreate()</code> → Inicializa el servicio.<br />
+- <code>onStartCommand()</code> → Inicia la tarea principal.<br />
+- <code>onBind()</code> → Permite vincular otros componentes.<br />
+- <code>onDestroy()</code> → Libera recursos.  </p>
+<p><strong>Ejemplo:</strong> Servicio que gestiona la reproducción de música o la sincronización de datos en segundo plano.</p>
+<p><strong>Buenas prácticas:</strong>
+- Evitar servicios permanentes sin notificación.
+- Utilizar <code>WorkManager</code> o <code>JobScheduler</code> para tareas periódicas o dependientes de red.</p>
+<hr />
+<h3 id="broadcast-receiver">Broadcast Receiver</h3>
+<p><strong>Definición:</strong> Los Broadcast Receivers reaccionan a eventos globales del sistema o de otras aplicaciones. No tienen interfaz de usuario y su ciclo de vida es muy breve.</p>
+<p><strong>Ejemplos de eventos:</strong><br />
+- Dispositivo conectado al cargador.<br />
+- Cambio de conectividad de red.<br />
+- Recepción de un SMS o notificación push.  </p>
+<p><strong>Método principal:</strong><br />
+- <code>onReceive(Context, Intent)</code> → Se ejecuta cuando se detecta el evento.</p>
+<p><strong>Ejemplo:</strong> Un receptor que detecta cuando el teléfono entra en modo avión y muestra un mensaje al usuario.</p>
+<p><strong>Buenas prácticas:</strong><br />
+- Registrar receptores dinámicos solo cuando sean necesarios.<br />
+- Evitar operaciones pesadas dentro de <code>onReceive()</code>.<br />
+- Usar <code>WorkManager</code> para procesamientos prolongados.  </p>
+<hr />
+<h3 id="content-provider">Content Provider</h3>
+<p><strong>Definición:</strong> Un Content Provider permite compartir datos entre diferentes aplicaciones mediante URIs estructuradas.</p>
+<p><strong>Método principal:</strong><br />
+- <code>onCreate()</code> → Se ejecuta al inicializar el proveedor y se configuran los recursos (por ejemplo, una base de datos SQLite).  </p>
+<p><strong>Métodos CRUD:</strong><br />
+- <code>query()</code> → Recupera datos.<br />
+- <code>insert()</code> → Agrega nuevos datos.<br />
+- <code>update()</code> → Modifica datos existentes.<br />
+- <code>delete()</code> → Elimina datos.<br />
+- <code>getType()</code> → Devuelve el tipo MIME asociado a una URI.  </p>
+<p><strong>Ejemplo:</strong> Un ContentProvider que ofrece acceso a los contactos o fotos del dispositivo.</p>
+<p><strong>Buenas prácticas:</strong>
+- Usar contratos (<code>Contract classes</code>) para definir URIs y columnas.
+- Implementar seguridad en los permisos de acceso.</p>
+<hr />
+<h3 id="application">Application</h3>
+<p><strong>Definición:</strong> Representa el estado global de la app y su punto de inicialización. Contiene la lógica que debe ejecutarse antes de que se creen otros componentes.</p>
+<p><strong>Método clave:</strong><br />
+- <code>onCreate()</code> → Se ejecuta una vez al inicio del proceso de la aplicación.  </p>
+<p><strong>Usos comunes:</strong><br />
+- Inicializar librerías, gestores de dependencias o configuraciones globales.<br />
+- Mantener un estado compartido entre componentes.  </p>
+<p><strong>Ejemplo:</strong> Una clase <code>MyApp</code> que extiende <code>Application</code> e inicializa <code>Hilt</code> para la inyección de dependencias.</p>
+<p><strong>Buenas prácticas:</strong><br />
+- Evitar lógica compleja en <code>onCreate()</code>.<br />
+- Delegar la inicialización a gestores o componentes específicos.  </p>
+<hr />
+<h2 id="comunicacion-entre-componentes">Comunicación entre componentes</h2>
+<p>La comunicación en Android se basa en el uso de <strong>Intents</strong>, que son mensajes asíncronos que permiten a los componentes solicitar acciones o intercambiar datos.</p>
+<p><strong>Tipos:</strong><br />
+- <strong>Intents explícitos:</strong> Se dirigen a un componente concreto dentro de la app.<br />
+- <strong>Intents implícitos:</strong> Permiten que el sistema seleccione el componente adecuado (por ejemplo, abrir la cámara o el navegador).  </p>
+<p><strong>Ejemplo:</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">intent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="na">ACTION_VIEW</span><span class="p">,</span><span class="w"> </span><span class="n">Uri</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;https://www.ulpgc.es&quot;</span><span class="p">))</span>
+<span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Buenas prácticas:</strong><br />
+- Usar <code>IntentFilter</code> para definir qué acciones puede manejar un componente.<br />
+- Validar los datos recibidos para evitar vulnerabilidades.  </p>
+<hr />
+<h2 id="ciclo-de-vida-global-de-la-aplicacion">Ciclo de vida global de la aplicación</h2>
+<p>El sistema Android controla el ciclo de vida de cada componente para optimizar recursos. Comprender este flujo permite evitar fugas de memoria y mejorar la experiencia del usuario.</p>
+<p><strong>Flujo general:</strong><br />
+1. El usuario inicia una Activity.<br />
+2. Esta puede crear Fragments y Services según necesidad.<br />
+3. El sistema puede pausar, detener o destruir componentes cuando cambian las condiciones (por ejemplo, al rotar la pantalla o minimizar la app).<br />
+4. Los BroadcastReceivers y ContentProviders se activan solo cuando son requeridos.  </p>
+<p><strong>Importancia del manifiesto (<code>AndroidManifest.xml</code>):</strong><br />
+- Declara todos los componentes y sus permisos.<br />
+- Define qué Activity actúa como punto de entrada (<code>intent-filter</code> con <code>MAIN</code> y <code>LAUNCHER</code>).  </p>
+<hr />
+<h2 id="buenas-practicas-y-patrones-de-diseno">Buenas prácticas y patrones de diseño</h2>
+<ul>
+<li>Aplicar el patrón <strong>MVVM</strong> (Model-View-ViewModel) para separar lógica de negocio y UI.</li>
+<li>Usar <strong>ViewModel</strong> y <strong>LiveData</strong> para gestionar el ciclo de vida de datos.</li>
+<li>Delegar tareas de segundo plano a <strong>WorkManager</strong> o <strong>Coroutines</strong>.</li>
+<li>Evitar dependencias directas entre Activities y Fragments.</li>
+<li>Seguir principios <strong>Clean Architecture</strong> para modularidad y testabilidad.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>Los componentes del sistema Android trabajan de forma orquestada para ofrecer una experiencia fluida al usuario. Comprender su papel y ciclo de vida es fundamental para crear aplicaciones robustas, escalables y eficientes. En los siguientes temas profundizaremos en el <strong>ciclo de vida</strong> de cada componente y en la <strong>gestión de estados</strong> durante la ejecución de la aplicación.</p>
 
 
 
