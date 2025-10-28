@@ -9,7 +9,63 @@ En el contexto móvil, los fallos o un mal rendimiento pueden implicar pérdidas
 Bajo el enfoque **DevOps**, la calidad se concibe como un proceso **continuo y automatizado**, que acompaña todo el ciclo de vida del software: planificación, desarrollo, pruebas, despliegue y monitorización. Cada versión debe superar controles de calidad antes de llegar al usuario.
 
 ---
+<details>
+  <summary><strong>Ejemplos de pérdidas económicas por crashes y errores en producción</strong></summary>
+  <h3>1. Pérdida directa de usuarios y reputación</h3>
+  <p>En el ecosistema móvil, un <em>crash</em> frecuente provoca desinstalaciones inmediatas y reseñas negativas.</p>
 
+  <p><strong>Snapchat (2015):</strong> una actualización defectuosa en iOS provocaba cierres al abrir la cámara frontal.<br>
+  → Millones de usuarios reportaron el fallo y la app perdió posición en la App Store en menos de 48 h.<br>
+  → Coste estimado: cientos de miles de dólares en ingresos publicitarios perdidos y deterioro de la marca.</p>
+
+  <p><strong>Amazon Shopping (2018):</strong> un bug en la versión Android provocaba cierres al iniciar sesión.<br>
+  → En el “Prime Day”, durante una de las campañas más rentables del año, se registró una caída temporal de conversión del 7 %.<br>
+  → A escala global, eso equivale a <strong>más de 20 millones de dólares perdidos en pocas horas.</strong></p>
+
+  <h3>Impacto en el negocio por errores en producción</h3>
+  <p>Cuando un fallo llega a producción, no solo se pierden ingresos: el coste de arreglarlo se multiplica.</p>
+
+  <p><strong>Toyota (2005, software embebido):</strong> una excepción no controlada en el sistema de aceleración causó fallos críticos.<br>
+  → El defecto costó a la compañía más de <strong>1.200 millones de dólares</strong> en demandas y retirada de vehículos.<br>
+  → Aunque no era móvil, el principio es el mismo: una excepción sin control = fallo catastrófico.</p>
+
+  <p><strong>Bank of America (2019):</strong> una actualización de la app móvil generó cierres cuando los usuarios cambiaban de pestaña mientras se actualizaba la base de datos local.<br>
+  → Miles de usuarios no pudieron acceder a su cuenta durante más de 24 h.<br>
+  → Impacto estimado: <strong>decenas de millones</strong> en atención al cliente y pérdida de confianza.</p>
+
+  <h3>Coste de mantenimiento y recuperación de errores</h3>
+  <p>Un <em>crash</em> no controlado suele requerir una revisión de emergencia, interrumpiendo el ciclo DevOps normal.
+  Esto implica horas de trabajo no planificadas, <em>hotfixes</em>, revisión de QA y pérdida de productividad.</p>
+
+  <p>Según el informe de IBM “Cost of a Bug” (2016),<br>
+  <strong>arreglar un error en producción puede costar hasta 100 veces más que detectarlo en la fase de desarrollo.</strong></p>
+
+  <p><strong>Ejemplo numérico:</strong><br>
+  Detectarlo en desarrollo: ~100 €.<br>
+  Detectarlo tras despliegue: ~10.000 € (por test, <em>rollback</em>, atención a usuarios, etc.).</p>
+
+  <h3>Riesgos legales y de seguridad</h3>
+  <p>Un <em>crash</em> mal gestionado puede derivar en exposición de datos o incumplimiento de normativas.</p>
+
+  <p><strong>Equifax (2017):</strong> una excepción no gestionada correctamente en un componente web permitió la explotación de una vulnerabilidad.<br>
+  → Filtración de datos de 143 millones de usuarios.<br>
+  → Multas superiores a <strong>700 millones de dólares</strong> por incumplir la legislación de protección de datos.</p>
+
+  <h3>Impacto en métricas de calidad y posicionamiento</h3>
+  <p>En las tiendas de apps, las métricas de <em>stability</em> son criterio de ranking:</p>
+
+  <ul>
+    <li>Google Play y App Store penalizan apps con tasas de cierre superiores al <strong>1 %</strong>.</li>
+    <li>Una app con <em>crash rate</em> alto baja posiciones en las búsquedas, lo que reduce descargas y visibilidad.</li>
+    <li>En algunos casos, Google llega a <strong>retirar temporalmente la app</strong> por considerarla inestable.</li>
+  </ul>
+
+  <p><strong>Ejemplo:</strong><br>
+  Una startup con 500.000 usuarios activos mensuales puede perder fácilmente entre <strong>50.000 y 100.000 € al mes</strong>
+  si su app cae del top 10 al top 100 en descargas.</p>
+</details>
+
+---
 [Ejemplo](excepciones.md "Ejemplo de excepciones")
 
 ---
@@ -60,12 +116,20 @@ Existen múltiples herramientas que ayudan a garantizar la calidad del código, 
 
 Permiten inspeccionar automáticamente el código fuente para encontrar errores, malas prácticas o problemas de estilo.
 
-- **SonarQube / SonarCloud** → Analiza *code smells*, duplicaciones, deuda técnica y vulnerabilidades.  
-- **Detekt (Kotlin)** → Especializado en código Kotlin, detecta violaciones de estilo y complejidad.  
-- **Android Lint** → Incluido en Android Studio, revisa el rendimiento, accesibilidad y consistencia.  
+- **SonarQube / SonarCloud** → Analiza *code smells*, duplicaciones, deuda técnica y vulnerabilidades. [SonarQube](sonarqube.md "SonarQube") 
+- **Detekt (Kotlin)** → Especializado en código Kotlin, detecta violaciones de estilo y complejidad. [Detekt](detekt.md "Detekt")    
+- **Android Lint** → Incluido en Android Studio, revisa el rendimiento, accesibilidad y consistencia. [Lint](lint.md "Lint")   
 - **PMD / Checkstyle** → Garantizan convenciones de codificación en proyectos colaborativos.
 
 *Consejo:* Configura estas herramientas en tu pipeline CI/CD para bloquear la integración de código defectuoso.
+
+<details>
+<summary><strong>Análisis Estático</strong></summary>
+<p><strong>Detekt</strong> analiza el estilo y las buenas prácticas del código Kotlin, revisa, por tanto el estilo del código Kotlin.</p>
+<p><strong>Android Lint</strong> revisa el proyecto completo de Android: desde el código hasta los layouts, los recursos y el manifiesto. Es la primera línea de defensa para garantizar la calidad y la coherencia en las aplicaciones móviles nativas.</p>
+<p><strong>SonarQube</strong> integra todo ese análisis en un panel unificado que mide la calidad global, la deuda técnica y las métricas de cobertura del proyecto.</p> 
+<p>En los entornos DevOps, <strong>SonarQube</strong> actúa como el <strong> control central de calidad continua</strong>.</p>
+</details>
 
 ---
 

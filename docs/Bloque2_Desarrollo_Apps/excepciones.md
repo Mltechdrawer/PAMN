@@ -1,8 +1,22 @@
-# Estructura de proyecto y ubicación del manejo de excepciones en Kotlin
+# Excepciones
 
-Este documento describe cómo organizar un proyecto Android en Kotlin siguiendo una arquitectura MVVM + Clean, indicando en qué carpetas y ficheros debe ubicarse el manejo de excepciones y la lógica de red.
+Una excepción es un mecanismo del lenguaje de programación que permite detectar y manejar errores o situaciones anómalas que ocurren durante la ejecución de un programa.
 
-## Estructura general del proyecto
+En lugar de que el programa “se rompa” o finalice abruptamente cuando algo falla, las excepciones permiten interceptar el error, entender qué ocurrió y reaccionar adecuadamente (por ejemplo, mostrando un mensaje al usuario o intentando otra acción).
+
+> Una excepción es un evento inesperado que altera el flujo normal del programa y que el sistema puede capturar y tratar de forma controlada.
+
+**¿Por qué se plantearon las excepciones?**
+
+Antes de que existieran, el manejo de errores era manual y repetitivo:  
+- Los programadores debían comprobar continuamente si algo salía mal (por ejemplo, si un archivo existía o si una división era válida).  
+- Esto generaba código confuso y difícil de mantener, lleno de condiciones (if...else) que controlaban cada posible fallo.  
+- Proyecto Android en Kotlin siguiendo una arquitectura MVVM + Clean, indicando en qué carpetas y ficheros debe ubicarse el manejo de excepciones y la lógica de red.  
+
+
+## Estructura de proyecto y ubicación del manejo de excepciones en Kotlin
+
+### Estructura general del proyecto
 
 ```bash
 app/
@@ -44,7 +58,7 @@ app/
 
 ```
 
-### Excepciones personalizadas
+#### Excepciones personalizadas
 
 Ruta: core/exceptions/*
 
@@ -57,7 +71,7 @@ class NetworkException(message: String, cause: Throwable? = null) : Exception(me
 class UnknownAppException(message: String, cause: Throwable? = null) : Exception(message, cause)
 ```
 
-### Contrato del repositorio (dominio)
+#### Contrato del repositorio (dominio)
 
 Ruta: domain/repository/TaskRepository.kt
 
@@ -71,7 +85,7 @@ interface TaskRepository {
 }
 ```
 
-### Entidad de dominio
+#### Entidad de dominio
 
 Ruta: domain/model/Task.kt
 
@@ -85,7 +99,7 @@ data class Task(
 )
 ```
 
-## Cliente de red
+### Cliente de red
 
 Ruta (interfaz): data/network/ApiClient.kt
 Ruta (implementación): data/network/RetrofitApiClient.kt
@@ -129,7 +143,7 @@ class RetrofitApiClient(
 }
 ```
 
-## Repositorio (implementación del manejo de excepciones)
+### Repositorio (implementación del manejo de excepciones)
 
 Ruta: data/repository/TaskRepositoryImpl.kt
 
@@ -175,7 +189,7 @@ class TaskRepositoryImpl(
 
 ```
 
-## ViewModel (manejo de excepciones en la capa de presentación)
+### ViewModel (manejo de excepciones en la capa de presentación)
 
 Ruta: ui/tasks/TaskViewModel.kt
 
@@ -214,7 +228,7 @@ class TaskViewModel(
 
 ```
 
-## UI (Fragment o Activity)
+### UI (Fragment o Activity)
 
 Ruta: ui/tasks/TaskListFragment.kt
 
@@ -254,7 +268,7 @@ class TaskListFragment : Fragment() {
 
 ```
 
-## Inyección de dependencias (opcional con Hilt)
+### Inyección de dependencias (opcional con Hilt)
 
 Ruta: di/RepositoryModule.kt
 
