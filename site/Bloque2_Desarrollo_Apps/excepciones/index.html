@@ -16,7 +16,7 @@
     
     
       
-        <title>Estructura de proyecto y ubicación del manejo de excepciones en Kotlin - Programación de Aplicaciones Móviles Nativas</title>
+        <title>Excepciones - Programación de Aplicaciones Móviles Nativas</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estructura-de-proyecto-y-ubicacion-del-manejo-de-excepciones-en-kotlin" class="md-skip">
+        <a href="#excepciones" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Estructura de proyecto y ubicación del manejo de excepciones en Kotlin
+              Excepciones
             
           </span>
         </div>
@@ -989,6 +989,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#estructura-de-proyecto-y-ubicacion-del-manejo-de-excepciones-en-kotlin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estructura de proyecto y ubicación del manejo de excepciones en Kotlin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura de proyecto y ubicación del manejo de excepciones en Kotlin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#estructura-general-del-proyecto" class="md-nav__link">
     <span class="md-ellipsis">
       Estructura general del proyecto
@@ -1029,8 +1039,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cliente-de-red" class="md-nav__link">
     <span class="md-ellipsis">
       Cliente de red
@@ -1038,8 +1048,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#repositorio-implementacion-del-manejo-de-excepciones" class="md-nav__link">
     <span class="md-ellipsis">
       Repositorio (implementación del manejo de excepciones)
@@ -1047,8 +1057,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#viewmodel-manejo-de-excepciones-en-la-capa-de-presentacion" class="md-nav__link">
     <span class="md-ellipsis">
       ViewModel (manejo de excepciones en la capa de presentación)
@@ -1056,8 +1066,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#ui-fragment-o-activity" class="md-nav__link">
     <span class="md-ellipsis">
       UI (Fragment o Activity)
@@ -1065,13 +1075,18 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#inyeccion-de-dependencias-opcional-con-hilt" class="md-nav__link">
     <span class="md-ellipsis">
       Inyección de dependencias (opcional con Hilt)
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1091,9 +1106,19 @@
 
 
 
-<h1 id="estructura-de-proyecto-y-ubicacion-del-manejo-de-excepciones-en-kotlin">Estructura de proyecto y ubicación del manejo de excepciones en Kotlin</h1>
-<p>Este documento describe cómo organizar un proyecto Android en Kotlin siguiendo una arquitectura MVVM + Clean, indicando en qué carpetas y ficheros debe ubicarse el manejo de excepciones y la lógica de red.</p>
-<h2 id="estructura-general-del-proyecto">Estructura general del proyecto</h2>
+<h1 id="excepciones">Excepciones</h1>
+<p>Una excepción es un mecanismo del lenguaje de programación que permite detectar y manejar errores o situaciones anómalas que ocurren durante la ejecución de un programa.</p>
+<p>En lugar de que el programa “se rompa” o finalice abruptamente cuando algo falla, las excepciones permiten interceptar el error, entender qué ocurrió y reaccionar adecuadamente (por ejemplo, mostrando un mensaje al usuario o intentando otra acción).</p>
+<blockquote>
+<p>Una excepción es un evento inesperado que altera el flujo normal del programa y que el sistema puede capturar y tratar de forma controlada.</p>
+</blockquote>
+<p><strong>¿Por qué se plantearon las excepciones?</strong></p>
+<p>Antes de que existieran, el manejo de errores era manual y repetitivo:<br />
+- Los programadores debían comprobar continuamente si algo salía mal (por ejemplo, si un archivo existía o si una división era válida).<br />
+- Esto generaba código confuso y difícil de mantener, lleno de condiciones (if...else) que controlaban cada posible fallo.<br />
+- Proyecto Android en Kotlin siguiendo una arquitectura MVVM + Clean, indicando en qué carpetas y ficheros debe ubicarse el manejo de excepciones y la lógica de red.  </p>
+<h2 id="estructura-de-proyecto-y-ubicacion-del-manejo-de-excepciones-en-kotlin">Estructura de proyecto y ubicación del manejo de excepciones en Kotlin</h2>
+<h3 id="estructura-general-del-proyecto">Estructura general del proyecto</h3>
 <div class="highlight"><pre><span></span><code>app/
 └─<span class="w"> </span>src/
 <span class="w">   </span>└─<span class="w"> </span>main/
@@ -1131,7 +1156,7 @@
 <span class="w">               </span>├─<span class="w"> </span>TaskListFragment.kt
 <span class="w">               </span>└─<span class="w"> </span>TaskListAdapter.kt
 </code></pre></div>
-<h3 id="excepciones-personalizadas">Excepciones personalizadas</h3>
+<h4 id="excepciones-personalizadas">Excepciones personalizadas</h4>
 <p>Ruta: core/exceptions/*</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.core.exceptions</span>
 
@@ -1140,7 +1165,7 @@
 <span class="kd">class</span><span class="w"> </span><span class="nc">NetworkException</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">cause</span><span class="p">:</span><span class="w"> </span><span class="n">Throwable? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">cause</span><span class="p">)</span>
 <span class="kd">class</span><span class="w"> </span><span class="nc">UnknownAppException</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">cause</span><span class="p">:</span><span class="w"> </span><span class="n">Throwable? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">cause</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="contrato-del-repositorio-dominio">Contrato del repositorio (dominio)</h3>
+<h4 id="contrato-del-repositorio-dominio">Contrato del repositorio (dominio)</h4>
 <p>Ruta: domain/repository/TaskRepository.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.domain.repository</span>
 
@@ -1150,7 +1175,7 @@
 <span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getTasks</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="entidad-de-dominio">Entidad de dominio</h3>
+<h4 id="entidad-de-dominio">Entidad de dominio</h4>
 <p>Ruta: domain/model/Task.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.domain.model</span>
 
@@ -1160,7 +1185,7 @@
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">completed</span><span class="p">:</span><span class="w"> </span><span class="kt">Boolean</span>
 <span class="p">)</span>
 </code></pre></div>
-<h2 id="cliente-de-red">Cliente de red</h2>
+<h3 id="cliente-de-red">Cliente de red</h3>
 <p>Ruta (interfaz): data/network/ApiClient.kt
 Ruta (implementación): data/network/RetrofitApiClient.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.data.network</span>
@@ -1198,7 +1223,7 @@ Ruta (implementación): data/network/RetrofitApiClient.kt</p>
 <span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">fetchTasks</span><span class="p">():</span><span class="w"> </span><span class="n">Response</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">TaskDto</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">getTasks</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="repositorio-implementacion-del-manejo-de-excepciones">Repositorio (implementación del manejo de excepciones)</h2>
+<h3 id="repositorio-implementacion-del-manejo-de-excepciones">Repositorio (implementación del manejo de excepciones)</h3>
 <p>Ruta: data/repository/TaskRepositoryImpl.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.data.repository</span>
 
@@ -1239,7 +1264,7 @@ Ruta (implementación): data/network/RetrofitApiClient.kt</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="viewmodel-manejo-de-excepciones-en-la-capa-de-presentacion">ViewModel (manejo de excepciones en la capa de presentación)</h2>
+<h3 id="viewmodel-manejo-de-excepciones-en-la-capa-de-presentacion">ViewModel (manejo de excepciones en la capa de presentación)</h3>
 <p>Ruta: ui/tasks/TaskViewModel.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.ui.tasks</span>
 
@@ -1273,7 +1298,7 @@ Ruta (implementación): data/network/RetrofitApiClient.kt</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="ui-fragment-o-activity">UI (Fragment o Activity)</h2>
+<h3 id="ui-fragment-o-activity">UI (Fragment o Activity)</h3>
 <p>Ruta: ui/tasks/TaskListFragment.kt</p>
 <div class="highlight"><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">com.example.todo.ui.tasks</span>
 
@@ -1308,7 +1333,7 @@ Ruta (implementación): data/network/RetrofitApiClient.kt</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="inyeccion-de-dependencias-opcional-con-hilt">Inyección de dependencias (opcional con Hilt)</h2>
+<h3 id="inyeccion-de-dependencias-opcional-con-hilt">Inyección de dependencias (opcional con Hilt)</h3>
 <p>Ruta: di/RepositoryModule.kt</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Module</span>
 <span class="nd">@InstallIn</span><span class="p">(</span><span class="n">SingletonComponent</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>

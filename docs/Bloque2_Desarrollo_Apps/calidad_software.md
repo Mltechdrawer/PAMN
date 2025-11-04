@@ -230,4 +230,6 @@ Integrar la calidad dentro del ciclo **DevOps** permite entregar software confia
 
 *Nota:* La calidad no es una fase final del desarrollo, sino una práctica continua que acompaña cada línea de código.
 
+---
 
+[Ejemplo práctico 1](calidad_ejemplo1.md "Ejemplo práctico")
