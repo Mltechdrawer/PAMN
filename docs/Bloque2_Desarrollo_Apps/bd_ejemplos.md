@@ -280,11 +280,11 @@ fun main() = runBlocking {
 #### Flow
 
 Es una API de flujo de datos asíncronos pensada para emitir múltiples valores a lo largo del tiempo, de forma reactiva y no bloqueante.  
-Se usa cuando tenemos datos que cambian con el tiempo, por ejemplo:
-- Lecturas continuas desde una base de datos.
-- Eventos de UI.
-- Streams de sensores.
-- Resultados de peticiones que se actualizan periódicamente.
+Se usa cuando tenemos datos que cambian con el tiempo, por ejemplo:  
+- Lecturas continuas desde una base de datos.   
+- Eventos de UI.  
+- Streams de sensores.  
+- Resultados de peticiones que se actualizan periódicamente.  
 
 
 <details>

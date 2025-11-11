@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bases-de-datos" class="md-skip">
+        <a href="#bases-de-datos-para-aplicaciones-moviles-nativas" class="md-skip">
           Skip to content
         </a>
       
@@ -656,6 +656,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Bases de datos para aplicaciones móviles nativas
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -667,6 +680,388 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-persistencia-de-datos-en-apps-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción: persistencia de datos en apps móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción: persistencia de datos en apps móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-de-seleccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de selección
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-almacenamiento-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de almacenamiento en Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de almacenamiento en Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sharedpreferences-datastore" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) SharedPreferences / DataStore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-archivos-internos-y-externos" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Archivos internos y externos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bases-de-datos-relacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Bases de datos relacionales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-bases-de-datos-no-relacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      d) Bases de datos no relacionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-el-motor-relacional-integrado-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLite: el motor relacional integrado en Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQLite: el motor relacional integrado en Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso en Android
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitaciones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#room-la-capa-de-abstraccion-de-sqlite-recomendada-por-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Room: la capa de abstracción de SQLite recomendada por Google
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Room: la capa de abstracción de SQLite recomendada por Google">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-recomendada-con-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura recomendada con Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura recomendada con Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo recomendado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraciones-y-mantenimiento-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migraciones y mantenimiento de la base de datos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migraciones y mantenimiento de la base de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buenas prácticas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sincronizacion-y-persistencia-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sincronización y persistencia híbrida
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sincronización y persistencia híbrida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias comunes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-no-relacionales-en-apps-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bases de datos no relacionales en apps móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bases de datos no relacionales en apps móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectBox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firebase-realtime-database-firestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firebase Realtime Database / Firestore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad-y-buenas-practicas-en-bases-de-datos-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seguridad y buenas prácticas en bases de datos móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seguridad y buenas prácticas en bases de datos móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomendaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recomendaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizacion-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimización y rendimiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico-app-de-notas-con-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo práctico: app de notas con Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo práctico: app de notas con Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puntos clave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -998,6 +1393,377 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-persistencia-de-datos-en-apps-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción: persistencia de datos en apps móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción: persistencia de datos en apps móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de uso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-de-seleccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de selección
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-almacenamiento-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de almacenamiento en Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de almacenamiento en Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sharedpreferences-datastore" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) SharedPreferences / DataStore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-archivos-internos-y-externos" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Archivos internos y externos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bases-de-datos-relacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Bases de datos relacionales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-bases-de-datos-no-relacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      d) Bases de datos no relacionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-el-motor-relacional-integrado-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLite: el motor relacional integrado en Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQLite: el motor relacional integrado en Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uso-en-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso en Android
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitaciones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#room-la-capa-de-abstraccion-de-sqlite-recomendada-por-google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Room: la capa de abstracción de SQLite recomendada por Google
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Room: la capa de abstracción de SQLite recomendada por Google">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes principales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-recomendada-con-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura recomendada con Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura recomendada con Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo recomendado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraciones-y-mantenimiento-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migraciones y mantenimiento de la base de datos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migraciones y mantenimiento de la base de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buenas prácticas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sincronizacion-y-persistencia-hibrida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sincronización y persistencia híbrida
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sincronización y persistencia híbrida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias comunes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-no-relacionales-en-apps-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bases de datos no relacionales en apps móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bases de datos no relacionales en apps móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#realm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Realm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectBox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firebase-realtime-database-firestore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firebase Realtime Database / Firestore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seguridad-y-buenas-practicas-en-bases-de-datos-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seguridad y buenas prácticas en bases de datos móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seguridad y buenas prácticas en bases de datos móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomendaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recomendaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizacion-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimización y rendimiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico-app-de-notas-con-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo práctico: app de notas con Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo práctico: app de notas con Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Puntos clave
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1012,8 +1778,331 @@
 
 
 
-<h1 id="bases-de-datos">Bases de Datos</h1>
-<p>Contenido en construcción...</p>
+<h1 id="bases-de-datos-para-aplicaciones-moviles-nativas">Bases de datos para aplicaciones móviles nativas</h1>
+<h2 id="introduccion-persistencia-de-datos-en-apps-moviles">Introducción: persistencia de datos en apps móviles</h2>
+<p>En el desarrollo de aplicaciones móviles, la <strong>persistencia de datos</strong> se refiere a la capacidad de una app para <strong>almacenar información de forma permanente</strong>, incluso después de cerrarse o reiniciarse el dispositivo.<br />
+Es un componente esencial en casi cualquier aplicación: desde guardar las preferencias del usuario hasta mantener datos complejos como listas de tareas, notas o registros offline.</p>
+<h3 id="ejemplos-de-uso">Ejemplos de uso</h3>
+<ul>
+<li>Guardar la sesión del usuario (token, configuración).  </li>
+<li>Almacenar contenido descargado (mensajes, fotos, notas).  </li>
+<li>Mantener datos disponibles sin conexión.  </li>
+</ul>
+<p>La persistencia se diferencia del almacenamiento temporal (por ejemplo, variables en memoria), ya que los datos <strong>se conservan en disco</strong> hasta que se eliminen explícitamente.</p>
+<p><a href="../bd_ejemplos/#ejemplo1-aplicación-de-lista-de-tareas-todo-app">Ejemplo ToDoApp</a></p>
+<h3 id="criterios-de-seleccion">Criterios de selección</h3>
+<p>Elegir un mecanismo de almacenamiento depende de:
+- El <strong>volumen</strong> y la <strong>estructura</strong> de los datos.<br />
+- La <strong>necesidad de sincronización</strong> con servidores remotos.<br />
+- Los <strong>requisitos de seguridad y rendimiento</strong>.<br />
+- La <strong>complejidad del modelo de datos</strong>.</p>
+<hr />
+<h2 id="tipos-de-almacenamiento-en-android">Tipos de almacenamiento en Android</h2>
+<p>Android ofrece varios mecanismos de almacenamiento, cada uno con su propósito y nivel de complejidad.</p>
+<h3 id="a-sharedpreferences-datastore">a) SharedPreferences / DataStore</h3>
+<ul>
+<li>Almacenamiento de pares <strong>clave-valor</strong>.  </li>
+<li>Ideal para configuraciones simples (tema oscuro, idioma, autenticación).  </li>
+<li>Sustituido progresivamente por <strong>DataStore</strong>, basado en <em>coroutines</em> y <em>Flow</em>.</li>
+</ul>
+<h3 id="b-archivos-internos-y-externos">b) Archivos internos y externos</h3>
+<ul>
+<li>Permiten guardar ficheros binarios o de texto (JSON, XML, imágenes).  </li>
+<li><strong>Internos:</strong> privados de la app.  </li>
+<li><strong>Externos:</strong> visibles por el usuario o compartidos con otras apps (requieren permisos).</li>
+</ul>
+<h3 id="c-bases-de-datos-relacionales">c) Bases de datos relacionales</h3>
+<ul>
+<li>Estructura basada en <strong>tablas, filas y columnas</strong>.  </li>
+<li>SQLite es el motor nativo de Android.  </li>
+<li><strong>Room</strong>, el framework recomendado de Jetpack, simplifica su uso.</li>
+</ul>
+<h3 id="d-bases-de-datos-no-relacionales">d) Bases de datos no relacionales</h3>
+<ul>
+<li>Almacenan datos en formato <strong>documento u objeto</strong>.  </li>
+<li>Ejemplos: <strong>Realm</strong>, <strong>ObjectBox</strong>, <strong>Firebase Realtime Database</strong> y <strong>Firestore</strong>.  </li>
+<li>Ventaja: sincronización automática y estructuras dinámicas.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Ejemplo</th>
+<th>Uso recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clave-valor</td>
+<td>SharedPreferences / DataStore</td>
+<td>Configuraciones simples</td>
+</tr>
+<tr>
+<td>Ficheros</td>
+<td>JSON, imágenes, logs</td>
+<td>Datos personalizados</td>
+</tr>
+<tr>
+<td>Relacional</td>
+<td>SQLite / Room</td>
+<td>Datos estructurados y persistentes</td>
+</tr>
+<tr>
+<td>No relacional</td>
+<td>Realm / Firestore</td>
+<td>Sincronización y estructura flexible</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sqlite-el-motor-relacional-integrado-en-android">SQLite: el motor relacional integrado en Android</h2>
+<p><strong>SQLite</strong> es un motor de base de datos relacional ligero, integrado en el sistema operativo Android.<br />
+No requiere configuración de servidor y almacena la información en un solo archivo local.</p>
+<h3 id="caracteristicas-principales">Características principales</h3>
+<ul>
+<li>Basado en SQL estándar (tablas, relaciones, consultas, índices).  </li>
+<li>Muy eficiente en rendimiento y espacio.  </li>
+<li>Soporta transacciones y constraints (clave primaria, foránea, etc.).</li>
+</ul>
+<h3 id="uso-en-android">Uso en Android</h3>
+<p>Antes de Room, el acceso se realizaba directamente mediante la clase <code>SQLiteOpenHelper</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">UserDatabaseHelper</span><span class="p">(</span><span class="n">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">)</span><span class="w"> </span><span class="p">:</span>
+<span class="w">    </span><span class="n">SQLiteOpenHelper</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;users.db&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">db</span><span class="p">:</span><span class="w"> </span><span class="n">SQLiteDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">db</span><span class="p">.</span><span class="na">execSQL</span><span class="p">(</span><span class="s">&quot;CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onUpgrade</span><span class="p">(</span><span class="n">db</span><span class="p">:</span><span class="w"> </span><span class="n">SQLiteDatabase</span><span class="p">,</span><span class="w"> </span><span class="n">oldVersion</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">newVersion</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">db</span><span class="p">.</span><span class="na">execSQL</span><span class="p">(</span><span class="s">&quot;DROP TABLE IF EXISTS users&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">onCreate</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="limitaciones">Limitaciones</h3>
+<ul>
+<li>Mucho código <em>boilerplate</em> (SQL manual).  </li>
+<li>Sin comprobación en tiempo de compilación.  </li>
+<li>Dificultad de mantenimiento en proyectos grandes.</li>
+</ul>
+<hr />
+<h2 id="room-la-capa-de-abstraccion-de-sqlite-recomendada-por-google">Room: la capa de abstracción de SQLite recomendada por Google</h2>
+<p><strong>Room</strong> es una librería de Jetpack que actúa como una <strong>capa de abstracción sobre SQLite</strong>.<br />
+Permite trabajar con objetos Kotlin en lugar de consultas SQL directas, aumentando la productividad y seguridad del código.</p>
+<h3 id="componentes-principales">Componentes principales</h3>
+<ul>
+<li><strong>Entity</strong> – Representa una tabla en la base de datos.  </li>
+<li><strong>DAO (Data Access Object)</strong> – Define las operaciones CRUD (<em>Create, Read, Update, Delete</em>).  </li>
+<li><strong>Database</strong> – Punto de acceso general que enlaza las entidades y DAOs.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span><span class="p">(</span><span class="n">tableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;users&quot;</span><span class="p">)</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@PrimaryKey</span><span class="p">(</span><span class="n">autoGenerate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">id</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">email</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="p">)</span>
+
+<span class="nd">@Dao</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nc">UserDao</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;SELECT * FROM users&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getAll</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span>
+
+<span class="w">    </span><span class="nd">@Insert</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">user</span><span class="p">:</span><span class="w"> </span><span class="n">User</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nd">@Database</span><span class="p">(</span><span class="n">entities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">User</span><span class="o">::</span><span class="n">class</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">AppDatabase</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RoomDatabase</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">userDao</span><span class="p">():</span><span class="w"> </span><span class="n">UserDao</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="ventajas">Ventajas</h3>
+<ul>
+<li>Validación de consultas en tiempo de compilación.  </li>
+<li>Integración con <em>coroutines</em>, <em>Flow</em> y <em>LiveData</em>.  </li>
+<li>Reducción del código repetitivo.  </li>
+<li>Fácil migración entre versiones.</li>
+</ul>
+<hr />
+<h2 id="arquitectura-recomendada-con-room">Arquitectura recomendada con Room</h2>
+<p><strong>Room</strong> se integra perfectamente en la arquitectura <strong>MVVM (Model–View–ViewModel)</strong>.</p>
+<h3 id="flujo-recomendado">Flujo recomendado</h3>
+<blockquote>
+<p><strong>Flujo recomendado:</strong><br />
+ViewModel → Repository → DAO → Entity → SQLite</p>
+</blockquote>
+<h3 id="ventajas_1">Ventajas</h3>
+<ul>
+<li>Separación de responsabilidades.</li>
+<li>Facilita las pruebas unitarias.</li>
+<li>Mejora la mantenibilidad.</li>
+</ul>
+<h2 id="migraciones-y-mantenimiento-de-la-base-de-datos">Migraciones y mantenimiento de la base de datos</h2>
+<p>Cuando se cambia el esquema (por ejemplo, añadir una columna o tabla nueva), es necesario realizar una migración para conservar los datos existentes.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">migration_1_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nc">Migration</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">database</span><span class="p">:</span><span class="w"> </span><span class="n">SupportSQLiteDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">database</span><span class="p">.</span><span class="na">execSQL</span><span class="p">(</span><span class="s">&quot;ALTER TABLE users ADD COLUMN age INTEGER NOT NULL DEFAULT 0&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="nv">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Room</span><span class="p">.</span><span class="na">databaseBuilder</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">AppDatabase</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app.db&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">addMigrations</span><span class="p">(</span><span class="n">migration_1_2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="buenas-practicas">Buenas prácticas</h3>
+<ul>
+<li>Versionar el esquema con <code>exportSchema = true</code>.  </li>
+<li>Evitar <code>fallbackToDestructiveMigration()</code> (elimina los datos).  </li>
+<li>Probar las migraciones con tests automáticos.</li>
+</ul>
+<hr />
+<h2 id="sincronizacion-y-persistencia-hibrida">Sincronización y persistencia híbrida</h2>
+<p>Muchas apps combinan almacenamiento local con sincronización remota.<br />
+Esto se conoce como <strong>persistencia híbrida</strong> o enfoque <em>offline-first</em>.</p>
+<h3 id="estrategias-comunes">Estrategias comunes</h3>
+<ul>
+<li><strong>Cache local + API REST:</strong> los datos se guardan localmente y se sincronizan con el servidor.  </li>
+<li><strong>Colas de operaciones pendientes:</strong> cuando no hay conexión, las operaciones se registran y se ejecutan más tarde.  </li>
+<li><strong>Conflict resolution:</strong> reglas para resolver diferencias entre los datos locales y remotos.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TaskRepository</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">dao</span><span class="p">:</span><span class="w"> </span><span class="n">TaskDao</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">api</span><span class="p">:</span><span class="w"> </span><span class="n">TaskService</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">getAll</span><span class="p">()</span>
+
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">sync</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">remoteTasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">api</span><span class="p">.</span><span class="na">getTasks</span><span class="p">()</span>
+<span class="w">        </span><span class="n">dao</span><span class="p">.</span><span class="na">insertAll</span><span class="p">(</span><span class="n">remoteTasks</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="bases-de-datos-no-relacionales-en-apps-moviles">Bases de datos no relacionales en apps móviles</h2>
+<p>Además de SQLite y Room, existen soluciones <strong>no relacionales</strong> diseñadas para mejorar el rendimiento y ofrecer sincronización en tiempo real.</p>
+<h3 id="realm">Realm</h3>
+<ul>
+<li>Base de datos orientada a objetos.  </li>
+<li>No requiere SQL ni DAOs: los objetos se guardan directamente.  </li>
+<li>Sincronización automática con la nube (opcional).</li>
+</ul>
+<h3 id="objectbox">ObjectBox</h3>
+<ul>
+<li>Muy rápida (optimizaciones nativas para Android).  </li>
+<li>Usa anotaciones y consultas tipo objeto.  </li>
+<li>Ideal para apps con gran volumen de datos locales.</li>
+</ul>
+<h3 id="firebase-realtime-database-firestore">Firebase Realtime Database / Firestore</h3>
+<ul>
+<li>Bases de datos en la nube de Google.  </li>
+<li>Sincronización en tiempo real entre usuarios y dispositivos.  </li>
+<li>Soporte <em>offline</em> automático.  </li>
+<li>Estructura basada en documentos (<em>NoSQL</em>).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Solución</th>
+<th>Tipo</th>
+<th>Características principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Realm</td>
+<td>No relacional (objetos)</td>
+<td>Alta velocidad, persistencia automática</td>
+</tr>
+<tr>
+<td>ObjectBox</td>
+<td>No relacional (objetos)</td>
+<td>Muy eficiente en lectura/escritura</td>
+</tr>
+<tr>
+<td>Firestore</td>
+<td>Documental (nube)</td>
+<td>Sincronización automática y escalabilidad</td>
+</tr>
+</tbody>
+</table>
+<h2 id="seguridad-y-buenas-practicas-en-bases-de-datos-moviles">Seguridad y buenas prácticas en bases de datos móviles</h2>
+<p>La seguridad de los datos locales es fundamental para proteger la información del usuario.</p>
+<h3 id="recomendaciones">Recomendaciones</h3>
+<ul>
+<li>Encriptar la base de datos: usar <strong>SQLCipher</strong> o <strong>EncryptedSharedPreferences</strong>.  </li>
+<li>Proteger el acceso: validar identidad antes de leer o escribir.  </li>
+<li>Evitar almacenar contraseñas o tokens sin cifrar.  </li>
+<li>Eliminar datos sensibles al cerrar sesión o desinstalar la app.</li>
+</ul>
+<h3 id="optimizacion-y-rendimiento">Optimización y rendimiento</h3>
+<ul>
+<li>Usar índices para acelerar consultas.  </li>
+<li>Evitar operaciones pesadas en el hilo principal.  </li>
+<li>Reutilizar conexiones y cerrar cursores.  </li>
+<li>Limitar la cantidad de registros devueltos.</li>
+</ul>
+<hr />
+<h2 id="ejemplo-practico-app-de-notas-con-room">Ejemplo práctico: app de notas con Room</h2>
+<p><strong>Objetivo:</strong> crear una aplicación de notas que guarde y muestre datos de manera local.</p>
+<h3 id="componentes">Componentes</h3>
+<ul>
+<li><code>Note</code> (Entity)  </li>
+<li><code>NoteDao</code> (DAO)  </li>
+<li><code>AppDatabase</code> (Base de datos)  </li>
+<li><code>NoteRepository</code> (Capa de datos)  </li>
+<li><code>NoteViewModel</code> (Capa de presentación)</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">Note</span><span class="p">(</span>
+<span class="w">    </span><span class="nd">@PrimaryKey</span><span class="p">(</span><span class="n">autoGenerate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">id</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">title</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">content</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="p">)</span>
+
+<span class="nd">@Dao</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nc">NoteDao</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Query</span><span class="p">(</span><span class="s">&quot;SELECT * FROM Note ORDER BY id DESC&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">getAll</span><span class="p">():</span><span class="w"> </span><span class="n">Flow</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Note</span><span class="o">&gt;&gt;</span>
+
+<span class="w">    </span><span class="nd">@Insert</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">Note</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nd">@Delete</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">Note</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nd">@Database</span><span class="p">(</span><span class="n">entities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">Note</span><span class="o">::</span><span class="n">class</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">AppDatabase</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RoomDatabase</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">noteDao</span><span class="p">():</span><span class="w"> </span><span class="n">NoteDao</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">NoteRepository</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">dao</span><span class="p">:</span><span class="w"> </span><span class="n">NoteDao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">getAll</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">Note</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nc">NoteViewModel</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">repository</span><span class="p">:</span><span class="w"> </span><span class="n">NoteRepository</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ViewModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">notes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">notes</span><span class="p">.</span><span class="na">asLiveData</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">Note</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">note</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+La interfaz (<code>Activity</code> o <code>Fragment</code>) se conecta al <code>ViewModel</code> y observa los cambios de <code>LiveData</code> para actualizar la interfaz de usuario en tiempo real.</p>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>La persistencia de datos es un pilar esencial en las aplicaciones móviles nativas.<br />
+Android ofrece múltiples opciones, pero <strong>Room</strong> se ha consolidado como la herramienta estándar por su facilidad de uso, seguridad y compatibilidad con la arquitectura moderna de Android.</p>
+<h3 id="puntos-clave">Puntos clave</h3>
+<ul>
+<li>Usar <strong>Room</strong> para bases de datos estructuradas locales.  </li>
+<li>Sincronizar datos con repositorios remotos cuando sea necesario.  </li>
+<li>Proteger la información mediante cifrado y buenas prácticas.  </li>
+<li>Priorizar la arquitectura limpia y mantenible.</li>
+</ul>
+<blockquote>
+<p>Una app sin un modelo sólido de persistencia es frágil e inconsistente: la base de datos es la memoria a largo plazo de toda aplicación.</p>
+</blockquote>
+<p><strong>Referencias:</strong><br />
+- <a href="https://developer.android.com/training/data-storage/room">Documentación oficial de Room</a><br />
+- <a href="https://www.sqlite.org/docs.html">Documentación de SQLite</a></p>
 
 
 
