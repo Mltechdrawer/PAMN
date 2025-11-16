@@ -1,0 +1,1407 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Corrutinas y Dispatchers en Kotlin - Programación de Aplicaciones Móviles Nativas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#corrutinas-y-dispatchers-en-kotlin" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación de Aplicaciones Móviles Nativas" class="md-header__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación de Aplicaciones Móviles Nativas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Corrutinas y Dispatchers en Kotlin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación de Aplicaciones Móviles Nativas" class="md-nav__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programación de Aplicaciones Móviles Nativas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contenidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contenidos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de vida y arquitectura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ciclo de vida y arquitectura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de Vida - DevOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad y normativa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accesibilidad y normativa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/accesibilidad/accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/normativa/normativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Normativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diseño de interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 2. Desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 2. Desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos para dispositivos móviles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operativos para dispositivos móviles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/sistemas_operativos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/lenguajes_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/frameworks_desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frameworks de desarrollo para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bases_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bases de datos para aplicaciones móviles nativas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Patrones de diseño
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/principios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/creacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño creacionales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño estructurales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/comportamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño de comportamiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitecturabase_componentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura base y componentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calidad_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Calidad del software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/sensores_integracion_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sensores e integración de datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/errores_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestión de errores y logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/despliegue_apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Despliegue de aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corrutinas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corrutinas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptos-fundamentales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conceptos Fundamentales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceptos Fundamentales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ligereza-y-suspension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ligereza y suspensión
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evita-fugas-de-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evita fugas de memoria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibilidad-con-la-cancelacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compatibilidad con la cancelación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-con-jetpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integración con Jetpack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dispatchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatchers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dispatchers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dispatchersdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatchers.Default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchersio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatchers.IO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchersmain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatchers.Main
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatchersunconfined" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatchers.Unconfined
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importancia-de-los-dispatchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importancia de los Dispatchers
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="corrutinas-y-dispatchers-en-kotlin">Corrutinas y Dispatchers en Kotlin</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>En el desarrollo de aplicaciones Android, la concurrencia y el paralelismo son esenciales para mantener una experiencia de usuario fluida, evitando bloqueos en la interfaz mientras se ejecutan tareas complejas. Kotlin introduce las corrutinas como una solución ligera y estructurada para manejar operaciones asíncronas, permitiendo ejecutar múltiples tareas sin saturar los recursos del sistema. Los dispatchers, por su parte, controlan en qué hilos se ejecutan esas corrutinas, optimizando la distribución del trabajo entre tareas de CPU, entrada/salida o actualización de la interfaz.</p>
+<ul>
+<li>Una corrutina es como una “tarea” o función que puede suspenderse.</li>
+<li>Un dispatcher es el “motor” o “carretera” por donde circula esa tarea.</li>
+</ul>
+<h2 id="corrutinas">Corrutinas</h2>
+<p>Las <strong>corrutinas</strong> en Kotlin son una herramienta poderosa para manejar la <strong>concurrencia</strong> de manera sencilla y eficiente.<br />
+Permiten ejecutar múltiples tareas simultáneamente sin bloquear el hilo principal, lo que es esencial en el desarrollo de <strong>aplicaciones móviles nativas</strong>.  </p>
+<p>A diferencia de los hilos tradicionales, las corrutinas son <strong>ligeras</strong> y pueden <strong>suspenderse</strong> sin bloquear el hilo, retomando su ejecución más adelante.<br />
+Gracias a esta capacidad, se pueden ejecutar miles de corrutinas dentro de un solo hilo sin un gran consumo de recursos.</p>
+<details>
+<summary> Patrón </summary>
+<p>Una <strong>corrutina</strong> es un <strong>patrón de diseño de simultaneidad</strong> que puedes usar en Android para simplificar el código que se ejecuta de forma asíncrona
+</p>
+</details>
+
+<hr />
+<h2 id="conceptos-fundamentales">Conceptos Fundamentales</h2>
+<h3 id="ligereza-y-suspension">Ligereza y suspensión</h3>
+<p>Una corrutina es más ligera que un hilo porque puede <strong>suspender su ejecución</strong> sin bloquear el hilo en el que se encuentra.<br />
+Esto permite lanzar muchas corrutinas al mismo tiempo, algo impensable con hilos tradicionales.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">repeat</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">        </span><span class="n">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Corrutina </span><span class="si">$</span><span class="n">i</span><span class="s"> completada&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>En este ejemplo, se lanzan mil corrutinas que se suspenden durante un segundo sin bloquear el hilo principal.<br />
+El sistema gestiona las suspensiones de manera eficiente, permitiendo la ejecución concurrente.</p>
+<hr />
+<h3 id="evita-fugas-de-memoria">Evita fugas de memoria</h3>
+<p>Las corrutinas están diseñadas para evitar <strong>fugas de memoria</strong>.<br />
+Cuando se cancelan o completan, liberan automáticamente los recursos asociados, evitando mantener referencias innecesarias.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">repeat</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Trabajando </span><span class="si">$</span><span class="n">i</span><span class="s"> ...&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="n">delay</span><span class="p">(</span><span class="m">500L</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liberando recursos...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1300L</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Cancelando corrutina...&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">job</span><span class="p">.</span><span class="na">cancelAndJoin</span><span class="p">()</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Corrutina cancelada correctamente.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="compatibilidad-con-la-cancelacion">Compatibilidad con la cancelación</h3>
+<p>Una de las grandes ventajas de las corrutinas es su <strong>soporte integrado para la cancelación</strong>.<br />
+Cuando se cancela una corrutina, la cancelación se propaga automáticamente a todas las corrutinas hijas en ejecución.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">padre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">delay</span><span class="p">(</span><span class="kt">Long</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Corrutina hija cancelada&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Cancelando corrutina padre&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">cancel</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">padre</span><span class="p">.</span><span class="na">join</span><span class="p">()</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Fin del programa&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><a href="https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4wLjIxIiwicGxhdGZvcm0iOiJqYXZhIiwiYXJncyI6IiIsIm5vbmVNYXJrZXJzIjp0cnVlLCJ0aGVtZSI6ImlkZWEiLCJjb2RlIjoiZnVuIG1haW4oKSB7XG4gICAgdmFsIGtvdGxpbiA9IFwi8J+ZglwiXG4gICAgcHJpbnRsbihrb3RsaW4pXG59In0=" title="Kotlilang">Kotlilang</a></p>
+<hr />
+<h3 id="integracion-con-jetpack">Integración con Jetpack</h3>
+<p>Muchas librerías de <strong>Jetpack</strong> incluyen extensiones que funcionan de forma nativa con corrutinas.<br />
+Por ejemplo, <code>ViewModelScope</code> o <code>lifecycleScope</code> permiten lanzar tareas que se cancelan automáticamente cuando el componente deja de estar activo.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MiViewModel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ViewModel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">cargarDatos</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obtenerDatosDeRed</span><span class="p">()</span>
+<span class="w">            </span><span class="n">actualizarUI</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="dispatchers">Dispatchers</h2>
+<p>Los <strong>Dispatchers</strong> determinan <strong>en qué hilo o hilos</strong> se ejecutará una corrutina.<br />
+Seleccionar el dispatcher adecuado es esencial para un rendimiento óptimo y para evitar bloquear la interfaz de usuario.</p>
+<hr />
+<h3 id="dispatchersdefault">Dispatchers.Default</h3>
+<p>Se usa para tareas que requieren un alto uso de CPU, como cálculos intensivos o procesamiento de datos.<br />
+Utiliza un grupo de hilos optimizado en función del número de núcleos disponibles.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Default</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">resultado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="m">1</span><span class="n">_000_000</span><span class="p">).</span><span class="na">sum</span><span class="p">()</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Suma completada: </span><span class="si">$</span><span class="n">resultado</span><span class="s"> en </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}.</span><span class="na">join</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Este es el Dispatcher por defecto si no se especifica uno explícito al lanzar una corrutina.</p>
+<hr />
+<h3 id="dispatchersio">Dispatchers.IO</h3>
+<p>Diseñado para operaciones de <strong>entrada/salida</strong> que pueden bloquear el hilo (lectura de archivos, red, bases de datos).<br />
+Cuenta con un grupo de hilos más grande para manejar múltiples operaciones simultáneas.<br />
+Optimiza las corrutinas para tareas de E/S al ofrecer un grupo de hilos más grande que Dispatchers.Default, ya que muchas de estas operaciones pueden bloquear el hilo.<br />
+Ayuda a evitar el bloqueo de la interfaz de usuario al delegar estas tareas en hilos secundarios.  </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">withContext</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">texto</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="p">}.</span><span class="na">joinToString</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Contenido leído: </span><span class="si">${</span><span class="n">texto</span><span class="p">.</span><span class="na">take</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="dispatchersmain">Dispatchers.Main</h3>
+<p>Usado en Android para ejecutar tareas en el <strong>hilo principal</strong>, ideal para actualizaciones de la interfaz de usuario.<br />
+Debe emplearse únicamente para operaciones rápidas, evitando bloqueos.<br />
+Se usa para la ejecución en el hilo principal, ideal para tareas relacionadas con la interfaz de usuario, como actualizaciones de la UI en aplicaciones Android.<br />
+Dado que el hilo principal controla la UI, las operaciones que se ejecuten en este Dispatcher deben ser rápidas y no bloquear la ejecución, para evitar que la aplicación se congele o tenga retrasos.  </p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">MainActivity</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AppCompatActivity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span><span class="w"> </span><span class="n">Bundle?)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+<span class="w">        </span><span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">lifecycleScope</span><span class="p">.</span><span class="na">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Main</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">datos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obtenerDatosDeRed</span><span class="p">()</span>
+<span class="w">            </span><span class="n">actualizarUI</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="dispatchersunconfined">Dispatchers.Unconfined</h3>
+<p>No está asociado a ningún hilo específico.<br />
+Comienza en el hilo actual y puede continuar en otro después de la primera suspensión.<br />
+Su uso se recomienda solo en pruebas o situaciones controladas.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Unconfined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Inicio en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Reanudado en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="importancia-de-los-dispatchers">Importancia de los Dispatchers</h2>
+<p>El uso correcto de los dispatchers permite aprovechar al máximo la concurrencia y mantener las aplicaciones <strong>ágiles y fluidas</strong>.<br />
+Asignar cada tarea al dispatcher adecuado evita bloqueos, mejora la experiencia del usuario y garantiza una interfaz reactiva.</p>
+<hr />
+<div class="highlight"><pre><span></span><code><span class="c1">// 5 Dispatchers</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlinx.coroutines.*</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">kotlin.random.Random</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">runBlocking</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Default Dispatcher: para una simulación de cálculos intensivos en CPU</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">job1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Default</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heavyComputation</span><span class="p">()</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Default Dispatcher (cálculo intensivo): Resultado = \</span><span class="si">$</span><span class="n">result</span><span class="s"> en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// IO Dispatcher: Simulamos una operación de entrada/salida sin usar archivos debido a restricciones del playground</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">job2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">IO</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">simulateIOOperation</span><span class="p">()</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;IO Dispatcher (simulación de operación I/O): Se ha completado la operación en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Unconfined Dispatcher: para una tarea que no tiene un contexto fijo y comienza en el hilo principal</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">job3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">launch</span><span class="p">(</span><span class="n">Dispatchers</span><span class="p">.</span><span class="na">Unconfined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Unconfined Dispatcher: Ejecutando en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="m">500L</span><span class="p">)</span><span class="w"> </span><span class="c1">// simula una pequeña pausa</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Unconfined Dispatcher (después del delay): Ejecutando en hilo: </span><span class="si">${</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">joinAll</span><span class="p">(</span><span class="n">job1</span><span class="p">,</span><span class="w"> </span><span class="n">job2</span><span class="p">,</span><span class="w"> </span><span class="n">job3</span><span class="p">)</span><span class="w"> </span><span class="c1">// Esperar a que terminen todos los trabajos</span>
+<span class="p">}</span>
+
+<span class="c1">// Función que simula una operación de cálculo intensivo en la CPU</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">heavyComputation</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Simular cálculos complejos generando un número aleatorio después de un bucle de trabajo</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">1</span><span class="n">_000_000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span>
+<span class="p">}</span>
+
+<span class="c1">// Función que simula una operación de entrada/salida sin acceso al sistema de archivos</span>
+<span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">simulateIOOperation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="m">1000L</span><span class="p">)</span><span class="w"> </span><span class="c1">// Simulamos una operación que lleva tiempo, como leer datos de una base de datos o de una API</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>En resumen:</strong><br />
+- Las tareas intensivas deben ir a <code>Dispatchers.Default</code>.  <br />
+- Las operaciones de E/S deben usar <code>Dispatchers.IO</code>.  <br />
+- Las actualizaciones de interfaz deben realizarse en <code>Dispatchers.Main</code>.    </p>
+<p>El dominio de las corrutinas y sus dispatchers es fundamental para desarrollar aplicaciones Android modernas, eficientes y libres de bloqueos.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

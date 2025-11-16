@@ -559,3 +559,5 @@ Entre las principales tendencias se encuentran:
 Los sensores son el puente entre el mundo físico y el digital en las aplicaciones móviles nativas.    
 Su capacidad para **percibir, interpretar e integrar datos** hace posible una interacción más natural, segura y personalizada con los dispositivos.    
 El futuro de la computación móvil dependerá en gran medida de cómo gestionemos e interpretemos la enorme cantidad de información generada por estos sensores, garantizando siempre un equilibrio entre **innovación, eficiencia y ética tecnológica**.  
+
+[Integración de Datos](integradatos.md "Integración de Datos")
