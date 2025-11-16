@@ -390,6 +390,10 @@ El sistema Android controla el ciclo de vida de cada componente para optimizar r
 
 ---
 
+[Corrutinas](corrutinas_kotlin.md "Corrutinas Kotlin")
+
+---
+
 ## Buenas prácticas y patrones de diseño
 - Aplicar el patrón **MVVM** (Model-View-ViewModel) para separar lógica de negocio y UI.
 - Usar **ViewModel** y **LiveData** para gestionar el ciclo de vida de datos.
