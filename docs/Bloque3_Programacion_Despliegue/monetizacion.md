@@ -82,6 +82,3 @@ pero son el **canal principal** para captar usuarios activos, que sí generan in
 | **Gratuita con anuncios (Freemium / Ad-based)** | No | Publicidad (CPM o CPC) | Menos descargas = menos usuarios activos = menos impresiones publicitarias | Pérdida de 100.000 usuarios = ~40.000 €/mes |
 | **Gratuita con compras integradas (In-App Purchases)** | No | Compras dentro de la app (2–5 % de conversión) | Menos descargas = menos compradores potenciales | Pérdida de 85.000 usuarios = ~25.000 €/mes |
 | **App con suscripción (Subscription)** | No | Suscripciones mensuales o anuales (1 % conversión) | Menos descargas = menos pruebas → menos suscriptores | ↓ de 100.000 a 10.000 descargas → pérdida de ~4.500 €/mes |
-
->*Una vez desplegada la aplicación, el siguiente aspecto clave es entender cómo puede generar >ingresos.*
->*Para ello, veremos a continuación los distintos [modelos de monetización](monetizacion.md "Modelos de monetización") y cómo afectan a las >descargas y al ciclo de vida de una app.*

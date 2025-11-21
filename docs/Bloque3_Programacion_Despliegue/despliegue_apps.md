@@ -299,3 +299,5 @@ Aspectos clave:
 
 ---
 
+>*Una vez desplegada la aplicación, el siguiente aspecto clave es entender cómo puede generar >ingresos.*
+>*Para ello, veremos a continuación los distintos [modelos de monetización](monetizacion.md "Modelos de monetización") y cómo afectan a las >descargas y al ciclo de vida de una app.*
