@@ -43,7 +43,7 @@ Permite ajustar automáticamente el brillo de la pantalla y optimizar el consumo
 
 *Sensores de luz*
 
-[Sensor de luz](sensores/luz.md "Sensor de luz")
+[Código - Sensor de luz](sensores/luz.md "Sensor de luz")
 
 <details>
 <summary>Proceso</summary>
@@ -108,7 +108,7 @@ Todos convierten la señal analógica en coordenadas digitales X e Y que el sist
 
 *Sensores de pantalla táctil ópticos*
 
-[Manejo de eventos táctiles](sensores/eventostactiles.md "Manejo de eventos táctiles")
+[Código - Manejo de eventos táctiles](sensores/eventostactiles.md "Manejo de eventos táctiles")
 
 <details>
 <summary>Proceso</summary>
@@ -149,7 +149,7 @@ Se usa, por ejemplo, para apagar la pantalla durante una llamada al acercar el t
 
 *Sensores de proximidad*
 
-[Sensor de proximidad](sensores/proximidad.md "Sensor de proximidad")
+[Código - Sensor de proximidad](sensores/proximidad.md "Sensor de proximidad")
 
 ---
 
@@ -165,7 +165,7 @@ Su procesamiento digital permite grabar, transmitir o interpretar voz y sonidos 
 
 *Micrófono*
 
-[Lectura del micrófono](sensores/microfono.md "Lectura del micrófono")
+[Código - Lectura del micrófono](sensores/microfono.md "Lectura del micrófono")
 
 <details>
 <summary>Proceso</summary>
@@ -200,7 +200,7 @@ Es esencial para detectar orientación, pasos o movimientos bruscos.
 
 *Estructura MEMS de un acelerómetro* - *Vista esquemática superior MEMS*
 
-[Acelerómetro](sensores/acelerometro.md "Acelerómetro")
+[Código - Acelerómetro](sensores/acelerometro.md "Acelerómetro")
 
 
 <details>
@@ -229,7 +229,7 @@ Permite determinar la orientación del dispositivo y sirve de base para las brú
 
 *Magnetrómetro*
 
-[Magnetómetro](sensores/magnetometro.md "Magnetómetro")
+[Código - Magnetómetro](sensores/magnetometro.md "Magnetómetro")
 
 
 <details>
@@ -258,7 +258,7 @@ Permite registrar giros, rotaciones y mejorar la precisión del movimiento.
 
 *Giroscopio*
 
-[Giroscopio](sensores/giroscopio.md "Giroscopio")
+[Código - Giroscopio](sensores/giroscopio.md "Giroscopio")
 
 
 <details>
@@ -286,7 +286,7 @@ Transforman la información óptica en señales digitales que conforman imágene
 
 *Cámaras*
 
-[Cámara](sensores/camara.md "Giroscopio")
+[Código - Cámara](sensores/camara.md "Giroscopio")
 
 <details>
 <summary>Proceso</summary>
@@ -326,7 +326,7 @@ Se utiliza para contar pasos, estimar distancias y calcular gasto calórico.
 
 *Podómetro*
 
-[Podómetro](sensores/podometro.md "Podómetro")
+[Código - Podómetro](sensores/podometro.md "Podómetro")
 
 <details>
 <summary>Proceso</summary>
@@ -360,7 +360,7 @@ Permite la autenticación biométrica segura del usuario.
 *Huella Dactilar*
 
 
-[Huella Dactilar](sensores/huelladactilar.md "Huella Dactilar")
+[Código - Huella Dactilar](sensores/huelladactilar.md "Huella Dactilar")
 
 
 <details>
@@ -389,6 +389,8 @@ Ayuda a estimar la altitud y a mejorar la precisión de los datos de localizaci�
 
 *Barómetro*
 
+[Código - Barómetro](sensores/barometro.md "Barómetro")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> Membrana delgada que se deforma -captura de la presión-</p>
@@ -414,6 +416,8 @@ Es útil para la gestión térmica del sistema y para aplicaciones ambientales.
 
 *Termómetro*
 
+[Código - Termómetro](sensores/termometro.md "Termómetro")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> Captura de la temperatura</p>
@@ -437,6 +441,8 @@ Ayuda a registrar las condiciones ambientales y puede integrarse con sensores de
 
 *Sensores de Humedad*
 
+[Código - Humedad](sensores/humedad.md "Humedad")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> Modificación de material higroscópico</p>
@@ -459,6 +465,8 @@ Se emplea en relojes inteligentes y dispositivos de monitorización de salud.
 ![Ritmo Cardíaco](ritmocardiaco.png "Ritmo Cardíaco")
 
 *Ritmo Cardíaco*
+
+[Código - Ritmo Cardíaco](sensores/ritmocardiaco.md "Ritmo Cardíaco")
 
 <details>
 <summary>Proceso</summary>
@@ -492,11 +500,15 @@ Los sensores no solo recopilan datos locales; también se comunican con otros di
 
 *Bluetooth*
 
+[Código - Bluetooth](sensores/bluetooth.md "Bluetooth")
+
 ---
 
 ![NFC](nfc.png "NFC")
 
 *NFC*
+
+[Código - NFC](sensores/nfc.md "NFC")
 
 ---
 
@@ -504,11 +516,15 @@ Los sensores no solo recopilan datos locales; también se comunican con otros di
 
 *Wifi*
 
+[Código - wifi](sensores/wifi.md "wifi")
+
 ---
 
 ![RadioFM](radio.png "Radio")
 
 *Radio FM*
+
+[Código - RadioFM](sensores/radiofm.md "RadioFM")
 
 ---
 

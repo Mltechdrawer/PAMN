@@ -209,11 +209,7 @@ En el panel del servicio elegido:
 
 ### Mejora iterativa basada en logging  
 El ciclo completo:  
-1. Detectar error →    
-2. Registrar error →    
-3. Analizar datos →    
-4. Corregir →    
-5. Verificar reducción de fallos.  
+Detectar error → Registrar error → Analizar datos → Corregir →  Verificar reducción de fallos.  
 
 Este proceso mejora la estabilidad con cada versión.  
 
