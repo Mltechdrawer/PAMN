@@ -2,16 +2,16 @@
 
 ---
 
-# 1. Introducción al Despliegue de Aplicaciones
+## Introducción al Despliegue de Aplicaciones
 
 El despliegue es la fase del ciclo de vida del software en la que una aplicación, tras pasar por desarrollo y pruebas, se prepara para ser distribuida a los usuarios finales. En el contexto móvil, desplegar una aplicación implica empaquetarla, firmarla digitalmente y distribuirla a través de mecanismos oficiales (Google Play, App Store) o privados.
 
-### 1.1. Build, Release y Deployment
+### Build, Release y Deployment
 - **Build**: proceso técnico de compilación y generación del paquete (APK, AAB, IPA).  
 - **Release**: versión de la aplicación que se prepara para distribuir.  
 - **Deployment (despliegue)**: acción de poner la aplicación disponible para los usuarios.
 
-### 1.2. Retos del despliegue móvil
+### Retos del despliegue móvil
 - Fragmentación de dispositivos.  
 - Permisos sensibles y políticas estrictas.  
 - Procesos de revisión en tiendas.  
@@ -20,9 +20,9 @@ El despliegue es la fase del ciclo de vida del software en la que una aplicació
 
 ---
 
-# 2. Modelos de despliegue en aplicaciones móviles
+## Modelos de despliegue en aplicaciones móviles
 
-## 2.1. Despliegue local (sideloading)
+### Despliegue local (sideloading)
 Utilizado en fases de desarrollo y pruebas internas.
 
 Características:
@@ -36,14 +36,14 @@ Limitaciones:
 
 ---
 
-## 2.2. Despliegue mediante tiendas oficiales
+### Despliegue mediante tiendas oficiales
 
-### Android – Google Play Store
+#### Android – Google Play Store
 - Revisión técnica rápida.  
 - Control de versiones y etapas de despliegue.  
 - Analíticas integradas.
 
-### iOS – Apple App Store
+#### iOS – Apple App Store
 - Revisión manual estricta.  
 - Políticas muy detalladas.  
 - Uso obligatorio para distribución pública.
@@ -55,7 +55,7 @@ Ventajas:
 
 ---
 
-## 2.3. Despliegue corporativo o privado
+### Despliegue corporativo o privado
 Útil para empresas o instituciones.
 
 Modalidades:
@@ -69,9 +69,9 @@ Ventajas:
 
 ---
 
-# 3. Construcción y empaquetado de aplicaciones móviles
+## Construcción y empaquetado de aplicaciones móviles
 
-## 3.1. Proceso de build
+### Proceso de build
 Incluye:
 - Compilación del código.  
 - Procesamiento de recursos.  
@@ -84,14 +84,14 @@ Tipos de build:
 
 ---
 
-## 3.2. Firmas digitales
+### Firmas digitales
 Las aplicaciones móviles deben estar firmadas digitalmente.
 
-### Android
+#### Android
 - Firma con **keystore** (clave privada).
 - Distintas claves para desarrollo y producción.
 
-### iOS
+#### iOS
 - Necesita certificados emitidos por Apple.
 - Perfiles de aprovisionamiento que autorizan dispositivos o distribución.
 
@@ -102,7 +102,7 @@ Propósitos:
 
 ---
 
-## 3.3. Versionado
+### Versionado
 Es esencial para organizar actualizaciones y compatibilidad.
 
 Elementos:
@@ -115,9 +115,9 @@ Estrategias:
 
 ---
 
-# 4. Despliegue en Android
+## Despliegue en Android
 
-## 4.1. Google Play Console
+### Google Play Console
 La plataforma oficial de publicación en Android.
 
 Funcionalidades:
@@ -128,13 +128,13 @@ Funcionalidades:
 
 ---
 
-## 4.2. Formatos de distribución
+### Formatos de distribución
 
-### APK
+#### APK
 Paquete clásico de Android.  
 Se puede instalar directamente.
 
-### AAB (Android App Bundle)
+#### AAB (Android App Bundle)
 Formato moderno recomendado:
 - Reduce tamaño.  
 - Google genera APKs específicos por dispositivo.  
@@ -142,7 +142,7 @@ Formato moderno recomendado:
 
 ---
 
-## 4.3. Revisión y políticas
+### Revisión y políticas
 Causas frecuentes de rechazo:
 - Permisos sensibles sin justificación.  
 - Uso indebido de datos personales.  
@@ -151,9 +151,9 @@ Causas frecuentes de rechazo:
 
 ---
 
-# 5. Despliegue en iOS
+## Despliegue en iOS
 
-## 5.1. Certificados y perfiles de aprovisionamiento
+### Certificados y perfiles de aprovisionamiento
 
 Tipos de certificados:
 - Desarrollo  
@@ -169,7 +169,7 @@ Controlan dónde puede instalarse la app.
 
 ---
 
-## 5.2. TestFlight
+### TestFlight
 Sistema oficial de pruebas.
 
 Permite:
@@ -179,7 +179,7 @@ Permite:
 
 ---
 
-## 5.3. App Store Connect
+### App Store Connect
 Portal de publicación en iOS.
 
 Incluye:
@@ -195,9 +195,9 @@ Motivos comunes de rechazo:
 
 ---
 
-# 6. Automatización del despliegue
+## Automatización del despliegue
 
-## 6.1. CI/CD en aplicaciones móviles
+### CI/CD en aplicaciones móviles
 Automatizar el ciclo de desarrollo reduce errores y agiliza publicaciones.
 
 Fases típicas:
@@ -209,7 +209,7 @@ Fases típicas:
 
 ---
 
-## 6.2. Herramientas comunes
+### Herramientas comunes
 - **Fastlane**: firma, capturas, publicación automatizada.  
 - **GitHub Actions**: pipelines simples y flexibles.  
 - **GitLab CI**: integración completa.  
@@ -218,9 +218,9 @@ Fases típicas:
 
 ---
 
-# 7. Estrategias de despliegue y publicación
+## Estrategias de despliegue y publicación
 
-## 7.1. Publicación escalonada
+### Publicación escalonada
 Permite liberar la app a un porcentaje de usuarios progresivamente.
 
 Ventajas:
@@ -229,13 +229,13 @@ Ventajas:
 
 ---
 
-## 7.2. Canary releases
+### Canary releases
 La app se despliega para un grupo reducido muy específico.  
 Se usa para validar nuevas funciones en entornos reales.
 
 ---
 
-## 7.3. Feature flags
+### Feature flags
 Permiten activar o desactivar funcionalidades sin publicar una nueva versión.
 
 Usos:
@@ -245,9 +245,9 @@ Usos:
 
 ---
 
-# 8. Monitorización, analítica y validación post-despliegue
+## Monitorización, analítica y validación post-despliegue
 
-## 8.1. Monitorización
+### Monitorización
 Se analiza el comportamiento real de la app mediante:
 - Rendimiento.  
 - Consumo de memoria.  
@@ -255,7 +255,7 @@ Se analiza el comportamiento real de la app mediante:
 
 ---
 
-## 8.2. Analítica
+### Analítica
 Información sobre:
 - Pantallas más usadas.  
 - Flujo de navegación.  
@@ -264,7 +264,7 @@ Información sobre:
 
 ---
 
-## 8.3. Validación tras publicar
+### Validación tras publicar
 Incluye:
 - Pruebas rápidas en dispositivos reales.  
 - Comprobación de permisos y seguridad.  
@@ -273,7 +273,7 @@ Incluye:
 
 ---
 
-# 9. Seguridad en el proceso de despliegue
+## Seguridad en el proceso de despliegue
 
 Aspectos clave:
 - Proteger claves de firma (almacenamiento seguro).  
@@ -283,7 +283,7 @@ Aspectos clave:
 
 ---
 
-# 10. Buenas prácticas y errores comunes
+## Buenas prácticas y errores comunes
 
 ### Buenas prácticas:
 - Usar entornos separados: desarrollo, pruebas, producción.  
