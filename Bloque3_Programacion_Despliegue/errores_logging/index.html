@@ -931,6 +931,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Gestión de errores y logging
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -942,6 +955,448 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-la-gestion-de-errores-y-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción a la gestión de errores y logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a la gestión de errores y logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-es-importante-manejar-errores-en-aplicaciones-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué es importante manejar errores en aplicaciones móviles?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es logging?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-errores-y-tipos-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de errores y tipos de logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-errores-en-aplicaciones-moviles-nativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos de errores en aplicaciones móviles nativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos de errores en aplicaciones móviles nativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#errores-en-tiempo-de-compilacion-vs-tiempo-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errores en tiempo de compilación vs. tiempo de ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fallos-especificos-de-plataformas-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fallos específicos de plataformas móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fallos específicos de plataformas móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excepciones-segun-lenguaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excepciones según lenguaje
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategias-de-captura-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias de captura de errores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrategias de captura de errores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-trycatchfinally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso de try/catch/finally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagacion-y-manejo-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagación y manejo global
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diseno-de-flujos-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diseño de flujos de error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-con-la-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integración con la UI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-buenas-practicas-y-niveles-de-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging: buenas prácticas y niveles de log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging: buenas prácticas y niveles de log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveles-habituales-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Niveles habituales de logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenido-recomendado-en-un-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenido recomendado en un log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evitar-logs-problematicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evitar logs problemáticos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistencia-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistencia de logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-y-librerias-para-gestion-de-errores-y-logging-en-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramientas y librerías para gestión de errores y logging en móvil
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas y librerías para gestión de errores y logging en móvil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android-herramientas-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android: herramientas habituales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-herramientas-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS: herramientas de logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplataforma-y-entornos-hibridos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplataforma y entornos híbridos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-funcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparativa funcional
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-practica-caso-de-estudio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementación práctica: caso de estudio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementación práctica: caso de estudio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-del-escenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición del escenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-ejemplo-para-captura-de-error-y-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código de ejemplo para captura de error y log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envio-del-log-a-un-servidor-o-servicio-remoto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Envío del log a un servidor o servicio remoto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizacion-y-analisis-del-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualización y análisis del informe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejora-iterativa-basada-en-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mejora iterativa basada en logging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politicas-de-logging-privacidad-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Políticas de logging, privacidad y rendimiento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Políticas de logging, privacidad y rendimiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-legales-y-de-privacidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aspectos legales y de privacidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efectos-del-logging-en-el-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efectos del logging en el rendimiento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-retencion-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Políticas de retención de logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguridad-del-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seguridad del logging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-y-monitoreo-post-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing y monitoreo post-despliegue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing y monitoreo post-despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-probar-el-manejo-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo probar el manejo de errores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitorizacion-del-logging-en-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitorización del logging en producción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alertas-automaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alertas automáticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-de-mantenimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mejores prácticas de mantenimiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -998,6 +1453,437 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-a-la-gestion-de-errores-y-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción a la gestión de errores y logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción a la gestión de errores y logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-es-importante-manejar-errores-en-aplicaciones-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué es importante manejar errores en aplicaciones móviles?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es logging?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-errores-y-tipos-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de errores y tipos de logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-errores-en-aplicaciones-moviles-nativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos de errores en aplicaciones móviles nativas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos de errores en aplicaciones móviles nativas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#errores-en-tiempo-de-compilacion-vs-tiempo-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errores en tiempo de compilación vs. tiempo de ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fallos-especificos-de-plataformas-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fallos específicos de plataformas móviles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fallos específicos de plataformas móviles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excepciones-segun-lenguaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excepciones según lenguaje
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategias-de-captura-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrategias de captura de errores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrategias de captura de errores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-de-trycatchfinally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso de try/catch/finally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagacion-y-manejo-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagación y manejo global
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diseno-de-flujos-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diseño de flujos de error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integracion-con-la-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integración con la UI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-buenas-practicas-y-niveles-de-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging: buenas prácticas y niveles de log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging: buenas prácticas y niveles de log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveles-habituales-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Niveles habituales de logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenido-recomendado-en-un-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenido recomendado en un log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evitar-logs-problematicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evitar logs problemáticos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistencia-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistencia de logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-y-librerias-para-gestion-de-errores-y-logging-en-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Herramientas y librerías para gestión de errores y logging en móvil
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramientas y librerías para gestión de errores y logging en móvil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android-herramientas-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android: herramientas habituales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios-herramientas-de-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      iOS: herramientas de logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplataforma-y-entornos-hibridos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplataforma y entornos híbridos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-funcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparativa funcional
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-practica-caso-de-estudio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementación práctica: caso de estudio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementación práctica: caso de estudio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion-del-escenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definición del escenario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-ejemplo-para-captura-de-error-y-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código de ejemplo para captura de error y log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envio-del-log-a-un-servidor-o-servicio-remoto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Envío del log a un servidor o servicio remoto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizacion-y-analisis-del-informe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualización y análisis del informe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejora-iterativa-basada-en-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mejora iterativa basada en logging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politicas-de-logging-privacidad-y-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Políticas de logging, privacidad y rendimiento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Políticas de logging, privacidad y rendimiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-legales-y-de-privacidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aspectos legales y de privacidad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efectos-del-logging-en-el-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efectos del logging en el rendimiento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-retencion-de-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Políticas de retención de logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguridad-del-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seguridad del logging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-y-monitoreo-post-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing y monitoreo post-despliegue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing y monitoreo post-despliegue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-probar-el-manejo-de-errores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo probar el manejo de errores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitorizacion-del-logging-en-produccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitorización del logging en producción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alertas-automaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alertas automáticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-de-mantenimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mejores prácticas de mantenimiento
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1012,8 +1898,263 @@
 
 
 
-<h1 id="gestion-de-errores-y-logging">Gestión de errores y Logging</h1>
-<p>Contenido en construcción...</p>
+<h1 id="gestion-de-errores-y-logging">Gestión de errores y logging</h1>
+<h2 id="introduccion-a-la-gestion-de-errores-y-logging">Introducción a la gestión de errores y logging</h2>
+<p>La gestión de errores y el logging son componentes esenciales en el desarrollo de aplicaciones móviles nativas. Ambos permiten detectar fallos, comprender el comportamiento de la aplicación y mejorar su estabilidad. En dispositivos móviles, donde existen limitaciones de recursos, variabilidad de conectividad y alto uso de sensores, manejar correctamente los errores es clave para garantizar una experiencia de usuario fluida.  </p>
+<p>El logging complementa este proceso registrando información relevante sobre lo que ocurre en la aplicación: eventos, advertencias, errores y puntos clave del flujo de ejecución. Funciona como una “caja negra” que permite reconstruir lo sucedido y depurar problemas tanto en desarrollo como en producción.  </p>
+<h3 id="por-que-es-importante-manejar-errores-en-aplicaciones-moviles">¿Por qué es importante manejar errores en aplicaciones móviles?</h3>
+<ul>
+<li>Evita bloqueos inesperados (crashes) que afectan la percepción de calidad.  </li>
+<li>Permite recuperar la aplicación ante situaciones críticas.  </li>
+<li>Protege la integridad de datos y procesos sensibles.  </li>
+<li>Facilita el diagnóstico y la resolución de problemas.  </li>
+<li>Ayuda al mantenimiento a largo plazo y mejora continua de la app.  </li>
+</ul>
+<h3 id="que-es-logging">¿Qué es logging?</h3>
+<p>El logging consiste en registrar eventos o información relevante durante la ejecución de la aplicación. Estos registros se utilizan para:<br />
+- Depurar comportamientos anómalos.<br />
+- Monitorizar el rendimiento.<br />
+- Detectar patrones de uso.<br />
+- Analizar fallos reportados por los usuarios.  </p>
+<h3 id="tipos-de-errores-y-tipos-de-logs">Tipos de errores y tipos de logs</h3>
+<p><strong>Errores:</strong><br />
+- <strong>Críticos</strong>: Detienen la ejecución de la aplicación.<br />
+- <strong>Advertencias</strong>: No detienen la app, pero reflejan comportamientos inesperados.<br />
+- <strong>Errores recuperables</strong>: Permiten continuidad mediante una alternativa o fallback.  </p>
+<p><strong>Logs:</strong><br />
+- <strong>Debug</strong>: Información detallada para desarrollo.<br />
+- <strong>Info</strong>: Eventos relevantes del flujo normal.<br />
+- <strong>Warning</strong>: Señales de comportamiento anómalo.<br />
+- <strong>Error</strong>: Fallos que requieren intervención.<br />
+- <strong>Fatal</strong>: Problemas que provocan la terminación de la app.  </p>
+<hr />
+<h2 id="modelos-de-errores-en-aplicaciones-moviles-nativas">Modelos de errores en aplicaciones móviles nativas</h2>
+<p>Las apps móviles se ejecutan en entornos complejos donde influyen sensores, ciclo de vida, red, permisos, almacenamiento y recursos del sistema operativo. Esto genera múltiples fuentes potenciales de error.  </p>
+<h3 id="errores-en-tiempo-de-compilacion-vs-tiempo-de-ejecucion">Errores en tiempo de compilación vs. tiempo de ejecución</h3>
+<ul>
+<li><strong>Errores en tiempo de compilación</strong>:  <br />
+  Se detectan antes de ejecutar la aplicación. Suelen deberse a problemas de sintaxis, tipos de datos, dependencias o incompatibilidades del SDK.  </li>
+<li><strong>Errores en tiempo de ejecución</strong>:  <br />
+  Surgen mientras la app está funcionando. Incluyen accesos a recursos no disponibles, valores nulos inesperados, permisos denegados, fallos de red o falta de memoria.  </li>
+</ul>
+<h3 id="fallos-especificos-de-plataformas-moviles">Fallos específicos de plataformas móviles</h3>
+<h4 id="android">Android</h4>
+<ul>
+<li>Permisos no concedidos por parte del usuario.  </li>
+<li>Cambios en el ciclo de vida: interrupciones, recreaciones y destrucción de actividades.  </li>
+<li>Fallos producidos al rotar la pantalla.  </li>
+<li>Limitaciones de memoria que pueden causar cierres de la app.  </li>
+<li>Sensores no disponibles o devueltos con valores erráticos.  </li>
+</ul>
+<h4 id="ios">iOS</h4>
+<ul>
+<li>Uso incorrecto de valores opcionales.  </li>
+<li>Restricciones del sandbox que impiden acceder a recursos.  </li>
+<li>Suspensiones por falta de memoria.  </li>
+<li>Cambios de estado inesperados en frameworks como CoreMotion o CoreLocation.  </li>
+</ul>
+<h3 id="excepciones-segun-lenguaje">Excepciones según lenguaje</h3>
+<ul>
+<li><strong>Kotlin</strong>: NullPointerException, IllegalStateException, IOException, etc.    </li>
+<li><strong>Swift</strong>: uso del sistema de <code>Error</code>, manejo con <code>try</code>, <code>throws</code>, <code>do/catch</code>.    </li>
+<li><strong>Java</strong>: excepciones checked y unchecked.  </li>
+</ul>
+<hr />
+<h2 id="estrategias-de-captura-de-errores">Estrategias de captura de errores</h2>
+<p>Una buena estrategia de manejo de errores permite que la aplicación continúe funcionando, registre correctamente la información del fallo y ofrezca una respuesta adecuada al usuario.  </p>
+<h3 id="uso-de-trycatchfinally">Uso de try/catch/finally</h3>
+<p>Los bloques <code>try/catch</code> permiten encapsular código susceptible de fallar y reaccionar de manera controlada:<br />
+- Prevenir cierres inesperados.<br />
+- Registrar el contexto del fallo.<br />
+- Aplicar acciones de recuperación.<br />
+El bloque <code>finally</code> se utiliza para liberar recursos, cerrar flujos o limpiar estados sin importar si hubo error o no.  </p>
+<h3 id="propagacion-y-manejo-global">Propagación y manejo global</h3>
+<p>En algunas funciones es preferible no capturar el error localmente y permitir que se propague para gestionarse a un nivel superior.  <br />
+Además, muchas apps implementan manejadores globales que capturan errores no controlados y evitan cierres silenciosos.  </p>
+<p>Ejemplos típicos:<br />
+- Capturadores globales de excepciones.<br />
+- Reportes automáticos de crash.<br />
+- Registro del estado de la aplicación antes de fallar.  </p>
+<h3 id="diseno-de-flujos-de-error">Diseño de flujos de error</h3>
+<p>Una estrategia bien diseñada debe definir:<br />
+- Cómo reaccionar ante distintos tipos de fallos.<br />
+- Qué mensaje mostrar al usuario.<br />
+- Qué datos registrar en los logs.<br />
+- Si es posible recuperar el proceso.<br />
+- Qué hacer si el error ocurre repetidamente.  </p>
+<h3 id="integracion-con-la-ui">Integración con la UI</h3>
+<p>Los usuarios no deben conocer detalles técnicos del error. Las interfaces deben mostrar:
+- Mensajes claros y simples.<br />
+- Acciones sugeridas (“Reintentar”, “Habilitar permiso”, “Conectar a Internet”).
+- Alternativas cuando sea posible.  </p>
+<p>Los mensajes deben ser coherentes, breves y no intrusivos.  </p>
+<hr />
+<h2 id="logging-buenas-practicas-y-niveles-de-log">Logging: buenas prácticas y niveles de log</h2>
+<p>El logging permite entender el comportamiento de la aplicación en distintos momentos y facilita la resolución de problemas. Sin embargo, debe utilizarse de manera cuidadosa.  </p>
+<h3 id="niveles-habituales-de-logging">Niveles habituales de logging</h3>
+<ul>
+<li><strong>DEBUG</strong>: Información muy detallada, utilizada solo en desarrollo.  </li>
+<li><strong>INFO</strong>: Eventos clave del funcionamiento normal.  </li>
+<li><strong>WARN</strong>: Situaciones inusuales o inesperadas.  </li>
+<li><strong>ERROR</strong>: Fallos importantes que requieren atención.  </li>
+<li><strong>FATAL</strong>: Fallos críticos que conducen al cierre.  </li>
+</ul>
+<h3 id="contenido-recomendado-en-un-log">Contenido recomendado en un log</h3>
+<p>Cada entrada debería incluir:<br />
+- Fecha y hora.<br />
+- Nivel del evento.<br />
+- Mensaje descriptivo.<br />
+- Contexto de ejecución (pantalla, módulo, sensor).<br />
+- Identificadores anónimos para seguimiento.<br />
+- Stack trace cuando sea necesario.  </p>
+<h3 id="evitar-logs-problematicos">Evitar logs problemáticos</h3>
+<ul>
+<li>No registrar datos personales o confidenciales.  </li>
+<li>Evitar almacenar claves, tokens o contraseñas.  </li>
+<li>No generar un volumen excesivo de logs en producción.  </li>
+<li>Evitar logs dentro de bucles intensivos o cálculos pesados.  </li>
+</ul>
+<h3 id="persistencia-de-logs">Persistencia de logs</h3>
+<p>Los logs pueden almacenarse o transmitirse de distintas formas:<br />
+- Archivos de texto locales.<br />
+- Bases de datos internas.<br />
+- Consolas de depuración.<br />
+- Servicios remotos de análisis y reporte.<br />
+- Herramientas de crash reporting con paneles de control.  </p>
+<hr />
+<h2 id="herramientas-y-librerias-para-gestion-de-errores-y-logging-en-movil">Herramientas y librerías para gestión de errores y logging en móvil</h2>
+<p>La gestión moderna de errores y el logging en aplicaciones móviles se apoyan en herramientas especializadas que facilitan la recolección, análisis y visualización de fallos y eventos en tiempo real. Estas herramientas permiten a los desarrolladores detectar problemas rápidamente y tomar decisiones basadas en datos.  </p>
+<h3 id="android-herramientas-habituales">Android: herramientas habituales</h3>
+<ul>
+<li><strong>Logcat</strong>  <br />
+  Consola integrada que permite visualizar logs de la aplicación en tiempo real, filtrarlos por nivel o etiqueta y depurarlos durante el desarrollo.  </li>
+<li><strong>Timber</strong>  <br />
+  Librería ligera de logging que simplifica el uso de logs en Android. Facilita estructurar mensajes, añadir formato, enviar logs a diferentes destinos y desactivar logs en producción.  </li>
+<li><strong>Firebase Crashlytics</strong>  <br />
+  Servicio de crash-reporting que registra fallos, excepciónes no controladas y errores críticos. Agrupa crashes, muestra estadísticas y permite detectar patrones y causas comunes.  </li>
+</ul>
+<h3 id="ios-herramientas-de-logging">iOS: herramientas de logging</h3>
+<ul>
+<li><strong>Consola del sistema</strong>  <br />
+  Permite ver los eventos y logs de la app durante el desarrollo, incluidos mensajes emitidos por frameworks del sistema.  </li>
+<li><strong>os_log</strong>  <br />
+  API moderna y eficiente para registrar eventos estructurados. Permite definir categorías y niveles, y optimiza el rendimiento del logging.  </li>
+<li><strong>CocoaLumberjack</strong>  <br />
+  Librería flexible que permite gestionar múltiples destinos de log y aplicar estrategias de rotación y persistencia.  </li>
+<li><strong>Sentry (versión iOS)</strong>  <br />
+  Servicio orientado a la captura de fallos, métricas y errores en tiempo real, similar a Crashlytics.  </li>
+</ul>
+<h3 id="multiplataforma-y-entornos-hibridos">Multiplataforma y entornos híbridos</h3>
+<ul>
+<li>Herramientas como <strong>Sentry</strong>, <strong>Firebase Crashlytics</strong>, <strong>Bugsnag</strong> o <strong>Instabug</strong> permiten unificar la captura de errores en apps nativas, híbridas o multiplataforma.  </li>
+<li>Ofrecen dashboards centralizados, alertas automáticas, agrupación inteligente de errores y análisis de rendimiento.    </li>
+</ul>
+<h3 id="comparativa-funcional">Comparativa funcional</h3>
+<ul>
+<li><strong>Alertas automáticas</strong>: notificaciones cuando ocurre un error crítico en producción.  </li>
+<li><strong>Dashboards</strong>: visualización clara de métricas, tendencias y frecuencia de fallos.    </li>
+<li><strong>Agrupación de errores</strong>: detección de patrones para evitar duplicados.    </li>
+<li><strong>Informes de uso</strong>: métricas sobre estabilidad, sesiones, dispositivos afectados, etc.  </li>
+<li><strong>Integración con CI/CD</strong>: herramientas que permiten generar reportes de errores tras pruebas automatizadas.    </li>
+</ul>
+<hr />
+<h2 id="implementacion-practica-caso-de-estudio">Implementación práctica: caso de estudio</h2>
+<p>Este apartado muestra un ejemplo práctico que combina manejo de errores y logging para ilustrar un flujo real en una aplicación móvil.  </p>
+<h3 id="definicion-del-escenario">Definición del escenario</h3>
+<p>Caso ejemplo:  <br />
+<strong>Un sensor de proximidad deja de responder y la app necesita detectar el fallo, registrar el evento y ofrecer una alternativa al usuario.</strong> </p>
+<p>Aspectos a tener en cuenta:<br />
+- Identificación del error capturado por la API del sensor.<br />
+- Posible falta de permisos o hardware no disponible.<br />
+- Reacción de la app para evitar un crash.  </p>
+<h3 id="codigo-de-ejemplo-para-captura-de-error-y-log">Código de ejemplo para captura de error y log</h3>
+<p>Tanto Android como iOS implementan estructuras similares:  <br />
+1. Intentar acceder al sensor. <br />
+2. Registrar el error en caso de fallo.  <br />
+3. Mostrar mensaje claro en la UI.  <br />
+4. Ejecutar un fallback (por ejemplo, desactivar la funcionalidad dependiente del sensor).  </p>
+<h3 id="envio-del-log-a-un-servidor-o-servicio-remoto">Envío del log a un servidor o servicio remoto</h3>
+<p>Tras capturar el fallo:<br />
+- Se crea un registro con el timestamp, tipo de error y contexto.<br />
+- Si la app está en producción, se envía el log a un servicio remoto como Crashlytics o Sentry.<br />
+- El envío debe ser eficiente y no bloquear la experiencia del usuario.  </p>
+<h3 id="visualizacion-y-analisis-del-informe">Visualización y análisis del informe</h3>
+<p>En el panel del servicio elegido:<br />
+- Los errores aparecen agrupados.<br />
+- Se visualiza el stack trace, el dispositivo afectado, la versión de la app y el contexto.<br />
+- El desarrollador puede filtrar por versión, dispositivo, usuario anónimo o frecuencia.  </p>
+<h3 id="mejora-iterativa-basada-en-logging">Mejora iterativa basada en logging</h3>
+<p>El ciclo completo:<br />
+1. Detectar error →  <br />
+2. Registrar error →  <br />
+3. Analizar datos →  <br />
+4. Corregir →  <br />
+5. Verificar reducción de fallos.  </p>
+<p>Este proceso mejora la estabilidad con cada versión.  </p>
+<hr />
+<h2 id="politicas-de-logging-privacidad-y-rendimiento">Políticas de logging, privacidad y rendimiento</h2>
+<p>El logging debe implementarse respetando la privacidad del usuario, las normativas legales y limitaciones de rendimiento del dispositivo.  </p>
+<h3 id="aspectos-legales-y-de-privacidad">Aspectos legales y de privacidad</h3>
+<ul>
+<li>Evitar incluir datos personales identificables en los logs.    </li>
+<li>Anonimizar información que pueda identificar a un usuario.    </li>
+<li>Proteger datos sensibles relacionados con ubicaciones, salud, accesos o tokens.    </li>
+<li>Ofrecer opciones de consentimiento para enviar informes de fallos.  </li>
+</ul>
+<h3 id="efectos-del-logging-en-el-rendimiento">Efectos del logging en el rendimiento</h3>
+<ul>
+<li>Un exceso de logs puede afectar al rendimiento general de la app.    </li>
+<li>Generar demasiados registros consume más CPU, almacenamiento y batería.    </li>
+<li>El logging debe ser más reducido en producción que en desarrollo.  </li>
+</ul>
+<h3 id="politicas-de-retencion-de-logs">Políticas de retención de logs</h3>
+<ul>
+<li>Definir un tiempo máximo de almacenamiento de logs.    </li>
+<li>Borrar periódicamente los logs antiguos para evitar ocupar almacenamiento.    </li>
+<li>Rotar archivos de log cuando crecen en tamaño.  </li>
+</ul>
+<h3 id="seguridad-del-logging">Seguridad del logging</h3>
+<ul>
+<li>No registrar secretos, contraseñas ni claves API.    </li>
+<li>Usar hashes en lugar de valores de texto plano cuando sea necesario.    </li>
+<li>Proteger los logs en tránsito si se envían a servidores externos.    </li>
+<li>Encriptar logs sensibles cuando se almacenan localmente.  </li>
+</ul>
+<hr />
+<h2 id="testing-y-monitoreo-post-despliegue">Testing y monitoreo post-despliegue</h2>
+<p>Una aplicación estable requiere pruebas específicas orientadas a la detección de errores y un monitoreo continuo una vez puesta en producción.  </p>
+<h3 id="como-probar-el-manejo-de-errores">Cómo probar el manejo de errores</h3>
+<ul>
+<li><strong>Fault injection</strong>: provocar fallos controlados para verificar el comportamiento.    </li>
+<li><strong>Simulación de condiciones adversas</strong>: sin red, batería baja, sensor desconectado, permisos revocados.    </li>
+<li><strong>Pruebas unitarias e integradas</strong>: validar que los bloques de manejo de errores responden correctamente.    </li>
+<li><strong>Pruebas de estrés</strong>: comprobar comportamientos bajo alta carga o múltiples errores consecutivos.  </li>
+</ul>
+<h3 id="monitorizacion-del-logging-en-produccion">Monitorización del logging en producción</h3>
+<ul>
+<li>Revisión de métricas clave:   </li>
+<li>Número de crashes.    </li>
+<li>Frecuencia de errores por sesión.    </li>
+<li>Tasa de fallos por versión.    </li>
+<li>Dispositivos y sistemas más afectados.    </li>
+<li>Detección de patrones: errores repetitivos, fallos en sensores, problemas de red.  </li>
+</ul>
+<h3 id="alertas-automaticas">Alertas automáticas</h3>
+<ul>
+<li>Configuración de umbrales para recibir alertas cuando:  </li>
+<li>Aumentan los crashes.    </li>
+<li>Se detecta un error nuevo crítico.    </li>
+<li>Un fallo se repite en demasiados dispositivos.    </li>
+<li>Las alertas ayudan a reaccionar rápido ante problemas urgentes.  </li>
+</ul>
+<h3 id="mejores-practicas-de-mantenimiento">Mejores prácticas de mantenimiento</h3>
+<ul>
+<li>Revisar logs y paneles de errores de forma periódica.    </li>
+<li>Actualizar librerías y dependencias vulnerables o inestables.    </li>
+<li>Priorizar correcciones en función de impacto real en usuarios.    </li>
+<li>Documentar causas y soluciones para facilitar mantenimiento futuro.  </li>
+</ul>
+<hr />
 
 
 
