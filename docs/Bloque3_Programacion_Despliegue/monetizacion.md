@@ -1,5 +1,6 @@
+# Monetización
 
-### 1. Si la app es de pago (modelo “premium”)
+## Si la app es de pago (modelo “premium”)
 
 En este caso, **cada descarga sí genera ingresos**:
 
@@ -17,7 +18,7 @@ En este modelo, una caída en descargas **impacta directamente** en los ingresos
 
 ---
 
-### 2. Si la app es gratuita con anuncios (modelo “freemium” o “ad-based”)
+## Si la app es gratuita con anuncios (modelo “freemium” o “ad-based”)
 
 Aquí las descargas **no generan dinero directamente**, pero alimentan el volumen de usuarios activos, que es el motor del ingreso publicitario.
 
@@ -33,7 +34,7 @@ Aquí las descargas **no generan dinero directamente**, pero alimentan el volume
 
 ---
 
-### 3. Si la app es gratuita con compras integradas (modelo “in-app purchases”)
+## Si la app es gratuita con compras integradas (modelo “in-app purchases”)
 
 En este modelo, solo un porcentaje de usuarios paga, pero cuantos más usuarios nuevos entren, **más compradores potenciales tienes**.
 
@@ -49,7 +50,7 @@ En este modelo, solo un porcentaje de usuarios paga, pero cuantos más usuarios 
 
 ---
 
-### 4. Si la app es de suscripción (modelo “subscription”)
+## Si la app es de suscripción (modelo “subscription”)
 
 Aquí, las descargas son la **puerta de entrada al ciclo de suscripción**.
 
@@ -66,7 +67,7 @@ Aquí, las descargas son la **puerta de entrada al ciclo de suscripción**.
 
 ---
 
-### Conclusión
+## Conclusión
 
 Las descargas por sí solas **no generan dinero** (salvo en apps de pago),  
 pero son el **canal principal** para captar usuarios activos, que sí generan ingresos por anuncios, compras o suscripciones.
@@ -77,7 +78,10 @@ pero son el **canal principal** para captar usuarios activos, que sí generan in
 
 | Modelo de monetización | ¿Descarga genera ingresos directos? | Fuente de ingresos principal | Cómo influyen las descargas en los ingresos | Ejemplo de pérdida estimada |
 |--------------------------|------------------------------------|------------------------------|---------------------------------------------|------------------------------|
-| **App de pago (Premium)** | ✅ Sí | Precio por descarga (menos comisión de la tienda) | Menos descargas = menos ventas directas | ↓ de 20.000 a 3.000 descargas → pérdida de ~34.000 €/mes |
-| **Gratuita con anuncios (Freemium / Ad-based)** | ❌ No | Publicidad (CPM o CPC) | Menos descargas = menos usuarios activos = menos impresiones publicitarias | Pérdida de 100.000 usuarios = ~40.000 €/mes |
-| **Gratuita con compras integradas (In-App Purchases)** | ❌ No | Compras dentro de la app (2–5 % de conversión) | Menos descargas = menos compradores potenciales | Pérdida de 85.000 usuarios = ~25.000 €/mes |
-| **App con suscripción (Subscription)** | ❌ No | Suscripciones mensuales o anuales (1 % conversión) | Menos descargas = menos pruebas → menos suscriptores | ↓ de 100.000 a 10.000 descargas → pérdida de ~4.500 €/mes |
+| **App de pago (Premium)** | Sí | Precio por descarga (menos comisión de la tienda) | Menos descargas = menos ventas directas | ↓ de 20.000 a 3.000 descargas → pérdida de ~34.000 €/mes |
+| **Gratuita con anuncios (Freemium / Ad-based)** | No | Publicidad (CPM o CPC) | Menos descargas = menos usuarios activos = menos impresiones publicitarias | Pérdida de 100.000 usuarios = ~40.000 €/mes |
+| **Gratuita con compras integradas (In-App Purchases)** | No | Compras dentro de la app (2–5 % de conversión) | Menos descargas = menos compradores potenciales | Pérdida de 85.000 usuarios = ~25.000 €/mes |
+| **App con suscripción (Subscription)** | No | Suscripciones mensuales o anuales (1 % conversión) | Menos descargas = menos pruebas → menos suscriptores | ↓ de 100.000 a 10.000 descargas → pérdida de ~4.500 €/mes |
+
+>*Una vez desplegada la aplicación, el siguiente aspecto clave es entender cómo puede generar >ingresos.*
+>*Para ello, veremos a continuación los distintos [modelos de monetización](monetizacion.md "Modelos de monetización") y cómo afectan a las >descargas y al ciclo de vida de una app.*

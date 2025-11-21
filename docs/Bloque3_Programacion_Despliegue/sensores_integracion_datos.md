@@ -43,6 +43,8 @@ Permite ajustar automáticamente el brillo de la pantalla y optimizar el consumo
 
 *Sensores de luz*
 
+[Sensor de luz](sensores/luz.md "Sensor de luz")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> fotodiodo expuesto a luz</p>
@@ -106,6 +108,8 @@ Todos convierten la señal analógica en coordenadas digitales X e Y que el sist
 
 *Sensores de pantalla táctil ópticos*
 
+[Manejo de eventos táctiles](sensores/eventostactiles.md "Manejo de eventos táctiles")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> detección de cambios</p>
@@ -117,6 +121,7 @@ Todos convierten la señal analógica en coordenadas digitales X e Y que el sist
 <li>Transmisión al Sistema Operativo</li>
 </ol>
 </details>
+
 ---
 
 ### Sensor de proximidad
@@ -144,6 +149,8 @@ Se usa, por ejemplo, para apagar la pantalla durante una llamada al acercar el t
 
 *Sensores de proximidad*
 
+[Sensor de proximidad](sensores/proximidad.md "Sensor de proximidad")
+
 ---
 
 ### Micrófono
@@ -157,6 +164,8 @@ Su procesamiento digital permite grabar, transmitir o interpretar voz y sonidos 
 ![Micrófono](microfono.png "Micrófono")
 
 *Micrófono*
+
+[Lectura del micrófono](sensores/microfono.md "Lectura del micrófono")
 
 <details>
 <summary>Proceso</summary>
@@ -191,6 +200,9 @@ Es esencial para detectar orientación, pasos o movimientos bruscos.
 
 *Estructura MEMS de un acelerómetro* - *Vista esquemática superior MEMS*
 
+[Acelerómetro](sensores/acelerometro.md "Acelerómetro")
+
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> aceleración</p>
@@ -216,6 +228,9 @@ Permite determinar la orientación del dispositivo y sirve de base para las brú
 ![Magnetrómetro](magnetometro.png "Magnetrómetro")
 
 *Magnetrómetro*
+
+[Magnetómetro](sensores/magnetometro.md "Magnetómetro")
+
 
 <details>
 <summary>Proceso</summary>
@@ -243,6 +258,9 @@ Permite registrar giros, rotaciones y mejorar la precisión del movimiento.
 
 *Giroscopio*
 
+[Giroscopio](sensores/giroscopio.md "Giroscopio")
+
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> La masa vibratoria MEMS (proof mass) sometida a la fuerza de Coriolis.</p>
@@ -267,6 +285,8 @@ Transforman la información óptica en señales digitales que conforman imágene
 ![Cámaras](camara.png "Cámaras")
 
 *Cámaras*
+
+[Cámara](sensores/camara.md "Giroscopio")
 
 <details>
 <summary>Proceso</summary>
@@ -306,6 +326,8 @@ Se utiliza para contar pasos, estimar distancias y calcular gasto calórico.
 
 *Podómetro*
 
+[Podómetro](sensores/podometro.md "Podómetro")
+
 <details>
 <summary>Proceso</summary>
 <p><strong>Elemento sensible:</strong> La masa inercial del acelerómetro MEMS.</p>
@@ -336,6 +358,10 @@ Permite la autenticación biométrica segura del usuario.
 ![Huella Dactilar](huelladactilar2.png "Huella Dactilar")
 
 *Huella Dactilar*
+
+
+[Huella Dactilar](sensores/huelladactilar.md "Huella Dactilar")
+
 
 <details>
 <summary>Proceso</summary>
