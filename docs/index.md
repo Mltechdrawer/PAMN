@@ -8,8 +8,14 @@
 
 **Programación de Aplicaciones Móviles Nativas (PAMN)** es una asignatura optativa de 4.º curso del Grado en Ingeniería Informática. Su objetivo es capacitar al alumnado en el diseño, desarrollo y despliegue de aplicaciones móviles nativas para sistemas operativos actuales. Se abordan aspectos como accesibilidad, calidad del software y prácticas DevOps. Esta materia amplía los conocimientos adquiridos previamente en programación móvil, y refuerza un perfil profesional muy demandado en el sector tecnológico actual.
 
-<a href="files/PDA_GII_40983_PAMN_2025_2026.pdf" target="_blank"><img src="https://img.shields.io/badge/PDA-2025%2F26-blue" alt="badge"/></a>
-<a href="files/PAMN%20Presentación%202025-2026.pdf" target="_blank"><img src="https://img.shields.io/badge/Presentación-2025%2F26-blue" alt="badge"/></a>
+**Profesorado:**
+
+- Rayco Sánchez García. Profesor de prácticas  
+  
+- María Dolores Afonso Suárez. Coordinadora
+
+<a href="files/PDA_GII_40983_PAMN_2026_2027.pdf" target="_blank"><img src="https://img.shields.io/badge/PDA-2026%2F27-blue" alt="badge"/></a>
+<a href="files/PAMN%20Presentación%202026-2027.pdf" target="_blank"><img src="https://img.shields.io/badge/Presentación-2026%2F27-blue" alt="badge"/></a>
 
 <a href="https://www.android.com/" target="_blank"><img src="https://img.shields.io/badge/App-Android-green?logo=android" alt="badge"/></a>
 <a href="https://www.apple.com/ios/" target="_blank"><img src="https://img.shields.io/badge/App-iOS-lightgrey?logo=apple" alt="badge"/></a>
