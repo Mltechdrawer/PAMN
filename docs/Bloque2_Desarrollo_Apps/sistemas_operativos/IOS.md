@@ -119,6 +119,26 @@ Es un punto de inflexión que marca el inicio de una etapa en la que la IA será
 
 ---
 
+## iOS 26 (2025): una nueva identidad visual
+
+<img src="../imagenes/ios26.png" alt="Logo IOS 26" style="height:40px; vertical-align:middle; margin-right:8px;">iOS 26 introduce uno de los mayores cambios de diseño de los últimos años con **Liquid Glass**, una nueva interfaz translúcida que modifica la apariencia de controles, iconos, widgets y elementos de navegación. Al mismo tiempo, Apple amplía las capacidades de **Apple Intelligence**, incorporando funciones como la traducción en tiempo real y nuevas posibilidades de inteligencia visual.
+
+También se mejoran aplicaciones como Teléfono, Mensajes, Cámara, Fotos, Safari y Mapas, buscando una experiencia más uniforme y personalizada.
+
+iOS 26 marca una nueva etapa en la evolución visual de iOS y refuerza la integración de la inteligencia artificial en las tareas cotidianas.
+
+---
+
+## iOS 27 (2026): una inteligencia artificial más integrada
+
+<img src="../imagenes/ios27.png" alt="Logo IOS 27" style="height:40px; vertical-align:middle; margin-right:8px;">iOS 27 profundiza en la integración de **Apple Intelligence** dentro del sistema operativo. Su principal novedad es la nueva generación de **Siri AI**, diseñada para mantener conversaciones más naturales, comprender el contexto personal del usuario y realizar acciones dentro de distintas aplicaciones.
+
+También incorpora nuevas funciones inteligentes en aplicaciones como Fotos y Safari, junto con mejoras en edición de imágenes, búsqueda de información y automatización de tareas.
+
+Con iOS 27, la inteligencia artificial deja de ser únicamente un conjunto de funciones añadidas y pasa a integrarse de forma más profunda en la interacción cotidiana con el sistema.
+
+---
+
 ## Conclusión
 
 Desde aquel primer iPhone en 2007 hasta la integración de inteligencia artificial en 2024, iOS ha sido sinónimo de **innovación y consistencia**. Cada versión no solo añadió funciones, sino que redefinió cómo interactuamos con nuestros dispositivos.  
@@ -147,4 +167,6 @@ Hoy, con **iOS 18**, Apple mantiene su apuesta clara: un ecosistema unificado, s
 | 16      | 2022 | iOS 16 | Pantalla de bloqueo personalizable, editar/borrar mensajes. |
 | 17      | 2023 | iOS 17 | Contact Posters, videomensajes FaceTime, app Diario. |
 | 18      | 2024 | iOS 18 | Apple Intelligence (IA), personalización avanzada, notificaciones inteligentes. |
+| 26      | 2025 | iOS 26 | Nuevo diseño **Liquid Glass**; mayor integración de Apple Intelligence; traducción en tiempo real; mejoras en inteligencia visual, Teléfono, Mensajes, Cámara y Fotos. |
+| 27      | 2026 | iOS 27 | Nueva generación de **Apple Intelligence**; introducción de Siri AI; mejoras en Fotos y Safari; nuevas funciones de personalización, controles parentales y automatización. |
 

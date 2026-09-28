@@ -117,7 +117,7 @@ Con **Android 14**, Google puso el foco en la **personalización de la pantalla 
 
 ---
 
-## Android 15 (2024–2025): el presente
+## Android 15 (2024–2025)
 
 La última versión, **Android 15**, continúa la senda de ofrecer un sistema más eficiente, seguro y adaptado a nuevas formas de uso. Entre sus novedades destacan:
 
@@ -128,7 +128,31 @@ La última versión, **Android 15**, continúa la senda de ofrecer un sistema m�
 
 Con Android 15, el sistema se prepara para una nueva etapa donde la **IA y la conectividad avanzada** serán protagonistas, manteniendo al mismo tiempo la esencia de ser una plataforma abierta y diversa.
 
-![HTC dreams](../imagenes/a15.png)
+## Android 16 (2025): adaptación a nuevos dispositivos
+
+Android 16 continúa la evolución del sistema poniendo especial énfasis en la **adaptabilidad, la seguridad y la eficiencia**. Entre sus principales novedades destacan:
+
+- Mayor soporte para **pantallas grandes, tablets, dispositivos plegables y entornos de escritorio**, favoreciendo interfaces que se adaptan dinámicamente al tamaño y orientación de la pantalla.
+- Nuevas mejoras de **privacidad y seguridad**, incluyendo mayor protección frente a accesos no autorizados y mejoras en la gestión de permisos.
+- Optimización del **rendimiento y del consumo energético**, con nuevas herramientas para gestionar mejor los recursos de CPU y GPU.
+- Mejoras en **conectividad y comunicación entre dispositivos**, incorporando nuevas APIs para localización, Bluetooth y dispositivos cercanos.
+
+Con Android 16, Google refuerza la idea de que una aplicación ya no debe diseñarse exclusivamente para un teléfono móvil, sino para un **ecosistema de dispositivos y tamaños de pantalla muy diverso**.
+
+![HTC dreams](../imagenes/a16.png)
+
+## Android 17 (2026): inteligencia y continuidad entre dispositivos
+
+Android 17 profundiza en la transformación de Android hacia un sistema más **inteligente, adaptativo y conectado**, incorporando nuevas capacidades para que las aplicaciones funcionen de manera más integrada entre distintos dispositivos. Entre sus principales novedades destacan:
+
+- Nuevas funciones orientadas a la **inteligencia del sistema** y al aprovechamiento de hardware especializado, como las **NPU**, destinadas al procesamiento de tareas de inteligencia artificial.
+- Incorporación de **Handoff**, que permite comenzar una actividad en un dispositivo Android y continuarla en otro.
+- Refuerzo de la **seguridad y la privacidad**, con nuevas protecciones para mensajes, códigos de un solo uso (OTP), acceso a redes locales y criptografía.
+- Mejoras en la **gestión de memoria, rendimiento y estabilidad**, estableciendo límites más precisos en función de los recursos disponibles en cada dispositivo.
+
+Con Android 17, el sistema avanza hacia un ecosistema en el que **IA, continuidad entre dispositivos y adaptación automática al contexto de uso** tienen cada vez mayor protagonismo, manteniendo la diversidad de dispositivos característica de Android.
+
+![HTC dreams](../imagenes/a17.png)
 
 ---
 
@@ -157,10 +181,11 @@ Hoy, con más de 3.000 millones de dispositivos activos, Android no es solo un s
 | 7.0–7.1 | 2016 | Nougat | Multiventana, API Vulkan, mejor gestión batería. |
 | 8.0–8.1 | 2017 | Oreo | Picture in Picture, iconos adaptativos, Project Treble. |
 | 9.0     | 2018 | Pie | Navegación por gestos, Digital Wellbeing, IA adaptativa. |
-| 10.0    | 2019 | – | Modo oscuro, soporte 5G y plegables, Live Caption. |
-| 11.0    | 2020 | – | Burbujas de chat, control de dispositivos, permisos temporales. |
-| 12.0    | 2021 | – | Material You, panel de privacidad, capturas con desplazamiento. |
-| 13.0    | 2022 | – | Idiomas por app, mejoras en portapapeles y seguridad. |
-| 14.0    | 2023 | – | Conectividad satelital, Ultra HDR, adiós apps 32 bits. |
-| 15.0    | 2024 | – | IA más integrada, mejoras en plegables, más seguridad. |
-
+| 10.0    | 2019 | Quince Tart | Modo oscuro, soporte 5G y plegables, Live Caption. |
+| 11.0    | 2020 | Red Velvet Cake | Burbujas de chat, control de dispositivos, permisos temporales. |
+| 12.0    | 2021 | Snow Cone | Material You, panel de privacidad, capturas con desplazamiento. |
+| 13.0    | 2022 | Tiramisú | Idiomas por app, mejoras en portapapeles y seguridad. |
+| 14.0    | 2023 | Upside Down Cake | Conectividad satelital, Ultra HDR, adiós apps 32 bits. |
+| 15.0    | 2024 | Vanilla Ice Cream | IA más integrada, mejoras en plegables, más seguridad. |
+| 16.0    | 2025 | Baklava |Adaptación a plegables y pantallas grandes; mejoras de privacidad y seguridad; optimización energética y del rendimiento; conectividad avanzada. |
+| 17.0    | 2026 | Cinamon Bun |Integración creciente de IA; continuidad entre dispositivos; nuevas protecciones de seguridad y privacidad; mejoras de memoria, rendimiento y estabilidad. |
