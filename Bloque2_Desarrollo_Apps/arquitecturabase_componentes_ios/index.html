@@ -1,0 +1,1703 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Arquitectura base y componentes del sistema iOS - Programación de Aplicaciones Móviles Nativas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arquitectura-base-y-componentes-del-sistema-ios" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación de Aplicaciones Móviles Nativas" class="md-header__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación de Aplicaciones Móviles Nativas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitectura base y componentes del sistema iOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación de Aplicaciones Móviles Nativas" class="md-nav__button md-logo" aria-label="Programación de Aplicaciones Móviles Nativas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programación de Aplicaciones Móviles Nativas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contenidos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contenidos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 1. Ingeniería de desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de vida y arquitectura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Ciclo de vida y arquitectura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/ciclo_vida_devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ciclo de Vida - DevOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/ciclo_vida_arquitectura/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad y normativa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accesibilidad y normativa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/accesibilidad/accesibilidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accesibilidad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/accesibilidad_normativa/normativa/normativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Normativa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque1_Ingenieria_Apps/diseno_interfaces/diseno_interfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diseño de interfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 2. Desarrollo de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 2. Desarrollo de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos para dispositivos móviles
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operativos para dispositivos móviles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/sistemas_operativos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sistemas Operativos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/lenguajes_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenguajes de programación para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sistemas_operativos/frameworks_desarrollo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Frameworks de desarrollo para aplicaciones móviles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bases_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bases de datos para aplicaciones móviles nativas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Patrones de diseño
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/principios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Principios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/creacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño creacionales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/estructurales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño estructurales
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../patrones_diseno/comportamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patrones de diseño de comportamiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitecturabase_componentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitectura base y componentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calidad_software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Calidad del software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bloque 3. Programación y despliegue de aplicaciones móviles nativas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/sensores_integracion_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sensores e integración de datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/errores_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestión de errores y logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bloque3_Programacion_Despliegue/despliegue_apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Despliegue de aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-de-una-aplicacion-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura de una aplicación iOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#piezas-fundamentales-de-una-aplicacion-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piezas fundamentales de una aplicación iOS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Piezas fundamentales de una aplicación iOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app-y-scene-entrada-y-organizacion-de-la-experiencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      App y Scene: entrada y organización de la experiencia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-en-swiftui-interfaz-declarativa-y-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      View en SwiftUI: interfaz declarativa y estado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uiviewcontroller-en-uikit-coordinacion-de-una-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      UIViewController en UIKit: coordinación de una interfaz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composicion-y-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composición y contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajo-asincrono-y-ejecucion-en-segundo-plano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabajo asíncrono y ejecución en segundo plano
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eventos-y-notificaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eventos y notificaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-sandbox-y-extensiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datos, sandbox y extensiones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comunicacion-y-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comunicación y navegación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciclos-de-vida-proceso-escena-y-vista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclos de vida: proceso, escena y vista
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ciclos de vida: proceso, escena y vista">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estados-de-una-escena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estados de una escena
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-orientativa-con-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparación orientativa con Android
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arquitectura-base-y-componentes-del-sistema-ios">Arquitectura base y componentes del sistema iOS</h1>
+<h2 id="introduccion">Introducción</h2>
+<p>Una aplicación iOS reúne una interfaz, un estado y una lógica que cooperan bajo las reglas del sistema operativo. iOS decide cuándo la aplicación puede interactuar con el usuario, cuándo dispone de tiempo de ejecución y cuándo debe liberar recursos. Comprender estas decisiones permite diseñar aplicaciones que mantienen sus datos y responden correctamente a las interrupciones.</p>
+<p>En este tema emplearemos <strong>SwiftUI como hilo conductor</strong>, y explicaremos <strong>UIKit</strong> para comprender los controladores, las interfaces imperativas y la integración con proyectos existentes. Swift es el lenguaje; SwiftUI y UIKit son frameworks de interfaz. No son dos lenguajes diferentes.</p>
+<p>Los ejemplos que utilizan Observation y la versión de <code>onChange</code> con dos parámetros requieren <strong>iOS 17 o posterior</strong>. Son ejemplos didácticos independientes: no deben copiarse todos en un mismo proyecto como si constituyeran una aplicación completa. Cuando se muestra solo una parte de una configuración, se indica expresamente.</p>
+<hr />
+<h2 id="arquitectura-de-una-aplicacion-ios">Arquitectura de una aplicación iOS</h2>
+<p>Conviene separar dos preguntas: qué servicios ofrece el sistema y cómo organizamos nuestro código. Las capas del sistema no son las capas del patrón MVVM.</p>
+<p>Podemos representar el entorno de una aplicación mediante cuatro niveles didácticos:</p>
+<ol>
+<li><strong>Aplicación:</strong> vistas, estado, modelos y servicios que implementan sus funcionalidades.</li>
+<li><strong>Frameworks de interfaz:</strong> SwiftUI y UIKit proporcionan herramientas para construir interfaces y responder a interacciones.</li>
+<li><strong>Frameworks y servicios del sistema:</strong> Foundation, URLSession, almacenamiento, gráficos y otros recursos. Algunas de estas APIs cooperan con procesos y servicios externos al proceso de la app.</li>
+<li><strong>Base del sistema:</strong> Darwin, con el kernel XNU, los controladores y los mecanismos de memoria, procesos y seguridad.</li>
+</ol>
+<p><img alt="Organización conceptual de iOS" src="../imagenes/capas_ios.png" /></p>
+<p><em>Imagen. Organización didáctica del sistema; las dependencias reales no forman una cadena estricta.</em></p>
+<p>Las aplicaciones de terceros están aisladas mediante un <strong>sandbox</strong>. Acceden a sus propios archivos y a recursos autorizados mediante APIs, permisos y capacidades. Una extensión puede ejecutarse en un proceso distinto. Por tanto, el paquete instalado no equivale a un único proceso permanente.</p>
+<p>iOS puede suspender una aplicación en segundo plano y terminar su proceso para recuperar recursos. El estado que debe sobrevivir al cierre necesita almacenamiento persistente; conservarlo en una propiedad Swift no basta.</p>
+<hr />
+<h2 id="piezas-fundamentales-de-una-aplicacion-ios">Piezas fundamentales de una aplicación iOS</h2>
+<p>iOS no posee una lista de componentes que reproduzca exactamente la de Android. Estudiaremos sus mecanismos por responsabilidad: entrada y escenas, interfaz, composición, trabajo en segundo plano, eventos e intercambio de datos.</p>
+<h3 id="app-y-scene-entrada-y-organizacion-de-la-experiencia">App y Scene: entrada y organización de la experiencia</h3>
+<p><strong>Definición:</strong> en el ciclo de vida de SwiftUI, un tipo que adopta <code>App</code> describe la aplicación. Su propiedad <code>body</code> declara escenas. Una <code>Scene</code> organiza una instancia de la experiencia de interfaz; <code>WindowGroup</code> declara un grupo de ventanas administrado por el sistema.</p>
+<p>Una escena no es simplemente una pantalla de navegación. Una ventana puede contener muchas pantallas, y una app puede tener varias escenas, especialmente en iPadOS cuando admite múltiples ventanas.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="p">@</span><span class="n">main</span>
+<span class="kd">struct</span> <span class="nc">BibliotecaApp</span><span class="p">:</span> <span class="n">App</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">Scene</span> <span class="p">{</span>
+        <span class="n">WindowGroup</span> <span class="p">{</span>
+            <span class="n">InicioView</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nc">InicioView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">NavigationStack</span> <span class="p">{</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Mi biblioteca&quot;</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">navigationTitle</span><span class="p">(</span><span class="s">&quot;Inicio&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Funciones principales:</strong> definir el punto de entrada, organizar escenas y proporcionar dependencias compartidas con un alcance explícito. Un modelo creado a nivel de <code>App</code> puede compartirse entre ventanas; un estado creado dentro de la vista raíz puede pertenecer a una instancia de escena.</p>
+<p><strong>En UIKit:</strong> <code>UIApplication</code> coordina la aplicación; <code>UIApplicationDelegate</code> atiende eventos del proceso, como el lanzamiento. En proyectos con escenas, <code>UISceneDelegate</code> responde a conexión y cambios de actividad de cada escena. Las responsabilidades dependen del ciclo de vida configurado en el proyecto.</p>
+<p>SwiftUI gestiona gran parte de esta coordinación. Si una integración necesita un delegado de UIKit, <code>@UIApplicationDelegateAdaptor</code> permite incorporarlo al ciclo de vida de SwiftUI. No es necesario añadir manualmente <code>SceneDelegate</code> a toda aplicación SwiftUI.</p>
+<p><strong>Buenas prácticas:</strong> mantener ligera la inicialización, inyectar dependencias y distinguir estado de aplicación, de escena y de vista. No confiar en un callback de terminación para guardar datos esenciales.</p>
+<details>
+<summary>Metáfora: el edificio y sus salas</summary>
+<p>La aplicación es un edificio. Cada escena es una sala que puede abrirse, quedar temporalmente sin atención o cerrarse. Las vistas son los elementos que organizamos dentro de una sala. Dos salas pueden usar el mismo catálogo, pero tener una selección distinta. Del mismo modo, dos ventanas pueden compartir datos y conservar estados de navegación independientes.</p>
+</details>
+
+<h3 id="view-en-swiftui-interfaz-declarativa-y-estado">View en SwiftUI: interfaz declarativa y estado</h3>
+<p><strong>Definición:</strong> un tipo que adopta <code>View</code> describe una parte de la interfaz. Habitualmente es una estructura. Su <code>body</code> expresa qué debe mostrarse para un estado determinado; SwiftUI gestiona la actualización de la interfaz.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">ContadorView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">contador</span> <span class="p">=</span> <span class="mi">0</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">VStack</span><span class="p">(</span><span class="n">spacing</span><span class="p">:</span> <span class="mi">16</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Pulsaciones: </span><span class="si">\(</span><span class="n">contador</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+            <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Incrementar&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">contador</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Flujo:</strong> la interacción modifica el estado; SwiftUI evalúa las dependencias afectadas y actualiza la representación visual. No se debe interpretar cada evaluación de <code>body</code> como la creación de una pantalla nueva.</p>
+<p><strong>Mecanismos principales:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mecanismo</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@State</code></td>
+<td>Almacenar estado local asociado a la identidad de la vista.</td>
+</tr>
+<tr>
+<td><code>@Binding</code></td>
+<td>Permitir a una vista acceder al estado cuyo propietario está fuera de ella.</td>
+</tr>
+<tr>
+<td><code>@Environment</code></td>
+<td>Leer valores o dependencias disponibles en el entorno.</td>
+</tr>
+<tr>
+<td><code>@Observable</code></td>
+<td>Hacer observable un modelo con el framework Observation.</td>
+</tr>
+<tr>
+<td><code>@Bindable</code></td>
+<td>Obtener bindings a propiedades de un modelo observable.</td>
+</tr>
+</tbody>
+</table>
+<p>En proyectos que usan <code>ObservableObject</code>, aparecen <code>@Published</code>, <code>@StateObject</code> y <code>@ObservedObject</code>. Son un modelo de observación distinto; no deben mezclarse mecánicamente con Observation.</p>
+<p><strong>Eventos y tareas:</strong> <code>onAppear</code> y <code>onDisappear</code> permiten responder a aparición y desaparición. Pueden ejecutarse varias veces y no representan todos los estados de una app. <code>.task</code> inicia trabajo asíncrono asociado a la vida de la vista; SwiftUI solicita su cancelación cuando la vista desaparece. El trabajo debe cooperar con la cancelación. <code>.task(id:)</code> también cancela y reinicia la tarea si cambia el identificador.</p>
+<p><strong>Buenas prácticas:</strong> mantener <code>body</code> libre de efectos secundarios, evitar operaciones costosas en él y conservar el estado según su propietario. La identidad de la vista determina la continuidad de su estado; su desaparición no significa necesariamente que el proceso termine.</p>
+<h3 id="uiviewcontroller-en-uikit-coordinacion-de-una-interfaz">UIViewController en UIKit: coordinación de una interfaz</h3>
+<p><strong>Definición:</strong> <code>UIViewController</code> administra una jerarquía de objetos <code>UIView</code>, coordina interacciones y responde a cambios de presentación. Es útil compararlo con ciertas responsabilidades de una Activity, pero no es una equivalencia exacta.</p>
+<p><strong>Callbacks habituales:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Momento y uso habitual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>loadView()</code></td>
+<td>Crea o carga la vista raíz; se sobrescribe cuando se construye manualmente.</td>
+</tr>
+<tr>
+<td><code>viewDidLoad()</code></td>
+<td>La jerarquía está cargada; permite configurar elementos.</td>
+</tr>
+<tr>
+<td><code>viewWillAppear(_:)</code></td>
+<td>La vista va a incorporarse a la jerarquía visible.</td>
+</tr>
+<tr>
+<td><code>viewIsAppearing(_:)</code></td>
+<td>La vista está entrando en la jerarquía; útil para actualizaciones con geometría y entorno disponibles.</td>
+</tr>
+<tr>
+<td><code>viewDidAppear(_:)</code></td>
+<td>Ha completado la aparición.</td>
+</tr>
+<tr>
+<td><code>viewWillDisappear(_:)</code></td>
+<td>Va a desaparecer de la presentación.</td>
+</tr>
+<tr>
+<td><code>viewDidDisappear(_:)</code></td>
+<td>Ha completado la desaparición.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Secuencia habitual de aparición en UIKit" src="../imagenes/ciclo_uikit.png" /></p>
+<p><em>Imagen. Secuencia simplificada sin transiciones interactivas canceladas; un controlador puede aparecer varias veces.</em></p>
+<p>Estos eventos describen la presentación de una vista, no el ciclo de ejecución del proceso. Ir a segundo plano no debe tratarse como una llamada garantizada a <code>viewDidDisappear</code>. <code>deinit</code> es la finalización de una instancia Swift cuando se libera; no es un callback de pantalla ni se garantiza antes de terminar el proceso.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="kr">final</span> <span class="kd">class</span> <span class="nc">SaludoViewController</span><span class="p">:</span> <span class="bp">UIViewController</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemBackground</span>
+
+        <span class="kd">let</span> <span class="nv">etiqueta</span> <span class="p">=</span> <span class="bp">UILabel</span><span class="p">()</span>
+        <span class="n">etiqueta</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;Hola desde UIKit&quot;</span>
+        <span class="n">etiqueta</span><span class="p">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="p">=</span> <span class="kc">false</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">etiqueta</span><span class="p">)</span>
+
+        <span class="bp">NSLayoutConstraint</span><span class="p">.</span><span class="n">activate</span><span class="p">([</span>
+            <span class="n">etiqueta</span><span class="p">.</span><span class="n">centerXAnchor</span><span class="p">.</span><span class="n">constraint</span><span class="p">(</span><span class="n">equalTo</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">centerXAnchor</span><span class="p">),</span>
+            <span class="n">etiqueta</span><span class="p">.</span><span class="n">centerYAnchor</span><span class="p">.</span><span class="n">constraint</span><span class="p">(</span><span class="n">equalTo</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">centerYAnchor</span><span class="p">)</span>
+        <span class="p">])</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+        <span class="c1">// Actualizaciones necesarias antes de mostrar la interfaz.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Buenas prácticas:</strong> invocar <code>super</code> al sobrescribir callbacks que lo requieren, separar presentación y negocio, gestionar observadores y evitar ciclos de referencias. No introducir descargas bloqueantes en <code>viewDidLoad</code>.</p>
+<details>
+<summary>Metáfora: preparar y abrir una exposición</summary>
+<p>Cargar la vista equivale a montar una exposición. Antes de abrir sus puertas se revisa la presentación; después entran los visitantes. Cuando la sala deja de mostrarse, puede permanecer montada para otra visita. Ocultar la exposición no implica destruir el edificio: del mismo modo, ocultar una vista no termina la app ni libera automáticamente su controlador.</p>
+</details>
+
+<h3 id="composicion-y-contenedores">Composición y contenedores</h3>
+<p><strong>En SwiftUI:</strong> dividir una pantalla consiste en combinar vistas pequeñas. <code>VStack</code>, <code>HStack</code> y <code>ZStack</code> organizan elementos; <code>TabView</code> y <code>NavigationStack</code> estructuran experiencias de navegación. Una subvista puede recibir datos y bindings sin convertirse en un componente con un ciclo de vida Android.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">EditorTitulo</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">Binding</span> <span class="kd">var</span> <span class="nv">titulo</span><span class="p">:</span> <span class="nb">String</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">TextField</span><span class="p">(</span><span class="s">&quot;Título&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="err">$</span><span class="n">titulo</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">textFieldStyle</span><span class="p">(.</span><span class="n">roundedBorder</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nc">FichaView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">State</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">titulo</span> <span class="p">=</span> <span class="s">&quot;Bioinformática&quot;</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">VStack</span> <span class="p">{</span>
+            <span class="n">EditorTitulo</span><span class="p">(</span><span class="n">titulo</span><span class="p">:</span> <span class="err">$</span><span class="n">titulo</span><span class="p">)</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Título actual: </span><span class="si">\(</span><span class="n">titulo</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="p">.</span><span class="n">padding</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="Composición y propiedad del estado" src="../imagenes/composicion.png" /></p>
+<p><em>Imagen. La vista padre conserva el estado; la vista hija recibe acceso mediante un binding.</em></p>
+<p><strong>En UIKit:</strong> <code>UINavigationController</code>, <code>UITabBarController</code> y <code>UISplitViewController</code> administran otros controladores. Un contenedor personalizado debe respetar el protocolo de contención (<code>addChild</code>, incorporación de la vista y <code>didMove(toParent:)</code>, junto con los pasos correspondientes al retirar el hijo).</p>
+<p><strong>Interoperabilidad:</strong> <code>UIHostingController</code> aloja SwiftUI en UIKit; <code>UIViewRepresentable</code> y <code>UIViewControllerRepresentable</code> permiten integrar vistas y controladores UIKit en SwiftUI. No hay que reconstruir toda una app para incorporar el otro framework.</p>
+<p><strong>Relación con inflar:</strong> UIKit puede cargar interfaces de storyboard o archivos XIB y crear objetos en memoria; es una comparación útil con la inflación de XML en Android. SwiftUI declara vistas en código y deja al framework gestionar su representación. Crear una jerarquía y dibujar sus píxeles son operaciones distintas.</p>
+<h3 id="trabajo-asincrono-y-ejecucion-en-segundo-plano">Trabajo asíncrono y ejecución en segundo plano</h3>
+<p><strong>Definición:</strong> el trabajo asíncrono permite esperar operaciones sin bloquear la interfaz. La ejecución en segundo plano es el permiso del sistema para trabajar cuando la app deja de estar activa. Son conceptos distintos.</p>
+<p><code>async/await</code> y <code>Task</code> no conceden por sí mismos tiempo de ejecución cuando iOS suspende el proceso. Tampoco garantizan que todo el código se ejecute fuera del actor principal.</p>
+<table>
+<thead>
+<tr>
+<th>Necesidad</th>
+<th>Mecanismo habitual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Esperar una respuesta mientras se usa la app</td>
+<td>Concurrencia Swift y <code>URLSession</code>.</td>
+</tr>
+<tr>
+<td>Actualizar contenido oportunistamente</td>
+<td><code>BGAppRefreshTask</code>.</td>
+</tr>
+<tr>
+<td>Procesamiento aplazable</td>
+<td><code>BGProcessingTask</code>.</td>
+</tr>
+<tr>
+<td>Transferencias compatibles con ejecución fuera del proceso activo</td>
+<td><code>URLSession</code> con configuración de background.</td>
+</tr>
+<tr>
+<td>Finalizar una operación breve al pasar a segundo plano</td>
+<td>Tiempo adicional limitado con <code>beginBackgroundTask</code>, cuando procede.</td>
+</tr>
+<tr>
+<td>Audio, ubicación u otros usos específicos</td>
+<td>Modos y APIs de background autorizados para ese propósito.</td>
+</tr>
+</tbody>
+</table>
+<p>Estas son estrategias habituales, no un catálogo exhaustivo. La disponibilidad de APIs y sus condiciones dependen de la versión del sistema.</p>
+<p><strong>Fragmento de planificación, no implementación completa:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">BackgroundTasks</span>
+
+<span class="kd">func</span> <span class="nf">solicitarActualizacion</span><span class="p">()</span> <span class="kr">throws</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">solicitud</span> <span class="p">=</span> <span class="bp">BGAppRefreshTaskRequest</span><span class="p">(</span>
+        <span class="n">identifier</span><span class="p">:</span> <span class="s">&quot;es.ejemplo.biblioteca.actualizar&quot;</span>
+    <span class="p">)</span>
+    <span class="n">solicitud</span><span class="p">.</span><span class="n">earliestBeginDate</span> <span class="p">=</span> <span class="n">Date</span><span class="p">(</span><span class="n">timeIntervalSinceNow</span><span class="p">:</span> <span class="mi">15</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="k">try</span> <span class="bp">BGTaskScheduler</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">submit</span><span class="p">(</span><span class="n">solicitud</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>La fecha expresa el momento más temprano, no una ejecución cada quince minutos. El sistema decide cuándo ejecutar el trabajo y puede no hacerlo.</p>
+<p>Para que este fragmento tenga efecto hay que configurar los identificadores permitidos y las capacidades correspondientes, registrar el manejador durante el lanzamiento y gestionar la ejecución, la expiración y <code>setTaskCompleted(success:)</code>. Ante una expiración, el trabajo debe cancelarse y liberar recursos.</p>
+<p><strong>Ejemplo:</strong> una biblioteca descarga metadatos cuando el usuario consulta el catálogo; puede solicitar una actualización aplazable para mejorar la próxima apertura. La app debe seguir funcionando si esa actualización no ocurre.</p>
+<p><strong>Buenas prácticas:</strong> elegir la API según la operación, guardar avances recuperables y diseñar para cancelación. iOS no ofrece un Service general permanente equivalente al modelo Android.</p>
+<h3 id="eventos-y-notificaciones">Eventos y notificaciones</h3>
+<p><strong>Definición:</strong> diferentes mecanismos resuelven distintos ámbitos de comunicación.</p>
+<ul>
+<li><strong>NotificationCenter:</strong> distribuye notificaciones entre observadores dentro del proceso; no es un canal general de broadcasts entre apps y no despierta una app suspendida.</li>
+<li><strong>UserNotifications:</strong> gestiona notificaciones visibles para el usuario, locales o remotas. La autorización afecta a la presentación de alertas, sonidos e insignias.</li>
+<li><strong>APNs:</strong> entrega notificaciones remotas. Los pushes de background tienen condiciones específicas y su entrega o ejecución no se garantiza.</li>
+<li><strong>APIs especializadas:</strong> para conectividad, por ejemplo, <code>NWPathMonitor</code>; no debe sustituirse todo evento del sistema por NotificationCenter.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">Foundation</span>
+
+<span class="kd">extension</span> <span class="nc">Notification</span><span class="p">.</span><span class="n">Name</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">let</span> <span class="nv">catalogoActualizado</span> <span class="p">=</span> <span class="n">Notification</span><span class="p">.</span><span class="n">Name</span><span class="p">(</span><span class="s">&quot;catalogoActualizado&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">anunciarActualizacion</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="p">.</span><span class="n">catalogoActualizado</span><span class="p">,</span>
+        <span class="n">object</span><span class="p">:</span> <span class="kc">nil</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Este ejemplo emite una notificación; para reaccionar se necesita un observador. El mecanismo clásico de publicación entrega las notificaciones de forma síncrona, por lo que un observador costoso puede bloquear al emisor. Los observadores registrados con token deben tener una gestión explícita de su duración y evitar ciclos de referencias.</p>
+<p><strong>Buenas prácticas:</strong> para relaciones claras entre dos objetos, preferir llamadas, closures, delegación o modelos compartidos. Emplear notificaciones cuando el desacoplamiento sea útil, documentando el significado del evento.</p>
+<h3 id="datos-sandbox-y-extensiones">Datos, sandbox y extensiones</h3>
+<p><strong>Definición:</strong> una aplicación conserva datos en su contenedor y utiliza mecanismos autorizados para intercambiarlos. No existe un Content Provider general que pueda traducirse directamente al mismo componente iOS.</p>
+<table>
+<thead>
+<tr>
+<th>Necesidad</th>
+<th>Opciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preferencias pequeñas</td>
+<td><code>UserDefaults</code>.</td>
+</tr>
+<tr>
+<td>Datos estructurados persistentes</td>
+<td>SwiftData, Core Data u otras soluciones adecuadas.</td>
+</tr>
+<tr>
+<td>Credenciales y secretos</td>
+<td>Keychain.</td>
+</tr>
+<tr>
+<td>Compartir un contenido con el usuario</td>
+<td><code>ShareLink</code> o <code>UIActivityViewController</code>.</td>
+</tr>
+<tr>
+<td>Importar o exportar documentos</td>
+<td>Selectores de documentos y URLs con los permisos correspondientes.</td>
+</tr>
+<tr>
+<td>Ofrecer una función fuera de la app principal</td>
+<td>App Extensions, como una Share Extension.</td>
+</tr>
+<tr>
+<td>Compartir contenedor entre targets autorizados</td>
+<td>App Groups, con sus capacidades configuradas.</td>
+</tr>
+</tbody>
+</table>
+<p>SwiftData no es una API para compartir automáticamente una base de datos con cualquier app. App Groups tampoco conceden acceso libre a todos los contenedores del dispositivo.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">CompartirView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">ShareLink</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="s">&quot;Recomendación: estudiar los ciclos de vida&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Ejemplo:</strong> una app exporta una ficha mediante el panel de compartir. Si incorpora una extensión propia, sus datos compartidos necesitan un almacenamiento y una coordinación adecuados; las variables globales no se comparten entre procesos.</p>
+<p><strong>Buenas prácticas:</strong> pedir solo los permisos necesarios, proteger datos sensibles y distinguir estado observable en memoria de persistencia durable.</p>
+<hr />
+<h2 id="comunicacion-y-navegacion">Comunicación y navegación</h2>
+<p>Dentro de la app, SwiftUI proporciona navegación y presentación. En UIKit se utilizan controladores de navegación y métodos de presentación. Una navegación interna no necesita lanzar otra aplicación.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">CatalogoView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">NavigationStack</span> <span class="p">{</span>
+            <span class="n">NavigationLink</span><span class="p">(</span><span class="s">&quot;Abrir ficha&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Detalle del libro&quot;</span><span class="p">)</span>
+                    <span class="p">.</span><span class="n">navigationTitle</span><span class="p">(</span><span class="s">&quot;Ficha&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="p">.</span><span class="n">navigationTitle</span><span class="p">(</span><span class="s">&quot;Catálogo&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Para abrir recursos externos, SwiftUI expone <code>openURL</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">WebView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">Environment</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">openURL</span><span class="p">)</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">openURL</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Abrir documentación&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;https://developer.apple.com/documentation/&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">openURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Para recibir enlaces se utiliza, por ejemplo, <code>.onOpenURL</code>. Los <strong>URL schemes</strong> personalizados requieren registro y validación de entradas. Los <strong>Universal Links</strong> vinculan URLs HTTPS con una app mediante Associated Domains y un archivo de asociación en el servidor. No basta con añadir un manejador Swift.</p>
+<p>Los enlaces se parecen funcionalmente a ciertos usos de Intents, pero no reproducen todo su modelo de resolución. <strong>App Intents</strong> es otro framework de Apple para exponer acciones a experiencias del sistema, como Shortcuts; compartir nombre no lo convierte en el equivalente de Android Intent.</p>
+<p><img alt="Canales de comunicación" src="../imagenes/comunicacion.png" /></p>
+<p><em>Imagen. Mecanismos con ámbitos distintos; no todos comunican procesos ni permiten ejecución en background.</em></p>
+<hr />
+<h2 id="ciclos-de-vida-proceso-escena-y-vista">Ciclos de vida: proceso, escena y vista</h2>
+<p>La dificultad principal es que existen <strong>tres niveles distintos</strong>. Un cambio en uno no implica que todos los demás hayan terminado.</p>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Pregunta</th>
+<th>Mecanismos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proceso</td>
+<td>¿Existe la app en memoria y puede ejecutar código?</td>
+<td>Gestión del sistema y eventos de aplicación.</td>
+</tr>
+<tr>
+<td>Escena</td>
+<td>¿Esta instancia de interfaz está activa?</td>
+<td><code>scenePhase</code>, eventos de <code>UISceneDelegate</code>.</td>
+</tr>
+<tr>
+<td>Vista</td>
+<td>¿Qué interfaz se presenta y qué tareas dependen de ella?</td>
+<td>Identidad y modificadores SwiftUI, callbacks UIKit.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="estados-de-una-escena">Estados de una escena</h3>
+<p><code>scenePhase</code> distingue <code>active</code>, <code>inactive</code> y <code>background</code>. Leído dentro de una vista refleja su escena; leído en <code>App</code> agrega la situación del conjunto de escenas. La fase background no es sinónimo de un proceso ya suspendido.</p>
+<p><img alt="Escena y ejecución del proceso" src="../imagenes/escenas.png" /></p>
+<p><em>Imagen. Separación conceptual entre fases de escena y decisiones del sistema sobre el proceso; la terminación no se limita al recorrido dibujado.</em></p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">EstadoEscenaView</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">Environment</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">scenePhase</span><span class="p">)</span> <span class="kd">private</span> <span class="kd">var</span> <span class="nv">fase</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Observando la escena&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">onChange</span><span class="p">(</span><span class="n">of</span><span class="p">:</span> <span class="n">fase</span><span class="p">)</span> <span class="p">{</span> <span class="kc">_</span><span class="p">,</span> <span class="n">nuevaFase</span> <span class="k">in</span>
+                <span class="k">switch</span> <span class="n">nuevaFase</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="p">.</span><span class="n">active</span><span class="p">:</span>
+                    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Revisar datos que puedan haber cambiado&quot;</span><span class="p">)</span>
+                <span class="k">case</span> <span class="p">.</span><span class="n">inactive</span><span class="p">:</span>
+                    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Pausar interacciones o temporizadores&quot;</span><span class="p">)</span>
+                <span class="k">case</span> <span class="p">.</span><span class="n">background</span><span class="p">:</span>
+                    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Liberar recursos y completar guardados breves&quot;</span><span class="p">)</span>
+                <span class="p">@</span><span class="n">unknown</span> <span class="k">default</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Este código muestra el lugar donde responder; imprimir un mensaje no guarda el estado. Las modificaciones importantes deben persistirse cuando se producen o mediante una estrategia explícita; esperar al cierre expone a perderlas.</p>
+<p><strong>Recorrido ilustrativo:</strong> el usuario abre el catálogo, navega a una ficha, interrumpe la app y vuelve más tarde. La escena puede pasar a background, el proceso puede suspenderse y, si se termina, el siguiente lanzamiento reconstruirá interfaz y estado a partir de los datos persistidos. La selección temporal puede requerir una estrategia adicional de restauración.</p>
+<details>
+<summary>Metáfora: cerrar el mostrador y conservar el registro</summary>
+<p>Una biblioteca puede dejar de atender al público sin perder sus libros ni su catálogo. Pero una nota que solo conserva el bibliotecario en la memoria puede desaparecer cuando cambia el turno. Del mismo modo, una interfaz puede quedar inactiva sin destruirse, y el estado en memoria puede perderse cuando el sistema termina el proceso. Los datos importantes deben quedar registrados antes.</p>
+</details>
+
+<hr />
+<h2 id="comparacion-orientativa-con-android">Comparación orientativa con Android</h2>
+<p>La tabla resume responsabilidades, no equivalencias exactas entre clases.</p>
+<table>
+<thead>
+<tr>
+<th>Android</th>
+<th>Mecanismos iOS relacionados</th>
+<th>Diferencia importante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity</td>
+<td>UIViewController; pantallas compuestas en SwiftUI</td>
+<td>Una Scene no equivale a una Activity.</td>
+</tr>
+<tr>
+<td>Fragment</td>
+<td>Subvistas y contenedores de controladores</td>
+<td>No comparten el ciclo de vida Fragment.</td>
+</tr>
+<tr>
+<td>Service / trabajo programado</td>
+<td>BackgroundTasks, transferencias y modos específicos</td>
+<td>No hay ejecución general permanente garantizada.</td>
+</tr>
+<tr>
+<td>Broadcast Receiver</td>
+<td>Notificaciones y APIs de eventos específicas</td>
+<td>NotificationCenter se limita al proceso.</td>
+</tr>
+<tr>
+<td>Content Provider</td>
+<td>Documentos, panel de compartir, extensiones y APIs autorizadas</td>
+<td>No existe un proveedor CRUD universal equivalente.</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>App, UIApplication y delegados</td>
+<td>Debe distinguirse inicialización del proceso y escenas.</td>
+</tr>
+<tr>
+<td>Intent</td>
+<td>Navegación, apertura de URLs y Universal Links</td>
+<td>No reproduce todo el sistema de Intents.</td>
+</tr>
+<tr>
+<td>ViewModel y observación</td>
+<td>Modelos de presentación y Observation</td>
+<td>No comparten automáticamente garantías de ciclo de vida.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>Una aplicación iOS combina escenas, vistas, modelos y servicios bajo la gestión del sistema. SwiftUI facilita describir interfaces a partir del estado; UIKit permite controlar jerarquías visuales y comprender sus eventos de presentación. En ambos casos, una interfaz invisible no implica una aplicación destruida, y una operación asíncrona no garantiza ejecución en segundo plano.</p>
+<p>Para analizar una aplicación, debemos identificar quién posee cada dato, cuánto tiempo necesita conservarse, qué evento inicia cada operación y qué sucede si el sistema interrumpe su ejecución.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

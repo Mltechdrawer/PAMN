@@ -991,9 +991,60 @@
         <li class="md-nav__item">
   <a href="#ejemplo-practico" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Ejemplo práctico
+      Ejemplo práctico
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#existe-un-concepto-equivalente-en-swift" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Existe un concepto equivalente en Swift?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Existe un concepto equivalente en Swift?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uikit-cargar-e-instanciar-una-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      UIKit: cargar e instanciar una interfaz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swiftui-describir-la-interfaz-mediante-codigo-declarativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      SwiftUI: describir la interfaz mediante código declarativo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-de-los-enfoques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparación de los enfoques
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1017,7 +1068,7 @@
 <p>En el contexto de la programación de aplicaciones móviles, particularmente en Android, el término <strong>"inflar"</strong> (<em>inflate</em> en inglés) se refiere al proceso de <strong>convertir un archivo XML de diseño (layout)</strong> en una <strong>jerarquía de objetos de vista (<code>Views</code>) en memoria</strong> que puede ser manipulada por la lógica de la aplicación.</p>
 <p>Cuando se define la interfaz de usuario de una <code>Activity</code> o un <code>Fragment</code> en Android, generalmente se utiliza un archivo XML para describir los componentes visuales (botones, textos, imágenes, etc.). Estos archivos son simplemente descripciones de la interfaz en texto plano. Para que puedan ser mostrados en la pantalla, deben ser <em>inflados</em>, lo que implica que Android <strong>convierte esa definición XML en objetos View concretos</strong> (como <code>TextView</code>, <code>Button</code>, <code>ImageView</code>, etc.) que pueden interactuar con el código de la aplicación.</p>
 <hr />
-<h2 id="ejemplo-practico">🧩 Ejemplo práctico</h2>
+<h2 id="ejemplo-practico">Ejemplo práctico</h2>
 <p>Considera un fragmento que tiene un archivo de diseño XML llamado <code>fragment_layout.xml</code>.<br />
 Para que este fragmento muestre el diseño, necesita inflar el archivo XML en su ciclo de vida, específicamente en el método <code>onCreateView()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onCreateView</span><span class="p">(</span><span class="w">  </span>
@@ -1029,6 +1080,70 @@ Para que este fragmento muestre el diseño, necesita inflar el archivo XML en su
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">fragment_layout</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
 <span class="p">}</span><span class="w">  </span>
 </code></pre></div>
+<hr />
+<h2 id="existe-un-concepto-equivalente-en-swift">¿Existe un concepto equivalente en Swift?</h2>
+<p>En el desarrollo nativo de aplicaciones iOS con Swift existe un proceso <strong>conceptualmente equivalente al inflado de Android</strong>, pero depende de cómo se construya la interfaz: con <strong>UIKit</strong> o con <strong>SwiftUI</strong>.</p>
+<h3 id="uikit-cargar-e-instanciar-una-interfaz">UIKit: cargar e instanciar una interfaz</h3>
+<p>Con UIKit, una interfaz puede definirse en archivos <strong>XIB</strong> o <strong>Storyboard</strong>. Al cargarlos, el sistema instancia los objetos correspondientes en memoria, como <code>UIView</code>, <code>UILabel</code> o <code>UIButton</code>. Este proceso es comparable a convertir un layout XML de Android en objetos <code>View</code>.</p>
+<p>Por ejemplo, para cargar una vista definida en un archivo <code>MiVista.xib</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nv">nib</span> <span class="p">=</span> <span class="bp">UINib</span><span class="p">(</span><span class="n">nibName</span><span class="p">:</span> <span class="s">&quot;MiVista&quot;</span><span class="p">,</span> <span class="n">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">vistas</span> <span class="p">=</span> <span class="n">nib</span><span class="p">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">withOwner</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">vista</span> <span class="p">=</span> <span class="n">vistas</span><span class="p">.</span><span class="bp">first</span> <span class="k">as</span><span class="p">?</span> <span class="bp">UIView</span>
+</code></pre></div>
+<p>En Android, la operación equivalente desde el punto de vista conceptual sería:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">vista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inflater</span><span class="p">.</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">fragment_layout</span><span class="p">,</span><span class="w"> </span><span class="n">container</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span>
+</code></pre></div>
+<p>En ambos casos se parte de una <strong>descripción de la interfaz</strong> y se crean <strong>objetos de interfaz en memoria</strong>. La carga de un XIB o Storyboard no se denomina habitualmente <em>inflar</em> en iOS: es una <strong>analogía conceptual</strong>, no el mismo mecanismo ni la misma API.</p>
+<h3 id="swiftui-describir-la-interfaz-mediante-codigo-declarativo">SwiftUI: describir la interfaz mediante código declarativo</h3>
+<p>Con SwiftUI, la interfaz se expresa directamente en código Swift, sin utilizar archivos de layout XML ni necesitar una llamada explícita como <code>inflate()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">MiVista</span><span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">VStack</span> <span class="p">{</span>
+            <span class="n">Text</span><span class="p">(</span><span class="s">&quot;Hola&quot;</span><span class="p">)</span>
+            <span class="n">Button</span><span class="p">(</span><span class="s">&quot;Aceptar&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Pulsado&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>SwiftUI utiliza esa descripción para gestionar la presentación y actualizar la interfaz cuando cambia el estado. Por tanto, <strong>no hay una operación de inflado explícita equivalente a <code>LayoutInflater.inflate()</code></strong>. Además, los tipos que implementan <code>View</code> en SwiftUI no deben confundirse con objetos <code>UIView</code> de UIKit.</p>
+<h3 id="comparacion-de-los-enfoques">Comparación de los enfoques</h3>
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Cómo se describe la interfaz</th>
+<th>Creación de la interfaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Android con vistas XML</strong></td>
+<td>Archivos XML de layout</td>
+<td><code>LayoutInflater</code> instancia una jerarquía de objetos <code>View</code>.</td>
+</tr>
+<tr>
+<td><strong>iOS con UIKit</strong></td>
+<td>Archivos XIB o Storyboard</td>
+<td>UIKit carga e instancia objetos de interfaz; es un proceso conceptualmente equivalente.</td>
+</tr>
+<tr>
+<td><strong>iOS con SwiftUI</strong></td>
+<td>Código Swift declarativo</td>
+<td>SwiftUI gestiona la representación de las vistas sin una llamada explícita de inflado.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Idea clave:</strong> <em>inflar</em> no es lo mismo que <strong>dibujar</strong> una interfaz en pantalla. Inflar consiste en <strong>crear la jerarquía de objetos a partir de una descripción de diseño</strong>. La presentación visual es un proceso posterior. Esta distinción permite entender la similitud entre Android con XML y UIKit, y la diferencia de enfoque con SwiftUI.</p>
+<h3 id="referencias">Referencias</h3>
+<ul>
+<li><a href="https://developer.android.com/reference/android/view/LayoutInflater">Android Developers — LayoutInflater</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/uinib">Apple Developer — UINib</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui">Apple Developer — SwiftUI</a></li>
+</ul>
 
 
 
