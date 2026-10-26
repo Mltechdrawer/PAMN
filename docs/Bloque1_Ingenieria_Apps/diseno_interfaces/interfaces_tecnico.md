@@ -106,6 +106,10 @@ struct ContentView: View {
 
 ---
 
+[Comparación de los ejemplos](comparativa_xml_jetpack_compose.md)
+
+---
+
 ## Conclusión técnica
 - Tanto **Jetpack Compose** como **SwiftUI** consolidan la tendencia hacia el diseño declarativo, centrado en el estado y en la reactividad.  
 - Ambos frameworks integran los principios de **Material Design** y **Human Interface Guidelines** dentro de sus librerías nativas.  
