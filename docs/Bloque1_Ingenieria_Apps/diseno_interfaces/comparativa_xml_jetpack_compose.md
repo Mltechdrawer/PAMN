@@ -1,6 +1,6 @@
 # Interfaces Android: XML frente a Jetpack Compose
 
-Los siguientes fragmentos son **ejemplos comparativos simplificados** de las cuatro aplicaciones. Se muestra el recorrido completo de una interacción: **acción → cambio de datos o estado → actualización visible**. Las líneas señaladas con `// CAMBIO` son aquellas donde ocurre la modificación relevante. Los fragmentos aíslan la funcionalidad estudiada y no son transcripciones completas de los proyectos.
+Los siguientes fragmentos son **ejemplos comparativos simplificados** de las cuatro aplicaciones. Se muestra el recorrido completo de una interacción: **acción → cambio de datos o estado → actualización visible**. En cada fragmento Kotlin, un único comentario señala la diferencia en el tratamiento de la interfaz. Los fragmentos aíslan la funcionalidad estudiada y no son transcripciones completas de los proyectos.
 
 ## 1. `01_GestorTareas`: añadir una tarea y actualizar la lista
 
@@ -24,20 +24,17 @@ La vista se define en `activity_main.xml`:
 La actividad conecta las acciones y el observador:
 
 ```kotlin
-// MainActivity.kt (dentro de onCreate, tras setContentView)
 val listaTareas = findViewById<TextView>(R.id.listaTareas)
 val boton = findViewById<Button>(R.id.anadir)
 
 val observador = ObservadorTareas { tareas ->
-    // CAMBIO VISIBLE: aquí se asigna el NUEVO TEXTO al TextView.
+    // XML: se actualiza directamente el texto del TextView definido en activity_main.xml.
     listaTareas.text = tareas.joinToString("\n") { it.titulo }
 }
 almacen.suscribir(observador)
 
 boton.setOnClickListener {
     almacen.agregar(Tarea(/* identificador, título y estado */))
-    // agregar() modifica el almacén y llama a notificar().
-    // La notificación ejecuta el observador de arriba.
 }
 ```
 
@@ -50,7 +47,7 @@ fun PantallaTareas(almacen: AlmacenTareas) {
 
     DisposableEffect(almacen) {
         val observador = ObservadorTareas { nuevasTareas ->
-            // CAMBIO DE ESTADO: aquí se guarda la nueva lista.
+            // Compose: se actualiza el estado y la interfaz se recompone a partir de él.
             tareas = nuevasTareas
         }
         almacen.suscribir(observador)
@@ -64,7 +61,6 @@ fun PantallaTareas(almacen: AlmacenTareas) {
             Text("Añadir tarea")
         }
 
-        // RESULTADO VISIBLE: estos Text leen «tareas».
         Text("Total: ${tareas.size}")
         tareas.forEach { tarea -> Text(tarea.titulo) }
     }
@@ -104,10 +100,9 @@ val preparar = findViewById<Button>(R.id.preparar)
 preparar.setOnClickListener {
     var bebida: Bebida = BebidaFactory.crear("Café")
 
-    // CONSULTA: se lee el estado actual de la vista XML.
     if (leche.isChecked) bebida = ConLeche(bebida)
 
-    // CAMBIO VISIBLE: se asigna explícitamente el texto del resumen.
+    // XML: se cambia directamente el texto del TextView definido en XML.
     detalle.text = "${bebida.descripcion()} — ${bebida.precioCentimos()} céntimos"
 }
 ```
@@ -123,9 +118,9 @@ fun PedidoConLeche() {
     Column {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Checkbox(
-                checked = leche, // ESTADO LEÍDO: determina si aparece marcada.
+                checked = leche,
                 onCheckedChange = { seleccionado ->
-                    leche = seleccionado // CAMBIO DE ESTADO al pulsar la casilla.
+                    leche = seleccionado
                 }
             )
             Text("Leche extra")
@@ -134,13 +129,13 @@ fun PedidoConLeche() {
         Button(onClick = {
             var bebida: Bebida = BebidaFactory.crear("Café")
             if (leche) bebida = ConLeche(bebida)
+            // Compose: se modifica el estado «resumen», que Text(resumen) muestra automáticamente.
             resumen = "${bebida.descripcion()} — ${bebida.precioCentimos()} céntimos"
-            // CAMBIO DE ESTADO del resultado.
         }) {
             Text("Preparar pedido")
         }
 
-        Text(resumen) // RESULTADO VISIBLE: lee el nuevo «resumen».
+        Text(resumen)
     }
 }
 ```
@@ -172,16 +167,14 @@ val criterio = findViewById<Spinner>(R.id.criterio)
 val buscar = findViewById<Button>(R.id.buscar)
 val resultadosVista = findViewById<TextView>(R.id.resultados)
 
-// Se supone que el Spinner ya contiene: «Título», «Contenido».
 buscar.setOnClickListener {
-    // CONSULTA: posición seleccionada en el Spinner.
     val estrategia: EstrategiaBusqueda =
         if (criterio.selectedItemPosition == 0) BuscarTitulo()
         else BuscarContenido()
 
     val encontrados = Buscador(estrategia).buscar(notas, texto)
 
-    // CAMBIO VISIBLE: reemplaza el texto del TextView.
+    // XML: se reemplaza directamente el texto del TextView definido en XML.
     resultadosVista.text = encontrados.joinToString("\n") { it.titulo }
 }
 ```
@@ -199,13 +192,13 @@ fun BuscarNotas(notas: List<Nota>, texto: String) {
     Column {
         Row {
             RadioButton(
-                selected = porTitulo, // ESTADO LEÍDO.
-                onClick = { porTitulo = true } // CAMBIO DE SELECCIÓN.
+                selected = porTitulo,
+                onClick = { porTitulo = true }
             )
             Text("Título")
             RadioButton(
                 selected = !porTitulo,
-                onClick = { porTitulo = false } // CAMBIO DE SELECCIÓN.
+                onClick = { porTitulo = false }
             )
             Text("Contenido")
         }
@@ -213,13 +206,12 @@ fun BuscarNotas(notas: List<Nota>, texto: String) {
         Button(onClick = {
             val estrategia: EstrategiaBusqueda =
                 if (porTitulo) BuscarTitulo() else BuscarContenido()
+            // Compose: se actualiza el estado y los Text muestran la lista resultante.
             encontrados = Buscador(estrategia).buscar(notas, texto)
-            // CAMBIO DE ESTADO: guarda la nueva lista de resultados.
         }) {
             Text("Buscar")
         }
 
-        // RESULTADO VISIBLE: se obtiene de «encontrados».
         encontrados.forEach { nota -> Text(nota.titulo) }
     }
 }
@@ -248,7 +240,7 @@ val resultado = findViewById<TextView>(R.id.resultado)
 
 registrar.setOnClickListener {
     val mensaje = servicio.registrar(email, clave)
-    // CAMBIO VISIBLE: asigna el mensaje al TextView existente.
+    // XML: se asigna el mensaje directamente al TextView definido en XML.
     resultado.text = mensaje
 }
 ```
@@ -262,13 +254,13 @@ fun PantallaRegistro(servicio: ServicioUsuarios, email: String, clave: String) {
 
     Column {
         Button(onClick = {
-            // CAMBIO DE ESTADO: almacena el resultado del registro.
+            // Compose: se modifica el estado «mensaje» y Text(mensaje) se actualiza.
             mensaje = servicio.registrar(email, clave)
         }) {
             Text("Registrar")
         }
 
-        Text(mensaje) // RESULTADO VISIBLE: depende de «mensaje».
+        Text(mensaje)
     }
 }
 ```
