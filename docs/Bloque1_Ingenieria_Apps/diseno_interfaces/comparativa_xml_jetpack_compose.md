@@ -41,8 +41,6 @@ boton.setOnClickListener {
 }
 ```
 
-**Lugar exacto de la actualización visual:** `listaTareas.text = ...`. El flujo es **clic → `agregar()` → `notificar()` → observador → asignación a `TextView.text`**.
-
 ### Con Jetpack Compose
 
 ```kotlin
@@ -72,8 +70,6 @@ fun PantallaTareas(almacen: AlmacenTareas) {
     }
 }
 ```
-
-**Lugar exacto del cambio:** `tareas = nuevasTareas` modifica el estado observable. **Lugar donde se refleja:** `Text("Total: ${tareas.size}")` y `Text(tarea.titulo)`. Compose vuelve a ejecutar, cuando corresponde, el contenido que lee ese estado y actualiza la pantalla. **No hay una asignación manual a `TextView.text`.**
 
 **Comparación:** XML cambia explícitamente una vista; Compose cambia el **estado** del que depende la interfaz. El patrón **Observer** sigue notificando en ambas versiones.
 
@@ -116,8 +112,6 @@ preparar.setOnClickListener {
 }
 ```
 
-**Líneas exactas:** `leche.isChecked` **lee** la selección; `detalle.text = ...` **actualiza** la pantalla. Marcar la casilla cambia su aspecto, pero en este ejemplo el resumen se recalcula **al pulsar Preparar pedido**.
-
 ### Con Jetpack Compose
 
 ```kotlin
@@ -150,8 +144,6 @@ fun PedidoConLeche() {
     }
 }
 ```
-
-**Líneas exactas:** `leche = seleccionado` guarda la selección y `checked = leche` la refleja en la casilla; `resumen = ...` cambia el resultado y `Text(resumen)` lo muestra. **Decorator** (`ConLeche`) no cambia.
 
 ## 3. `03_Notas`: seleccionar «Título» o «Contenido» y buscar
 
@@ -194,8 +186,6 @@ buscar.setOnClickListener {
 }
 ```
 
-**Líneas exactas:** `criterio.selectedItemPosition` lee la selección; `resultadosVista.text = ...` actualiza los resultados al pulsar Buscar.
-
 ### Con Jetpack Compose
 
 En este ejemplo Compose se utilizan **RadioButton** para hacer visible el cambio de selección; representan las mismas dos opciones que el `Spinner`.
@@ -235,8 +225,6 @@ fun BuscarNotas(notas: List<Nota>, texto: String) {
 }
 ```
 
-**Líneas exactas:** `porTitulo = true/false` cambia la opción; `selected = ...` actualiza los controles; `encontrados = ...` guarda el resultado; `Text(nota.titulo)` lo representa. El patrón **Strategy** continúa utilizando `BuscarTitulo` y `BuscarContenido`.
-
 ## 4. `04_Registro`: pulsar «Registrar» y mostrar el mensaje
 
 ### Con XML + Kotlin
@@ -265,8 +253,6 @@ registrar.setOnClickListener {
 }
 ```
 
-**Lugar exacto de la actualización visual:** `resultado.text = mensaje`. El flujo es **clic → `ServicioUsuarios.registrar()` → mensaje → asignación directa al TextView**.
-
 ### Con Jetpack Compose
 
 ```kotlin
@@ -286,8 +272,6 @@ fun PantallaRegistro(servicio: ServicioUsuarios, email: String, clave: String) {
     }
 }
 ```
-
-**Líneas exactas:** `mensaje = servicio.registrar(...)` cambia el estado; `Text(mensaje)` muestra el valor actualizado. No se busca un `TextView` ni se modifica su propiedad `.text`. La clase **Facade** (`ServicioUsuarios`) mantiene su responsabilidad.
 
 ---
 
