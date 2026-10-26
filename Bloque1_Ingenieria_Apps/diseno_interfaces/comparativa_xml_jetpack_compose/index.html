@@ -1146,7 +1146,7 @@
 
 
 <h1 id="interfaces-android-xml-frente-a-jetpack-compose">Interfaces Android: XML frente a Jetpack Compose</h1>
-<p>Los siguientes fragmentos son <strong>ejemplos comparativos simplificados</strong> de las cuatro aplicaciones. Se muestra el recorrido completo de una interacción: <strong>acción → cambio de datos o estado → actualización visible</strong>. Las líneas señaladas con <code>// CAMBIO</code> son aquellas donde ocurre la modificación relevante. Los fragmentos aíslan la funcionalidad estudiada y no son transcripciones completas de los proyectos.</p>
+<p>Los siguientes fragmentos son <strong>ejemplos comparativos simplificados</strong> de las cuatro aplicaciones. Se muestra el recorrido completo de una interacción: <strong>acción → cambio de datos o estado → actualización visible</strong>. En cada fragmento Kotlin, un único comentario señala la diferencia en el tratamiento de la interfaz. Los fragmentos aíslan la funcionalidad estudiada y no son transcripciones completas de los proyectos.</p>
 <h2 id="1-01_gestortareas-anadir-una-tarea-y-actualizar-la-lista">1. <code>01_GestorTareas</code>: añadir una tarea y actualizar la lista</h2>
 <h3 id="con-xml-kotlin">Con XML + Kotlin</h3>
 <p>La vista se define en <code>activity_main.xml</code>:</p>
@@ -1162,20 +1162,17 @@
 <span class="w">    </span><span class="na">android:text=</span><span class="s">&quot;Añadir tarea&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>La actividad conecta las acciones y el observador:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// MainActivity.kt (dentro de onCreate, tras setContentView)</span>
-<span class="kd">val</span><span class="w"> </span><span class="nv">listaTareas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="o">&lt;</span><span class="n">TextView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">listaTareas</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">listaTareas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="o">&lt;</span><span class="n">TextView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">listaTareas</span><span class="p">)</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">boton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">anadir</span><span class="p">)</span>
 
 <span class="kd">val</span><span class="w"> </span><span class="nv">observador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObservadorTareas</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tareas</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">    </span><span class="c1">// CAMBIO VISIBLE: aquí se asigna el NUEVO TEXTO al TextView.</span>
+<span class="w">    </span><span class="c1">// XML: se actualiza directamente el texto del TextView definido en activity_main.xml.</span>
 <span class="w">    </span><span class="n">listaTareas</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tareas</span><span class="p">.</span><span class="na">joinToString</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">titulo</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 <span class="n">almacen</span><span class="p">.</span><span class="na">suscribir</span><span class="p">(</span><span class="n">observador</span><span class="p">)</span>
 
 <span class="n">boton</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">almacen</span><span class="p">.</span><span class="na">agregar</span><span class="p">(</span><span class="n">Tarea</span><span class="p">(</span><span class="cm">/* identificador, título y estado */</span><span class="p">))</span>
-<span class="w">    </span><span class="c1">// agregar() modifica el almacén y llama a notificar().</span>
-<span class="w">    </span><span class="c1">// La notificación ejecuta el observador de arriba.</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="con-jetpack-compose">Con Jetpack Compose</h3>
@@ -1185,7 +1182,7 @@
 
 <span class="w">    </span><span class="n">DisposableEffect</span><span class="p">(</span><span class="n">almacen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">observador</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ObservadorTareas</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">nuevasTareas</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">            </span><span class="c1">// CAMBIO DE ESTADO: aquí se guarda la nueva lista.</span>
+<span class="w">            </span><span class="c1">// Compose: se actualiza el estado y la interfaz se recompone a partir de él.</span>
 <span class="w">            </span><span class="n">tareas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nuevasTareas</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="n">almacen</span><span class="p">.</span><span class="na">suscribir</span><span class="p">(</span><span class="n">observador</span><span class="p">)</span>
@@ -1199,7 +1196,6 @@
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Añadir tarea&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="c1">// RESULTADO VISIBLE: estos Text leen «tareas».</span>
 <span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Total: </span><span class="si">${</span><span class="n">tareas</span><span class="p">.</span><span class="na">size</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="n">tareas</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tarea</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="n">tarea</span><span class="p">.</span><span class="na">titulo</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -1232,10 +1228,9 @@
 <span class="n">preparar</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">bebida</span><span class="p">:</span><span class="w"> </span><span class="n">Bebida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BebidaFactory</span><span class="p">.</span><span class="na">crear</span><span class="p">(</span><span class="s">&quot;Café&quot;</span><span class="p">)</span>
 
-<span class="w">    </span><span class="c1">// CONSULTA: se lee el estado actual de la vista XML.</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">leche</span><span class="p">.</span><span class="na">isChecked</span><span class="p">)</span><span class="w"> </span><span class="n">bebida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConLeche</span><span class="p">(</span><span class="n">bebida</span><span class="p">)</span>
 
-<span class="w">    </span><span class="c1">// CAMBIO VISIBLE: se asigna explícitamente el texto del resumen.</span>
+<span class="w">    </span><span class="c1">// XML: se cambia directamente el texto del TextView definido en XML.</span>
 <span class="w">    </span><span class="n">detalle</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">descripcion</span><span class="p">()</span><span class="si">}</span><span class="s"> — </span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">precioCentimos</span><span class="p">()</span><span class="si">}</span><span class="s"> céntimos&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1248,9 +1243,9 @@
 <span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Row</span><span class="p">(</span><span class="n">verticalAlignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Alignment</span><span class="p">.</span><span class="na">CenterVertically</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Checkbox</span><span class="p">(</span>
-<span class="w">                </span><span class="n">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leche</span><span class="p">,</span><span class="w"> </span><span class="c1">// ESTADO LEÍDO: determina si aparece marcada.</span>
+<span class="w">                </span><span class="n">checked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leche</span><span class="p">,</span>
 <span class="w">                </span><span class="n">onCheckedChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">seleccionado</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">                    </span><span class="n">leche</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seleccionado</span><span class="w"> </span><span class="c1">// CAMBIO DE ESTADO al pulsar la casilla.</span>
+<span class="w">                    </span><span class="n">leche</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seleccionado</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">)</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Leche extra&quot;</span><span class="p">)</span>
@@ -1259,13 +1254,13 @@
 <span class="w">        </span><span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nv">bebida</span><span class="p">:</span><span class="w"> </span><span class="n">Bebida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BebidaFactory</span><span class="p">.</span><span class="na">crear</span><span class="p">(</span><span class="s">&quot;Café&quot;</span><span class="p">)</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">leche</span><span class="p">)</span><span class="w"> </span><span class="n">bebida</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConLeche</span><span class="p">(</span><span class="n">bebida</span><span class="p">)</span>
+<span class="w">            </span><span class="c1">// Compose: se modifica el estado «resumen», que Text(resumen) muestra automáticamente.</span>
 <span class="w">            </span><span class="n">resumen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">descripcion</span><span class="p">()</span><span class="si">}</span><span class="s"> — </span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">precioCentimos</span><span class="p">()</span><span class="si">}</span><span class="s"> céntimos&quot;</span>
-<span class="w">            </span><span class="c1">// CAMBIO DE ESTADO del resultado.</span>
 <span class="w">        </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Preparar pedido&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">resumen</span><span class="p">)</span><span class="w"> </span><span class="c1">// RESULTADO VISIBLE: lee el nuevo «resumen».</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">resumen</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1291,16 +1286,14 @@
 <span class="kd">val</span><span class="w"> </span><span class="nv">buscar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">buscar</span><span class="p">)</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">resultadosVista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="o">&lt;</span><span class="n">TextView</span><span class="o">&gt;</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">resultados</span><span class="p">)</span>
 
-<span class="c1">// Se supone que el Spinner ya contiene: «Título», «Contenido».</span>
 <span class="n">buscar</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// CONSULTA: posición seleccionada en el Spinner.</span>
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">estrategia</span><span class="p">:</span><span class="w"> </span><span class="n">EstrategiaBusqueda</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">criterio</span><span class="p">.</span><span class="na">selectedItemPosition</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="n">BuscarTitulo</span><span class="p">()</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">BuscarContenido</span><span class="p">()</span>
 
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">encontrados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buscador</span><span class="p">(</span><span class="n">estrategia</span><span class="p">).</span><span class="na">buscar</span><span class="p">(</span><span class="n">notas</span><span class="p">,</span><span class="w"> </span><span class="n">texto</span><span class="p">)</span>
 
-<span class="w">    </span><span class="c1">// CAMBIO VISIBLE: reemplaza el texto del TextView.</span>
+<span class="w">    </span><span class="c1">// XML: se reemplaza directamente el texto del TextView definido en XML.</span>
 <span class="w">    </span><span class="n">resultadosVista</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">encontrados</span><span class="p">.</span><span class="na">joinToString</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">titulo</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1314,13 +1307,13 @@
 <span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">RadioButton</span><span class="p">(</span>
-<span class="w">                </span><span class="n">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">porTitulo</span><span class="p">,</span><span class="w"> </span><span class="c1">// ESTADO LEÍDO.</span>
-<span class="w">                </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">porTitulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// CAMBIO DE SELECCIÓN.</span>
+<span class="w">                </span><span class="n">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">porTitulo</span><span class="p">,</span>
+<span class="w">                </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">porTitulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">)</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Título&quot;</span><span class="p">)</span>
 <span class="w">            </span><span class="n">RadioButton</span><span class="p">(</span>
 <span class="w">                </span><span class="n">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">porTitulo</span><span class="p">,</span>
-<span class="w">                </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">porTitulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// CAMBIO DE SELECCIÓN.</span>
+<span class="w">                </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">porTitulo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">)</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Contenido&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
@@ -1328,13 +1321,12 @@
 <span class="w">        </span><span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">estrategia</span><span class="p">:</span><span class="w"> </span><span class="n">EstrategiaBusqueda</span><span class="w"> </span><span class="o">=</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">porTitulo</span><span class="p">)</span><span class="w"> </span><span class="n">BuscarTitulo</span><span class="p">()</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">BuscarContenido</span><span class="p">()</span>
+<span class="w">            </span><span class="c1">// Compose: se actualiza el estado y los Text muestran la lista resultante.</span>
 <span class="w">            </span><span class="n">encontrados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buscador</span><span class="p">(</span><span class="n">estrategia</span><span class="p">).</span><span class="na">buscar</span><span class="p">(</span><span class="n">notas</span><span class="p">,</span><span class="w"> </span><span class="n">texto</span><span class="p">)</span>
-<span class="w">            </span><span class="c1">// CAMBIO DE ESTADO: guarda la nueva lista de resultados.</span>
 <span class="w">        </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Buscar&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="c1">// RESULTADO VISIBLE: se obtiene de «encontrados».</span>
 <span class="w">        </span><span class="n">encontrados</span><span class="p">.</span><span class="na">forEach</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">nota</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="n">nota</span><span class="p">.</span><span class="na">titulo</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -1357,7 +1349,7 @@
 
 <span class="n">registrar</span><span class="p">.</span><span class="na">setOnClickListener</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">servicio</span><span class="p">.</span><span class="na">registrar</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">clave</span><span class="p">)</span>
-<span class="w">    </span><span class="c1">// CAMBIO VISIBLE: asigna el mensaje al TextView existente.</span>
+<span class="w">    </span><span class="c1">// XML: se asigna el mensaje directamente al TextView definido en XML.</span>
 <span class="w">    </span><span class="n">resultado</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mensaje</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1368,13 +1360,13 @@
 
 <span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Button</span><span class="p">(</span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// CAMBIO DE ESTADO: almacena el resultado del registro.</span>
+<span class="w">            </span><span class="c1">// Compose: se modifica el estado «mensaje» y Text(mensaje) se actualiza.</span>
 <span class="w">            </span><span class="n">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">servicio</span><span class="p">.</span><span class="na">registrar</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">clave</span><span class="p">)</span>
 <span class="w">        </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Registrar&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span><span class="w"> </span><span class="c1">// RESULTADO VISIBLE: depende de «mensaje».</span>
+<span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">mensaje</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
