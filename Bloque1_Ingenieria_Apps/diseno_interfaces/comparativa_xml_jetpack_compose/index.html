@@ -1178,7 +1178,6 @@
 <span class="w">    </span><span class="c1">// La notificación ejecuta el observador de arriba.</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Lugar exacto de la actualización visual:</strong> <code>listaTareas.text = ...</code>. El flujo es <strong>clic → <code>agregar()</code> → <code>notificar()</code> → observador → asignación a <code>TextView.text</code></strong>.</p>
 <h3 id="con-jetpack-compose">Con Jetpack Compose</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Composable</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaTareas</span><span class="p">(</span><span class="n">almacen</span><span class="p">:</span><span class="w"> </span><span class="n">AlmacenTareas</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1206,7 +1205,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Lugar exacto del cambio:</strong> <code>tareas = nuevasTareas</code> modifica el estado observable. <strong>Lugar donde se refleja:</strong> <code>Text("Total: ${tareas.size}")</code> y <code>Text(tarea.titulo)</code>. Compose vuelve a ejecutar, cuando corresponde, el contenido que lee ese estado y actualiza la pantalla. <strong>No hay una asignación manual a <code>TextView.text</code>.</strong></p>
 <p><strong>Comparación:</strong> XML cambia explícitamente una vista; Compose cambia el <strong>estado</strong> del que depende la interfaz. El patrón <strong>Observer</strong> sigue notificando en ambas versiones.</p>
 <h2 id="2-02_pedidos-marcar-leche-extra-y-preparar-el-pedido">2. <code>02_Pedidos</code>: marcar «Leche extra» y preparar el pedido</h2>
 <h3 id="con-xml-kotlin_1">Con XML + Kotlin</h3>
@@ -1241,7 +1239,6 @@
 <span class="w">    </span><span class="n">detalle</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;</span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">descripcion</span><span class="p">()</span><span class="si">}</span><span class="s"> — </span><span class="si">${</span><span class="n">bebida</span><span class="p">.</span><span class="na">precioCentimos</span><span class="p">()</span><span class="si">}</span><span class="s"> céntimos&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Líneas exactas:</strong> <code>leche.isChecked</code> <strong>lee</strong> la selección; <code>detalle.text = ...</code> <strong>actualiza</strong> la pantalla. Marcar la casilla cambia su aspecto, pero en este ejemplo el resumen se recalcula <strong>al pulsar Preparar pedido</strong>.</p>
 <h3 id="con-jetpack-compose_1">Con Jetpack Compose</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Composable</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">PedidoConLeche</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1272,7 +1269,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Líneas exactas:</strong> <code>leche = seleccionado</code> guarda la selección y <code>checked = leche</code> la refleja en la casilla; <code>resumen = ...</code> cambia el resultado y <code>Text(resumen)</code> lo muestra. <strong>Decorator</strong> (<code>ConLeche</code>) no cambia.</p>
 <h2 id="3-03_notas-seleccionar-titulo-o-contenido-y-buscar">3. <code>03_Notas</code>: seleccionar «Título» o «Contenido» y buscar</h2>
 <h3 id="con-xml-kotlin_2">Con XML + Kotlin</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;Spinner</span>
@@ -1308,7 +1304,6 @@
 <span class="w">    </span><span class="n">resultadosVista</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">encontrados</span><span class="p">.</span><span class="na">joinToString</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="p">.</span><span class="na">titulo</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Líneas exactas:</strong> <code>criterio.selectedItemPosition</code> lee la selección; <code>resultadosVista.text = ...</code> actualiza los resultados al pulsar Buscar.</p>
 <h3 id="con-jetpack-compose_2">Con Jetpack Compose</h3>
 <p>En este ejemplo Compose se utilizan <strong>RadioButton</strong> para hacer visible el cambio de selección; representan las mismas dos opciones que el <code>Spinner</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Composable</span>
@@ -1344,7 +1339,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Líneas exactas:</strong> <code>porTitulo = true/false</code> cambia la opción; <code>selected = ...</code> actualiza los controles; <code>encontrados = ...</code> guarda el resultado; <code>Text(nota.titulo)</code> lo representa. El patrón <strong>Strategy</strong> continúa utilizando <code>BuscarTitulo</code> y <code>BuscarContenido</code>.</p>
 <h2 id="4-04_registro-pulsar-registrar-y-mostrar-el-mensaje">4. <code>04_Registro</code>: pulsar «Registrar» y mostrar el mensaje</h2>
 <h3 id="con-xml-kotlin_3">Con XML + Kotlin</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;Button</span>
@@ -1367,7 +1361,6 @@
 <span class="w">    </span><span class="n">resultado</span><span class="p">.</span><span class="na">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mensaje</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Lugar exacto de la actualización visual:</strong> <code>resultado.text = mensaje</code>. El flujo es <strong>clic → <code>ServicioUsuarios.registrar()</code> → mensaje → asignación directa al TextView</strong>.</p>
 <h3 id="con-jetpack-compose_3">Con Jetpack Compose</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Composable</span>
 <span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaRegistro</span><span class="p">(</span><span class="n">servicio</span><span class="p">:</span><span class="w"> </span><span class="n">ServicioUsuarios</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">clave</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1385,7 +1378,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Líneas exactas:</strong> <code>mensaje = servicio.registrar(...)</code> cambia el estado; <code>Text(mensaje)</code> muestra el valor actualizado. No se busca un <code>TextView</code> ni se modifica su propiedad <code>.text</code>. La clase <strong>Facade</strong> (<code>ServicioUsuarios</code>) mantiene su responsabilidad.</p>
 <hr />
 <h2 id="sintesis">Síntesis</h2>
 <table>
