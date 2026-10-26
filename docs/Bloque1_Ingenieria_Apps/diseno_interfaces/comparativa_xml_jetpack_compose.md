@@ -1,42 +1,49 @@
-# Comparación de interfaces Android: XML y Jetpack Compose
+# Interfaces Android: XML frente a Jetpack Compose
 
-En las cuatro aplicaciones, la lógica de los patrones de diseño se mantiene. Lo que cambia es cómo se define la interfaz y cómo se refleja su estado: con XML se crean vistas que se consultan o modifican desde Kotlin; con Jetpack Compose se describe la interfaz mediante funciones Kotlin que dependen de un estado observable.
+Los siguientes fragmentos son **ejemplos comparativos simplificados** de las cuatro aplicaciones. Se muestra el recorrido completo de una interacción: **acción → cambio de datos o estado → actualización visible**. Las líneas señaladas con `// CAMBIO` son aquellas donde ocurre la modificación relevante. Los fragmentos aíslan la funcionalidad estudiada y no son transcripciones completas de los proyectos.
 
-| Aplicación | Funcionalidad comparada | Diferencia principal |
-|---|---|---|
-| `01_GestorTareas` | Actualización de la lista de tareas | Actualización explícita de vistas frente a recomposición |
-| `02_Pedidos` | Selección de leche como complemento | Consulta del estado de un `CheckBox` frente a estado gestionado en Kotlin |
-| `03_Notas` | Selección del criterio de búsqueda | `Spinner` frente a selección controlada por estado |
-| `04_Registro` | Presentación del resultado del registro | Modificación de un `TextView` frente a `Text` dependiente del estado |
+## 1. `01_GestorTareas`: añadir una tarea y actualizar la lista
 
-## 1. Gestor de tareas: actualizar la lista
+### Con XML + Kotlin
 
-### Interfaz con XML y Kotlin
-
-La actividad recibe las notificaciones de `AlmacenTareas` y actualiza explícitamente un elemento visual:
+La vista se define en `activity_main.xml`:
 
 ```xml
-<!-- activity_main.xml (fragmento ilustrativo) -->
 <TextView
     android:id="@+id/listaTareas"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
+
+<Button
+    android:id="@+id/anadir"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Añadir tarea" />
 ```
+
+La actividad conecta las acciones y el observador:
 
 ```kotlin
-// MainActivity.kt (fragmento ilustrativo)
+// MainActivity.kt (dentro de onCreate, tras setContentView)
 val listaTareas = findViewById<TextView>(R.id.listaTareas)
+val boton = findViewById<Button>(R.id.anadir)
 
 val observador = ObservadorTareas { tareas ->
+    // CAMBIO VISIBLE: aquí se asigna el NUEVO TEXTO al TextView.
     listaTareas.text = tareas.joinToString("\n") { it.titulo }
 }
-
 almacen.suscribir(observador)
+
+boton.setOnClickListener {
+    almacen.agregar(Tarea(/* identificador, título y estado */))
+    // agregar() modifica el almacén y llama a notificar().
+    // La notificación ejecuta el observador de arriba.
+}
 ```
 
-### Interfaz con Jetpack Compose
+**Lugar exacto de la actualización visual:** `listaTareas.text = ...`. El flujo es **clic → `agregar()` → `notificar()` → observador → asignación a `TextView.text`**.
 
-El observador modifica un estado observable que utiliza la interfaz:
+### Con Jetpack Compose
 
 ```kotlin
 @Composable
@@ -45,6 +52,7 @@ fun PantallaTareas(almacen: AlmacenTareas) {
 
     DisposableEffect(almacen) {
         val observador = ObservadorTareas { nuevasTareas ->
+            // CAMBIO DE ESTADO: aquí se guarda la nueva lista.
             tareas = nuevasTareas
         }
         almacen.suscribir(observador)
@@ -52,123 +60,194 @@ fun PantallaTareas(almacen: AlmacenTareas) {
     }
 
     Column {
+        Button(onClick = {
+            almacen.agregar(Tarea(/* identificador, título y estado */))
+        }) {
+            Text("Añadir tarea")
+        }
+
+        // RESULTADO VISIBLE: estos Text leen «tareas».
         Text("Total: ${tareas.size}")
         tareas.forEach { tarea -> Text(tarea.titulo) }
     }
 }
 ```
 
-**Diferencia:** en XML se asigna un nuevo texto a la vista; en Compose cambia el estado `tareas` y se recompone la interfaz que lo utiliza. El patrón **Observer** permanece en ambos casos.
+**Lugar exacto del cambio:** `tareas = nuevasTareas` modifica el estado observable. **Lugar donde se refleja:** `Text("Total: ${tareas.size}")` y `Text(tarea.titulo)`. Compose vuelve a ejecutar, cuando corresponde, el contenido que lee ese estado y actualiza la pantalla. **No hay una asignación manual a `TextView.text`.**
 
-## 2. Pedidos: seleccionar leche
+**Comparación:** XML cambia explícitamente una vista; Compose cambia el **estado** del que depende la interfaz. El patrón **Observer** sigue notificando en ambas versiones.
 
-### Interfaz con XML y Kotlin
+## 2. `02_Pedidos`: marcar «Leche extra» y preparar el pedido
+
+### Con XML + Kotlin
 
 ```xml
-<!-- activity_main.xml (fragmento) -->
 <CheckBox
     android:id="@+id/leche"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Añadir leche" />
-```
+    android:text="Leche extra" />
 
-```kotlin
-// MainActivity.kt (fragmento)
-val leche = findViewById<CheckBox>(R.id.leche)
+<Button
+    android:id="@+id/preparar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Preparar pedido" />
 
-if (leche.isChecked) {
-    bebida = ConLeche(bebida)
-}
-```
-
-### Interfaz con Jetpack Compose
-
-```kotlin
-@Composable
-fun OpcionLeche() {
-    var leche by remember { mutableStateOf(false) }
-
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Checkbox(
-            checked = leche,
-            onCheckedChange = { leche = it }
-        )
-        Text("Añadir leche")
-    }
-
-    // Al preparar el pedido, se usa el valor de `leche`:
-    // if (leche) bebida = ConLeche(bebida)
-}
-```
-
-**Diferencia:** en XML la actividad consulta `leche.isChecked`; en Compose la casilla refleja la variable `leche` y la modifica mediante `onCheckedChange`. El patrón **Decorator** (`ConLeche`) no cambia.
-
-## 3. Notas: elegir el criterio de búsqueda
-
-### Interfaz con XML y Kotlin
-
-```xml
-<!-- activity_main.xml (fragmento) -->
-<Spinner
-    android:id="@+id/criterio"
+<TextView
+    android:id="@+id/detalle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 ```
 
 ```kotlin
-// MainActivity.kt (fragmento)
-val spinner = findViewById<Spinner>(R.id.criterio)
+val leche = findViewById<CheckBox>(R.id.leche)
+val detalle = findViewById<TextView>(R.id.detalle)
+val preparar = findViewById<Button>(R.id.preparar)
 
-val estrategia: EstrategiaBusqueda =
-    if (spinner.selectedItemPosition == 0) BuscarTitulo()
-    else BuscarContenido()
+preparar.setOnClickListener {
+    var bebida: Bebida = BebidaFactory.crear("Café")
 
-val resultados = Buscador(estrategia).buscar(notas, texto)
+    // CONSULTA: se lee el estado actual de la vista XML.
+    if (leche.isChecked) bebida = ConLeche(bebida)
+
+    // CAMBIO VISIBLE: se asigna explícitamente el texto del resumen.
+    detalle.text = "${bebida.descripcion()} — ${bebida.precioCentimos()} céntimos"
+}
 ```
 
-### Interfaz con Jetpack Compose
+**Líneas exactas:** `leche.isChecked` **lee** la selección; `detalle.text = ...` **actualiza** la pantalla. Marcar la casilla cambia su aspecto, pero en este ejemplo el resumen se recalcula **al pulsar Preparar pedido**.
+
+### Con Jetpack Compose
 
 ```kotlin
 @Composable
-fun SelectorBusqueda(
-    notas: List<Nota>,
-    texto: String
-) {
-    var porTitulo by remember { mutableStateOf(true) }
+fun PedidoConLeche() {
+    var leche by remember { mutableStateOf(false) }
+    var resumen by remember { mutableStateOf("") }
 
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        RadioButton(
-            selected = porTitulo,
-            onClick = { porTitulo = true }
-        )
-        Text("Título")
-        RadioButton(
-            selected = !porTitulo,
-            onClick = { porTitulo = false }
-        )
-        Text("Contenido")
-    }
+    Column {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Checkbox(
+                checked = leche, // ESTADO LEÍDO: determina si aparece marcada.
+                onCheckedChange = { seleccionado ->
+                    leche = seleccionado // CAMBIO DE ESTADO al pulsar la casilla.
+                }
+            )
+            Text("Leche extra")
+        }
 
-    Button(onClick = {
-        val estrategia: EstrategiaBusqueda =
-            if (porTitulo) BuscarTitulo() else BuscarContenido()
-        val resultados = Buscador(estrategia).buscar(notas, texto)
-        // Los resultados se guardarían en un estado observable para mostrarlos.
-    }) {
-        Text("Buscar")
+        Button(onClick = {
+            var bebida: Bebida = BebidaFactory.crear("Café")
+            if (leche) bebida = ConLeche(bebida)
+            resumen = "${bebida.descripcion()} — ${bebida.precioCentimos()} céntimos"
+            // CAMBIO DE ESTADO del resultado.
+        }) {
+            Text("Preparar pedido")
+        }
+
+        Text(resumen) // RESULTADO VISIBLE: lee el nuevo «resumen».
     }
 }
 ```
 
-**Diferencia:** el `Spinner` tradicional se consulta para averiguar la opción; en Compose, los controles de selección están vinculados a `porTitulo`. En ambos casos, **Strategy** elige el algoritmo de búsqueda. Aquí se emplean botones de opción en Compose para simplificar el ejemplo, en lugar de un menú desplegable.
+**Líneas exactas:** `leche = seleccionado` guarda la selección y `checked = leche` la refleja en la casilla; `resumen = ...` cambia el resultado y `Text(resumen)` lo muestra. **Decorator** (`ConLeche`) no cambia.
 
-## 4. Registro: mostrar el resultado
+## 3. `03_Notas`: seleccionar «Título» o «Contenido» y buscar
 
-### Interfaz con XML y Kotlin
+### Con XML + Kotlin
 
 ```xml
-<!-- activity_main.xml (fragmento) -->
+<Spinner
+    android:id="@+id/criterio"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+<Button
+    android:id="@+id/buscar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Buscar" />
+
+<TextView
+    android:id="@+id/resultados"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+```
+
+```kotlin
+val criterio = findViewById<Spinner>(R.id.criterio)
+val buscar = findViewById<Button>(R.id.buscar)
+val resultadosVista = findViewById<TextView>(R.id.resultados)
+
+// Se supone que el Spinner ya contiene: «Título», «Contenido».
+buscar.setOnClickListener {
+    // CONSULTA: posición seleccionada en el Spinner.
+    val estrategia: EstrategiaBusqueda =
+        if (criterio.selectedItemPosition == 0) BuscarTitulo()
+        else BuscarContenido()
+
+    val encontrados = Buscador(estrategia).buscar(notas, texto)
+
+    // CAMBIO VISIBLE: reemplaza el texto del TextView.
+    resultadosVista.text = encontrados.joinToString("\n") { it.titulo }
+}
+```
+
+**Líneas exactas:** `criterio.selectedItemPosition` lee la selección; `resultadosVista.text = ...` actualiza los resultados al pulsar Buscar.
+
+### Con Jetpack Compose
+
+En este ejemplo Compose se utilizan **RadioButton** para hacer visible el cambio de selección; representan las mismas dos opciones que el `Spinner`.
+
+```kotlin
+@Composable
+fun BuscarNotas(notas: List<Nota>, texto: String) {
+    var porTitulo by remember { mutableStateOf(true) }
+    var encontrados by remember { mutableStateOf(emptyList<Nota>()) }
+
+    Column {
+        Row {
+            RadioButton(
+                selected = porTitulo, // ESTADO LEÍDO.
+                onClick = { porTitulo = true } // CAMBIO DE SELECCIÓN.
+            )
+            Text("Título")
+            RadioButton(
+                selected = !porTitulo,
+                onClick = { porTitulo = false } // CAMBIO DE SELECCIÓN.
+            )
+            Text("Contenido")
+        }
+
+        Button(onClick = {
+            val estrategia: EstrategiaBusqueda =
+                if (porTitulo) BuscarTitulo() else BuscarContenido()
+            encontrados = Buscador(estrategia).buscar(notas, texto)
+            // CAMBIO DE ESTADO: guarda la nueva lista de resultados.
+        }) {
+            Text("Buscar")
+        }
+
+        // RESULTADO VISIBLE: se obtiene de «encontrados».
+        encontrados.forEach { nota -> Text(nota.titulo) }
+    }
+}
+```
+
+**Líneas exactas:** `porTitulo = true/false` cambia la opción; `selected = ...` actualiza los controles; `encontrados = ...` guarda el resultado; `Text(nota.titulo)` lo representa. El patrón **Strategy** continúa utilizando `BuscarTitulo` y `BuscarContenido`.
+
+## 4. `04_Registro`: pulsar «Registrar» y mostrar el mensaje
+
+### Con XML + Kotlin
+
+```xml
+<Button
+    android:id="@+id/registrar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Registrar" />
+
 <TextView
     android:id="@+id/resultado"
     android:layout_width="match_parent"
@@ -176,39 +255,49 @@ fun SelectorBusqueda(
 ```
 
 ```kotlin
-// MainActivity.kt (fragmento)
+val registrar = findViewById<Button>(R.id.registrar)
 val resultado = findViewById<TextView>(R.id.resultado)
 
-botonRegistrar.setOnClickListener {
-    resultado.text = servicio.registrar(email, clave)
+registrar.setOnClickListener {
+    val mensaje = servicio.registrar(email, clave)
+    // CAMBIO VISIBLE: asigna el mensaje al TextView existente.
+    resultado.text = mensaje
 }
 ```
 
-### Interfaz con Jetpack Compose
+**Lugar exacto de la actualización visual:** `resultado.text = mensaje`. El flujo es **clic → `ServicioUsuarios.registrar()` → mensaje → asignación directa al TextView**.
+
+### Con Jetpack Compose
 
 ```kotlin
 @Composable
-fun PantallaRegistro(
-    servicio: ServicioUsuarios,
-    email: String,
-    clave: String
-) {
+fun PantallaRegistro(servicio: ServicioUsuarios, email: String, clave: String) {
     var mensaje by remember { mutableStateOf("") }
 
-    Button(onClick = {
-        mensaje = servicio.registrar(email, clave)
-    }) {
-        Text("Registrar")
-    }
+    Column {
+        Button(onClick = {
+            // CAMBIO DE ESTADO: almacena el resultado del registro.
+            mensaje = servicio.registrar(email, clave)
+        }) {
+            Text("Registrar")
+        }
 
-    Text(mensaje)
+        Text(mensaje) // RESULTADO VISIBLE: depende de «mensaje».
+    }
 }
 ```
 
-**Diferencia:** en XML se cambia el contenido de `TextView` explícitamente; en Compose `Text` depende de `mensaje` y refleja sus cambios. El patrón **Facade** (`ServicioUsuarios`) sigue siendo el mismo.
+**Líneas exactas:** `mensaje = servicio.registrar(...)` cambia el estado; `Text(mensaje)` muestra el valor actualizado. No se busca un `TextView` ni se modifica su propiedad `.text`. La clase **Facade** (`ServicioUsuarios`) mantiene su responsabilidad.
 
 ---
 
-**Idea común:** en ambos enfoques la lógica de las aplicaciones puede mantenerse independiente de la interfaz. En XML la actividad actualiza directamente las vistas; en Compose la interfaz se declara a partir del estado observable y se recompone cuando este cambia.
+## Síntesis
 
-*Los fragmentos son ejemplos comparativos simplificados y no sustituyen el código completo de los proyectos.*
+| Aplicación | XML: línea que actualiza la vista | Compose: cambio de estado → lectura en interfaz |
+|---|---|---|
+| GestorTareas | `listaTareas.text = ...` | `tareas = nuevasTareas` → `Text(tarea.titulo)` |
+| Pedidos | `detalle.text = ...` | `resumen = ...` → `Text(resumen)` |
+| Notas | `resultadosVista.text = ...` | `encontrados = ...` → `Text(nota.titulo)` |
+| Registro | `resultado.text = mensaje` | `mensaje = ...` → `Text(mensaje)` |
+
+**En XML** la actividad modifica explícitamente una vista. **En Compose** se modifica un estado observable y las funciones `@Composable` describen lo que debe mostrarse a partir de ese estado.
